@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -93,10 +94,14 @@
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, #1a365d 0%, #2b77ad 50%, #4a90c2 100%);
+    background: linear-gradient(135deg, #e91e63 0%, #f472b6 50%, #ec4899 100%);
   }
   
   .section-gradient {
-    background: linear-gradient(180deg, #f8fafc 0%, #e8f4f8 100%);
+    background: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 100%);
+  }
+
+  .v8-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #e91e63 50%, #f472b6 100%);
   }
 }

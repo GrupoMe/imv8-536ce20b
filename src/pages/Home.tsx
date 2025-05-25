@@ -1,74 +1,78 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Target, TrendingUp, CheckCircle, Star } from 'lucide-react';
+import { ArrowRight, Users, Target, TrendingUp, CheckCircle, Star, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Home = () => {
   const services = [
     {
-      icon: <Users className="w-8 h-8 text-brand-primary" />,
-      title: "Gestão de Pessoas",
-      description: "Consultoria especializada em RH e desenvolvimento de equipes para maximizar o potencial humano."
+      icon: <Heart className="w-8 h-8 text-brand-primary" />,
+      title: "Empoderamento Feminino",
+      description: "Programas e workshops focados no desenvolvimento pessoal e profissional das mulheres."
     },
     {
       icon: <Target className="w-8 h-8 text-brand-primary" />,
-      title: "Estratégia Empresarial",
-      description: "Planejamento estratégico e consultoria em gestão para acelerar o crescimento do seu negócio."
+      title: "Liderança & Gestão",
+      description: "Capacitação em liderança, gestão de equipes e desenvolvimento de habilidades executivas."
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-brand-primary" />,
       title: "Tecnologia & Inovação",
-      description: "Soluções tecnológicas e transformação digital para modernizar processos e aumentar eficiência."
+      description: "Cursos e mentorias em tecnologia, programação e transformação digital."
     }
   ];
 
   const testimonials = [
     {
-      name: "Instituto Mulheres V8",
-      text: "A SpecializMe transformou nossa presença digital com uma plataforma completa que integra tecnologia e inteligência artificial.",
+      name: "Maria Silva",
+      text: "O Instituto Mulheres V8 transformou minha carreira. Aprendi não apenas habilidades técnicas, mas também desenvolvi minha confiança como líder.",
+      rating: 5
+    },
+    {
+      name: "Ana Costa",
+      text: "Participar dos programas foi uma experiência incrível. O suporte e a rede de contatos que construí são inestimáveis.",
       rating: 5
     }
   ];
 
-  const founders = [
+  const team = [
     {
-      name: "Natália Ferrarini",
-      role: "Especialista em RH e Gestão",
-      description: "Formada em Psicologia. Atua com RH e gestão há + 8 anos.",
-      linkedin: "#"
+      name: "Fundadora & CEO",
+      role: "Liderança Executiva",
+      description: "Mais de 15 anos de experiência em gestão e desenvolvimento de pessoas.",
     },
     {
-      name: "Rodrigo Oliveira",
-      role: "Especialista em TI e Gestão",
-      description: "Formado em Gestão de TI. Atua com tecnologia e gestão há + 16 anos.",
-      linkedin: "#"
+      name: "Diretora de Tecnologia",
+      role: "Inovação & Tech",
+      description: "Especialista em transformação digital e desenvolvimento de soluções tecnológicas.",
     }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient text-white py-20 px-4">
+      <section className="v8-gradient text-white py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Transformando o futuro<br />
-              <span className="text-blue-300">do seu negócio</span>
+              Empoderando Mulheres<br />
+              <span className="text-pink-200">para o Futuro</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-100">
-              Consultoria especializada em apoiar empreendedores, empresários e gestores a superarem desafios desde a ideação até a escala dos seus negócios.
+            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-purple-100">
+              O Instituto Mulheres V8 é dedicado ao desenvolvimento pessoal e profissional de mulheres, 
+              oferecendo educação, mentoria e oportunidades de crescimento em um ambiente inclusivo e diverso.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100" asChild>
                 <Link to="/quem-somos">
-                  Conheça Nossa História
+                  Conheça Nossa Missão
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>
-                <Link to="/projetos">Ver Projetos</Link>
+                <Link to="/clube">Junte-se ao Clube</Link>
               </Button>
             </div>
           </div>
@@ -80,16 +84,17 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-              Nossos Serviços
+              Nossos Programas
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Soluções integradas que impulsionam o crescimento e a competitividade das empresas no mercado
+              Desenvolvemos programas únicos que combinam desenvolvimento pessoal, 
+              capacitação profissional e networking para mulheres em todas as fases da carreira
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow duration-300 border-l-4 border-brand-primary">
                 <CardContent className="p-0">
                   <div className="mb-4 flex justify-center">
                     {service.icon}
@@ -107,47 +112,50 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sobre a SpecializMe */}
+      {/* Sobre o Instituto */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
-                A SpecializMe
+                Instituto Mulheres V8
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Somamos mais de 20 anos de experiência apoiando empreendedores, empresários e gestores de startups e PMEs a solucionarem desafios nas áreas de Gestão, Recursos Humanos (RH) e Tecnologia da Informação (TI).
+                Nascemos da necessidade de criar um espaço seguro e inspirador onde mulheres 
+                possam desenvolver suas habilidades, expandir suas redes de contato e acelerar 
+                suas carreiras em um ambiente colaborativo e inclusivo.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Acreditamos que a união das pessoas certas com a utilização de tecnologias avançadas são a base para o desenvolvimento das empresas.
+                Acreditamos no poder transformador da educação e no potencial ilimitado das mulheres 
+                quando têm acesso às ferramentas e oportunidades certas.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
-                  <span className="text-gray-700">+20 anos de experiência</span>
+                  <CheckCircle className="w-5 h-5 text-brand-primary mr-2" />
+                  <span className="text-gray-700">+500 mulheres impactadas</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
-                  <span className="text-gray-700">Metodologia ágil</span>
+                  <CheckCircle className="w-5 h-5 text-brand-primary mr-2" />
+                  <span className="text-gray-700">Programas personalizados</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
-                  <span className="text-gray-700">Soluções personalizadas</span>
+                  <CheckCircle className="w-5 h-5 text-brand-primary mr-2" />
+                  <span className="text-gray-700">Rede nacional de mentoras</span>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6">
-              {founders.map((founder, index) => (
-                <Card key={index} className="p-6">
+              {team.map((member, index) => (
+                <Card key={index} className="p-6 border-l-4 border-brand-secondary">
                   <CardContent className="p-0">
                     <h4 className="text-lg font-semibold text-brand-primary mb-2">
-                      {founder.name}
+                      {member.name}
                     </h4>
                     <p className="text-sm font-medium text-gray-600 mb-2">
-                      {founder.role}
+                      {member.role}
                     </p>
                     <p className="text-gray-600">
-                      {founder.description}
+                      {member.description}
                     </p>
                   </CardContent>
                 </Card>
@@ -162,13 +170,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-              Quem Confia em Nós
+              Histórias de Sucesso
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-8 text-center">
+              <Card key={index} className="p-8 text-center border-t-4 border-brand-primary">
                 <CardContent className="p-0">
                   <div className="flex justify-center mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -189,20 +197,20 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-brand-primary text-white">
+      <section className="py-20 px-4 v8-gradient text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronto para Transformar seu Negócio?
+            Pronta para Acelerar sua Carreira?
           </h2>
-          <p className="text-xl mb-8 text-gray-100">
-            Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar novos patamares.
+          <p className="text-xl mb-8 text-purple-100">
+            Junte-se a centenas de mulheres que já transformaram suas vidas através dos nossos programas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100">
-              Entre em Contato
+              Inscreva-se Agora
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>
-              <Link to="/projetos">Ver Nossos Projetos</Link>
+              <Link to="/agenda">Ver Próximos Eventos</Link>
             </Button>
           </div>
         </div>

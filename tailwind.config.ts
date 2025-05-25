@@ -26,17 +26,17 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#1a365d',
-					50: '#f0f9ff',
-					100: '#e0f2fe',
-					200: '#bae6fd',
-					300: '#7dd3fc',
-					400: '#38bdf8',
-					500: '#0ea5e9',
-					600: '#0284c7',
-					700: '#0369a1',
-					800: '#075985',
-					900: '#1a365d',
+					DEFAULT: '#e91e63',
+					50: '#fdf2f8',
+					100: '#fce7f3',
+					200: '#fbcfe8',
+					300: '#f9a8d4',
+					400: '#f472b6',
+					500: '#e91e63',
+					600: '#db2777',
+					700: '#be185d',
+					800: '#9d174d',
+					900: '#831843',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -74,11 +74,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					primary: '#1a365d',
-					secondary: '#2b77ad',
-					accent: '#4a90c2',
-					light: '#e8f4f8',
-					dark: '#0f2a44'
+					primary: '#e91e63',
+					secondary: '#f472b6',
+					accent: '#ec4899',
+					light: '#fdf2f8',
+					dark: '#831843',
+					purple: '#8b5cf6',
+					blue: '#3b82f6'
 				}
 			},
 			borderRadius: {
@@ -114,7 +116,7 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out'
 			},
 			fontFamily: {
-				'heading': ['Inter', 'system-ui', 'sans-serif'],
+				'heading': ['Poppins', 'system-ui', 'sans-serif'],
 				'body': ['Inter', 'system-ui', 'sans-serif']
 			}
 		}
