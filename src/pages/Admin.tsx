@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -125,14 +124,27 @@ const Admin = () => {
     if (editingEvent) {
       setEvents(events.map(event => 
         event.id === editingEvent.id 
-          ? { ...event, ...eventForm, registered: event.registered, status: event.status }
+          ? { 
+              ...event, 
+              title: eventForm.title,
+              date: eventForm.date,
+              time: eventForm.time,
+              location: eventForm.location,
+              capacity: Number(eventForm.capacity),
+              registered: event.registered,
+              status: event.status
+            }
           : event
       ));
       setEditingEvent(null);
     } else {
       const newEvent = {
         id: Date.now(),
-        ...eventForm,
+        title: eventForm.title,
+        date: eventForm.date,
+        time: eventForm.time,
+        location: eventForm.location,
+        capacity: Number(eventForm.capacity),
         registered: 0,
         status: 'Ativo'
       };
@@ -149,7 +161,16 @@ const Admin = () => {
   };
 
   const handleEditEvent = (event) => {
-    setEventForm(event);
+    setEventForm({
+      title: event.title,
+      description: '',
+      date: event.date,
+      time: event.time,
+      location: event.location,
+      capacity: event.capacity.toString(),
+      price: '',
+      type: 'Workshop'
+    });
     setEditingEvent(event);
     setShowEventForm(true);
   };
