@@ -62,7 +62,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            © 2025 Instituto Mulheres V8. Todos os direitos reservados.
+            © 2025 Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.
           </p>
         </div>
       </div>
