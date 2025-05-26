@@ -1,9 +1,27 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
+  const location = useLocation();
+  
+  const getFooterText = () => {
+    const footerTexts = [
+      "© 2025 Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.",
+      "© 2025 Mulheres V8. Todos os direitos reservados. Feito com ♥ e paixão por motores.",
+      "© 2025 Mulheres V8. Todos os direitos reservados. Feito com ♥ por mulheres que aceleram."
+    ];
+    
+    // Use a simple hash of the pathname to consistently select a text for each page
+    const pathHash = location.pathname.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    
+    return footerTexts[Math.abs(pathHash) % footerTexts.length];
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -62,7 +80,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            © 2025 Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.
+            {getFooterText()}
           </p>
         </div>
       </div>
