@@ -27,9 +27,11 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
-              <span className="text-2xl font-bold bg-gradient-to-r from-brand-primary to-brand-purple bg-clip-text text-transparent">
-                Instituto Mulheres V8
-              </span>
+              <img 
+                src="/lovable-uploads/abec6e81-764b-405a-8047-9926aaef0f4e.png" 
+                alt="Instituto Mulheres V8"
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 

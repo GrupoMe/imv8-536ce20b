@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Target, TrendingUp, CheckCircle, Star, Heart } from 'lucide-react';
@@ -53,27 +52,34 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="v8-gradient text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Empoderando Mulheres<br />
-              <span className="text-pink-200">para o Futuro</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-purple-100">
-              O Instituto Mulheres V8 é dedicado ao desenvolvimento pessoal e profissional de mulheres, 
-              oferecendo educação, mentoria e oportunidades de crescimento em um ambiente inclusivo e diverso.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100" asChild>
-                <Link to="/quem-somos">
-                  Conheça Nossa Missão
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>
-                <Link to="/clube">Junte-se ao Clube</Link>
-              </Button>
+      <section className="v8-gradient text-white py-20 px-4 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                ACELERE<br />
+                SUA<br />
+                CARREIRA<br />
+                <span className="text-pink-200">AGORA.</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 max-w-lg text-purple-100">
+                Mentorias, oportunidades e uma comunidade unida para mulheres que respiram o universo automotivo.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500 font-bold">
+                  Quero participar
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>
+                  <Link to="/clube">Junte-se ao Clube</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <img 
+                src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png" 
+                alt="Fundadora do Instituto Mulheres V8"
+                className="max-w-md w-full h-auto object-contain"
+              />
             </div>
           </div>
         </div>
