@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/hooks/use-toast';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,6 +14,11 @@ const Login = () => {
     email: '',
     password: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -20,10 +27,34 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Login attempt:', formData);
-    // Aqui seria implementada a lógica de autenticação
+    setIsLoading(true);
+    
+    try {
+      const success = await login(formData.email, formData.password);
+      if (success) {
+        toast({
+          title: "Login realizado com sucesso!",
+          description: "Bem-vinda de volta!",
+        });
+        navigate('/admin');
+      } else {
+        toast({
+          title: "Erro no login",
+          description: "Email ou senha incorretos.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erro no login",
+        description: "Ocorreu um erro inesperado.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -41,6 +72,11 @@ const Login = () => {
           <p className="text-gray-100">
             Acesse sua conta e continue acelerando sua carreira.
           </p>
+          <div className="mt-4 p-4 bg-white/10 rounded-lg">
+            <p className="text-sm text-white/90 mb-2">Dados para teste:</p>
+            <p className="text-xs text-white/80">Email: admin@mulheresv8.com</p>
+            <p className="text-xs text-white/80">Senha: admin123</p>
+          </div>
         </div>
 
         <Card className="shadow-2xl border-0">
@@ -92,59 +128,24 @@ const Login = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="rounded border-gray-300 text-brand-primary focus:ring-brand-primary"
-                  />
-                  <span className="ml-2 text-sm text-gray-600">Lembrar de mim</span>
-                </label>
-                <Link to="/recuperar-senha" className="text-sm text-brand-primary hover:underline">
-                  Esqueceu a senha?
-                </Link>
-              </div>
-
               <Button 
                 type="submit" 
                 className="w-full bg-brand-primary hover:bg-brand-dark text-white font-medium"
                 size="lg"
+                disabled={isLoading}
               >
-                Entrar
+                {isLoading ? 'Entrando...' : 'Entrar'}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </form>
 
-            <div className="mt-8 text-center">
-              <p className="text-gray-600">
-                Ainda não tem uma conta?{' '}
-                <Link to="/cadastro" className="text-brand-primary font-medium hover:underline">
-                  Cadastre-se aqui
-                </Link>
-              </p>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="text-center">
-                <p className="text-sm text-gray-500 mb-4">Ou continue com</p>
-                <div className="space-y-2">
-                  <Button variant="outline" className="w-full">
-                    Continuar com Google
-                  </Button>
-                  <Button variant="outline" className="w-full">
-                    Continuar com LinkedIn
-                  </Button>
-                </div>
-              </div>
+            <div className="text-center mt-8">
+              <Link to="/" className="text-brand-primary hover:underline">
+                ← Voltar para o site
+              </Link>
             </div>
           </CardContent>
         </Card>
-
-        <div className="text-center mt-8">
-          <Link to="/" className="text-white hover:text-brand-yellow transition-colors">
-            ← Voltar para o site
-          </Link>
-        </div>
       </div>
     </div>
   );
