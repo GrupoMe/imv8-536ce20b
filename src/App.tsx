@@ -11,6 +11,10 @@ import Blog from "./pages/Blog";
 import Agenda from "./pages/Agenda";
 import Clube from "./pages/Clube";
 import QuemSomos from "./pages/QuemSomos";
+import Comunidade from "./pages/Comunidade";
+import Parceiros from "./pages/Parceiros";
+import Contatos from "./pages/Contatos";
+import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -22,19 +26,27 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projetos" element={<Projetos />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/agenda" element={<Agenda />} />
-            <Route path="/clube" element={<Clube />} />
-            <Route path="/quem-somos" element={<QuemSomos />} />
-            <Route path="/admin" element={<Admin />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/*" element={
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/quem-somos" element={<QuemSomos />} />
+                <Route path="/agenda" element={<Agenda />} />
+                <Route path="/comunidade" element={<Comunidade />} />
+                <Route path="/clube" element={<Clube />} />
+                <Route path="/parceiros" element={<Parceiros />} />
+                <Route path="/contatos" element={<Contatos />} />
+                <Route path="/projetos" element={<Projetos />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/admin" element={<Admin />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Layout>
+          } />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

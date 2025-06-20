@@ -10,11 +10,12 @@ const Navbar = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Projetos', href: '/projetos' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Agenda', href: '/agenda' },
-    { name: 'Clube', href: '/clube' },
     { name: 'Quem Somos', href: '/quem-somos' },
+    { name: 'Agenda', href: '/agenda' },
+    { name: 'Comunidade', href: '/comunidade' },
+    { name: 'Clube', href: '/clube' },
+    { name: 'Parceiros', href: '/parceiros' },
+    { name: 'Contatos', href: '/contatos' },
   ];
 
   const isActivePath = (path: string) => {
@@ -36,7 +37,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -51,12 +52,12 @@ const Navbar = () => {
               </Link>
             ))}
             <Button asChild className="bg-brand-primary hover:bg-brand-dark">
-              <Link to="/admin">Admin</Link>
+              <Link to="/login">Login</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-brand-primary"
@@ -69,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
             {navigation.map((item) => (
               <Link
@@ -86,11 +87,11 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/admin"
+              to="/login"
               className="block px-3 py-2 text-base font-medium text-white bg-brand-primary hover:bg-brand-dark rounded-md mx-3 mt-4"
               onClick={() => setIsOpen(false)}
             >
-              Admin
+              Login
             </Link>
           </div>
         </div>

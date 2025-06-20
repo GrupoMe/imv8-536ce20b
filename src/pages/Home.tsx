@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Target, TrendingUp, CheckCircle, Star, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 const Home = () => {
   const services = [
@@ -21,6 +23,13 @@ const Home = () => {
       title: "Tecnologia & Inovação",
       description: "Cursos e mentorias em tecnologia, programação e transformação digital."
     }
+  ];
+
+  const impactNumbers = [
+    { number: 2500, label: 'Mulheres Impactadas', suffix: '+' },
+    { number: 150, label: 'Eventos Realizados', suffix: '+' },
+    { number: 85, label: 'Empresas Parceiras', suffix: '+' },
+    { number: 95, label: 'Taxa de Satisfação', suffix: '%' }
   ];
 
   const testimonials = [
@@ -52,7 +61,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="v8-gradient text-white py-20 px-4 min-h-screen flex items-center">
+      <section className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent text-white py-20 px-4 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -60,13 +69,13 @@ const Home = () => {
                 ACELERE<br />
                 SUA<br />
                 CARREIRA<br />
-                <span className="text-pink-200">AGORA.</span>
+                <span className="text-brand-yellow">AGORA.</span>
               </h1>
-              <p className="text-xl md:text-2xl mb-8 max-w-lg text-purple-100">
+              <p className="text-xl md:text-2xl mb-8 max-w-lg text-gray-100">
                 Mentorias, oportunidades e uma comunidade unida para mulheres que respiram o universo automotivo.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500 font-bold">
+                <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
                   Quero participar
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>
@@ -85,8 +94,37 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Impact Numbers */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+              Nosso Impacto em Números
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Resultados que comprovam nossa dedicação em transformar vidas e carreiras
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {impactNumbers.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="mb-2">
+                  <AnimatedCounter 
+                    end={stat.number} 
+                    suffix={stat.suffix}
+                    duration={2000}
+                  />
+                </div>
+                <p className="text-gray-600 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Serviços */}
-      <section className="py-20 px-4 section-gradient">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -138,7 +176,7 @@ const Home = () => {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-brand-primary mr-2" />
-                  <span className="text-gray-700">+500 mulheres impactadas</span>
+                  <span className="text-gray-700">+2500 mulheres impactadas</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-brand-primary mr-2" />
@@ -150,7 +188,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid gri
+
+d-cols-1 gap-6">
               {team.map((member, index) => (
                 <Card key={index} className="p-6 border-l-4 border-brand-secondary">
                   <CardContent className="p-0">
@@ -172,7 +212,7 @@ const Home = () => {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-20 px-4 section-gradient">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -186,7 +226,7 @@ const Home = () => {
                 <CardContent className="p-0">
                   <div className="flex justify-center mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      <Star key={i} className="w-5 h-5 text-brand-yellow fill-current" />
                     ))}
                   </div>
                   <p className="text-lg text-gray-600 mb-4 italic">
@@ -203,16 +243,16 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 v8-gradient text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Pronta para Acelerar sua Carreira?
           </h2>
-          <p className="text-xl mb-8 text-purple-100">
-            Junte-se a centenas de mulheres que já transformaram suas vidas através dos nossos programas.
+          <p className="text-xl mb-8 text-gray-100">
+            Junte-se a milhares de mulheres que já transformaram suas vidas através dos nossos programas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100">
+            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
               Inscreva-se Agora
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>

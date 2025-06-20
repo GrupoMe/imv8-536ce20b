@@ -1,16 +1,16 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, Clock } from 'lucide-react';
 
 const Footer = () => {
   const location = useLocation();
   
   const getFooterText = () => {
     const footerTexts = [
-      "© 2025 Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.",
-      "© 2025 Mulheres V8. Todos os direitos reservados. Feito com ♥ e paixão por motores.",
-      "© 2025 Mulheres V8. Todos os direitos reservados. Feito com ♥ por mulheres que aceleram."
+      "© 2025 Instituto Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.",
+      "© 2025 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ e paixão por motores.",
+      "© 2025 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ por mulheres que aceleram."
     ];
     
     // Use a simple hash of the pathname to consistently select a text for each page
@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-brand-primary to-brand-purple bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
               Instituto Mulheres V8
             </h3>
             <p className="text-gray-300 mb-6 max-w-md">
@@ -50,11 +50,12 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
             <div className="space-y-2">
               <Link to="/" className="block text-gray-300 hover:text-brand-primary transition-colors">Home</Link>
-              <Link to="/projetos" className="block text-gray-300 hover:text-brand-primary transition-colors">Projetos</Link>
-              <Link to="/blog" className="block text-gray-300 hover:text-brand-primary transition-colors">Blog</Link>
-              <Link to="/agenda" className="block text-gray-300 hover:text-brand-primary transition-colors">Agenda</Link>
-              <Link to="/clube" className="block text-gray-300 hover:text-brand-primary transition-colors">Clube</Link>
               <Link to="/quem-somos" className="block text-gray-300 hover:text-brand-primary transition-colors">Quem Somos</Link>
+              <Link to="/agenda" className="block text-gray-300 hover:text-brand-primary transition-colors">Agenda</Link>
+              <Link to="/comunidade" className="block text-gray-300 hover:text-brand-primary transition-colors">Comunidade</Link>
+              <Link to="/clube" className="block text-gray-300 hover:text-brand-primary transition-colors">Clube</Link>
+              <Link to="/parceiros" className="block text-gray-300 hover:text-brand-primary transition-colors">Parceiros</Link>
+              <Link to="/contatos" className="block text-gray-300 hover:text-brand-primary transition-colors">Contatos</Link>
             </div>
           </div>
 
@@ -64,7 +65,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone size={18} className="mr-3 text-gray-300" />
-                <span className="text-gray-300">(11) 99999-9999</span>
+                <span className="text-gray-300">(51) 98157-8944</span>
               </div>
               <div className="flex items-center">
                 <Mail size={18} className="mr-3 text-gray-300" />
@@ -72,7 +73,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <MapPin size={18} className="mr-3 text-gray-300" />
-                <span className="text-gray-300">São Paulo, SP</span>
+                <span className="text-gray-300">Av. Ipiranga 7454, sala 415<br />Jardim Botânico, Porto Alegre - RS</span>
+              </div>
+              <div className="flex items-center">
+                <Clock size={18} className="mr-3 text-gray-300" />
+                <span className="text-gray-300">10h às 18h (Seg-Sex)</span>
               </div>
             </div>
           </div>
