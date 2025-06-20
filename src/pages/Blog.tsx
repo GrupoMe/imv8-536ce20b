@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -9,70 +9,70 @@ const Blog = () => {
   const posts = [
     {
       id: 1,
-      title: "Como a Transformação Digital Pode Revolucionar Seu Negócio",
-      excerpt: "Descubra as principais tendências e estratégias para implementar a transformação digital na sua empresa de forma eficiente e sustentável.",
-      author: "Rodrigo Oliveira",
+      title: "Empreendedorismo Feminino: Quebrando Barreiras no Mundo dos Negócios",
+      excerpt: "Descubra as principais estratégias e desafios enfrentados por mulheres empreendedoras e como o Instituto Mulheres V8 está transformando esse cenário.",
+      author: "Eva Santos",
       date: "2025-01-15",
       readTime: "8 min",
-      category: "Tecnologia",
+      category: "Empreendedorismo",
       featured: true,
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop"
     },
     {
       id: 2,
-      title: "Gestão de Pessoas: 5 Estratégias para Reter Talentos",
-      excerpt: "Aprenda técnicas comprovadas para melhorar o engajamento dos colaboradores e reduzir a rotatividade na sua empresa.",
+      title: "Liderança Feminina: 5 Competências Essenciais para o Sucesso",
+      excerpt: "Aprenda as principais competências que toda mulher líder deve desenvolver para alcançar o sucesso profissional.",
       author: "Natália Ferrarini",
       date: "2025-01-10",
       readTime: "6 min",
-      category: "RH",
+      category: "Liderança",
+      featured: false,
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop"
+    },
+    {
+      id: 3,
+      title: "Networking Estratégico: Como Construir uma Rede de Contatos Poderosa",
+      excerpt: "Entenda a importância do networking para mulheres empreendedoras e como construir relacionamentos profissionais sólidos.",
+      author: "Rodrigo Oliveira",
+      date: "2025-01-05",
+      readTime: "7 min",
+      category: "Networking",
       featured: false,
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop"
     },
     {
-      id: 3,
-      title: "Metodologias Ágeis: Como Acelerar a Entrega de Projetos",
-      excerpt: "Entenda como as metodologias ágeis podem otimizar seus processos e aumentar a produtividade da sua equipe.",
-      author: "Rodrigo Oliveira",
-      date: "2025-01-05",
-      readTime: "7 min",
-      category: "Gestão",
-      featured: false,
-      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=400&fit=crop"
-    },
-    {
       id: 4,
-      title: "O Futuro do Trabalho Remoto: Tendências e Desafios",
-      excerpt: "Explore as principais tendências do trabalho remoto e como preparar sua empresa para o futuro do trabalho.",
-      author: "Natália Ferrarini",
+      title: "Transformação Digital: O Futuro dos Negócios Liderados por Mulheres",
+      excerpt: "Explore como a transformação digital está criando novas oportunidades para mulheres empreendedoras.",
+      author: "Eva Santos",
       date: "2024-12-28",
       readTime: "9 min",
-      category: "Futuro do Trabalho",
+      category: "Tecnologia",
       featured: false,
-      image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop"
     },
     {
       id: 5,
-      title: "Inteligência Artificial nos Negócios: Oportunidades e Aplicações",
-      excerpt: "Descubra como a IA pode ser aplicada no seu negócio para automatizar processos e gerar insights valiosos.",
-      author: "Rodrigo Oliveira",
+      title: "Gestão Financeira para Mulheres Empreendedoras",
+      excerpt: "Dicas essenciais de gestão financeira para mulheres que estão começando ou expandindo seus negócios.",
+      author: "Natália Ferrarini",
       date: "2024-12-20",
       readTime: "10 min",
-      category: "Tecnologia",
+      category: "Finanças",
       featured: false,
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop"
     }
   ];
 
-  const categories = ["Todos", "Tecnologia", "RH", "Gestão", "Futuro do Trabalho"];
-  const [selectedCategory, setSelectedCategory] = React.useState("Todos");
+  const categories = ["Todos", "Empreendedorismo", "Liderança", "Networking", "Tecnologia", "Finanças"];
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   const filteredPosts = selectedCategory === "Todos" 
     ? posts 
     : posts.filter(post => post.category === selectedCategory);
 
   const featuredPost = posts.find(post => post.featured);
-  const regularPosts = posts.filter(post => !post.featured);
+  const regularPosts = filteredPosts.filter(post => !post.featured || selectedCategory !== "Todos");
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -86,13 +86,13 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="hero-gradient text-white py-16 px-4">
+      <section className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Blog SpecializMe
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading">
+            Blog Instituto Mulheres V8
           </h1>
           <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
-            Insights, tendências e conhecimentos para acelerar o crescimento do seu negócio.
+            Conteúdos exclusivos sobre empreendedorismo feminino, liderança e transformação de negócios.
           </p>
         </div>
       </section>
@@ -122,7 +122,7 @@ const Blog = () => {
       {featuredPost && selectedCategory === "Todos" && (
         <section className="py-12 px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold text-brand-primary mb-8 text-center">
+            <h2 className="text-2xl font-bold text-brand-primary mb-8 text-center font-heading">
               Post em Destaque
             </h2>
             <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -135,8 +135,8 @@ const Blog = () => {
                   />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
-                  <Badge className="w-fit mb-4">{featuredPost.category}</Badge>
-                  <h3 className="text-2xl font-bold text-brand-primary mb-4">
+                  <Badge className="w-fit mb-4 bg-brand-primary">{featuredPost.category}</Badge>
+                  <h3 className="text-2xl font-bold text-brand-primary mb-4 font-heading">
                     {featuredPost.title}
                   </h3>
                   <p className="text-gray-600 mb-6 text-lg">
@@ -167,11 +167,11 @@ const Blog = () => {
       {/* Lista de Posts */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-brand-primary mb-8 text-center">
+          <h2 className="text-2xl font-bold text-brand-primary mb-8 text-center font-heading">
             {selectedCategory === "Todos" ? "Últimos Artigos" : `Artigos sobre ${selectedCategory}`}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.filter(post => !post.featured || selectedCategory !== "Todos").map((post) => (
+            {regularPosts.map((post) => (
               <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="aspect-video">
                   <img
@@ -181,8 +181,8 @@ const Blog = () => {
                   />
                 </div>
                 <CardHeader>
-                  <Badge className="w-fit mb-2">{post.category}</Badge>
-                  <CardTitle className="text-lg text-brand-primary line-clamp-2">
+                  <Badge className="w-fit mb-2 bg-brand-primary">{post.category}</Badge>
+                  <CardTitle className="text-lg text-brand-primary line-clamp-2 font-heading">
                     {post.title}
                   </CardTitle>
                 </CardHeader>
@@ -217,11 +217,11 @@ const Blog = () => {
       {/* Newsletter */}
       <section className="py-16 px-4 bg-brand-primary text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-3xl font-bold mb-6 font-heading">
             Receba Nossos Insights
           </h2>
           <p className="text-xl mb-8 text-gray-100">
-            Assine nossa newsletter e receba conteúdos exclusivos sobre gestão, tecnologia e inovação.
+            Assine nossa newsletter e receba conteúdos exclusivos sobre empreendedorismo feminino e liderança.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input

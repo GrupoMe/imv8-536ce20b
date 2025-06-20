@@ -12,6 +12,7 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'Quem Somos', href: '/quem-somos' },
     { name: 'Agenda', href: '/agenda' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Comunidade', href: '/comunidade' },
     { name: 'Clube', href: '/clube' },
     { name: 'Parceiros', href: '/parceiros' },
