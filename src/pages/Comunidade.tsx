@@ -61,10 +61,10 @@ const Comunidade = () => {
             <br />
             que <span className="text-brand-yellow">Acelera</span> Carreiras
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
             Conecte-se com mulheres que pensam grande, compartilhe experiências e cresça junto com quem entende sua jornada.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200 animate-fade-in" style={{animationDelay: '0.4s'}}>
+          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
             Fazer Parte da Comunidade
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
@@ -151,12 +151,12 @@ const Comunidade = () => {
                 Aqui, você encontra não apenas oportunidades profissionais, mas também um ambiente 
                 de apoio genuíno, onde cada conquista é celebrada e cada desafio é enfrentado em conjunto.
               </p>
-              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-transform duration-200">
+              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
                 Conhecer Mais Sobre Nós
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
-            <div className="relative animate-fade-in" style={{animationDelay: '0.3s'}}>
+            <div className="relative animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <img 
                 src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=400&fit=crop"
                 alt="Mulheres em reunião"
@@ -258,11 +258,11 @@ const Comunidade = () => {
             Junte-se a milhares de mulheres que estão transformando suas vidas profissionais.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200">
+            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
               Fazer Parte Agora
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-200">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
               Conhecer Benefícios
             </Button>
           </div>

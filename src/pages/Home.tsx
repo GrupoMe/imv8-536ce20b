@@ -17,14 +17,14 @@ const Home = () => {
             <br />
             com o Poder da <span className="text-brand-yellow">Comunidade</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
             Conecte-se, cresça e conquiste seus objetivos profissionais ao lado de mulheres inspiradoras.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
-            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in transition-all duration-300" style={{animationDelay: '0.4s'}}>
+            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
               Fazer Parte da Comunidade
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-200">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
               Conhecer Eventos
             </Button>
           </div>
@@ -59,7 +59,7 @@ const Home = () => {
                 <p className="mb-6 text-gray-100">
                   Descubra estratégias práticas para desenvolver sua liderança e influenciar positivamente sua equipe e organização.
                 </p>
-                <Button className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200">
+                <Button className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
                   Garantir Minha Vaga
                 </Button>
               </div>
@@ -88,12 +88,12 @@ const Home = () => {
                 Conheça Eva Gomes e sua jornada inspiradora de transformação pessoal e profissional. 
                 Descubra como o Instituto Mulheres V8 nasceu do desejo de empoderar e conectar mulheres.
               </p>
-              <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-transform duration-200">
+              <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-all duration-300">
                 <Play className="w-4 h-4 mr-2" />
                 Assistir Vídeo Completo
               </Button>
             </div>
-            <div className="relative group animate-fade-in" style={{animationDelay: '0.3s'}}>
+            <div className="relative group animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <div className="bg-black rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <img 
                   src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=600&h=400&fit=crop"
@@ -125,7 +125,7 @@ const Home = () => {
                 <Star className="w-8 h-8" />
               </div>
             </div>
-            <div className="animate-fade-in" style={{animationDelay: '0.2s'}}>
+            <div className="animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
                 Eva Gomes
               </h2>
@@ -141,7 +141,7 @@ const Home = () => {
                 diretamente a vida de mais de 5.000 mulheres através de mentorias, workshops e 
                 programas de desenvolvimento.
               </p>
-              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-transform duration-200">
+              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
                 Conhecer Trajetória
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -163,7 +163,7 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center animate-fade-in hover:scale-110 transition-transform duration-300" style={{animationDelay: '0.1s'}}>
+            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.1s'}}>
               <div className="mb-4">
                 <Users className="w-12 h-12 mx-auto text-brand-yellow" />
               </div>
@@ -172,7 +172,7 @@ const Home = () => {
               </div>
               <p className="text-gray-100">Mulheres Impactadas</p>
             </div>
-            <div className="text-center animate-fade-in hover:scale-110 transition-transform duration-300" style={{animationDelay: '0.2s'}}>
+            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.2s'}}>
               <div className="mb-4">
                 <Calendar className="w-12 h-12 mx-auto text-brand-yellow" />
               </div>
@@ -181,7 +181,7 @@ const Home = () => {
               </div>
               <p className="text-gray-100">Eventos Realizados</p>
             </div>
-            <div className="text-center animate-fade-in hover:scale-110 transition-transform duration-300" style={{animationDelay: '0.3s'}}>
+            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <div className="mb-4">
                 <Target className="w-12 h-12 mx-auto text-brand-yellow" />
               </div>
@@ -190,7 +190,7 @@ const Home = () => {
               </div>
               <p className="text-gray-100">Taxa de Satisfação</p>
             </div>
-            <div className="text-center animate-fade-in hover:scale-110 transition-transform duration-300" style={{animationDelay: '0.4s'}}>
+            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.4s'}}>
               <div className="mb-4">
                 <Heart className="w-12 h-12 mx-auto text-brand-yellow" />
               </div>
@@ -303,7 +303,7 @@ const Home = () => {
           <p className="text-xl mb-8 text-gray-100">
             Faça parte de uma comunidade que acredita no seu potencial e quer ver você brilhar.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold text-lg px-8 py-4 hover:scale-105 transition-transform duration-200">
+          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
             Começar Minha Jornada Agora
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>

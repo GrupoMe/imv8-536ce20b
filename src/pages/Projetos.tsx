@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -75,7 +74,7 @@ const Projetos = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 animate-fade-in">
             Nossos Projetos
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-purple-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-lg md:text-xl lg:text-2xl text-purple-100 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
             Conheça alguns dos projetos que desenvolvemos e os resultados alcançados para nossa comunidade.
           </p>
         </div>
@@ -121,7 +120,7 @@ const Projetos = () => {
                       
                       <div>
                         <h4 className="font-semibold text-brand-primary mb-2 md:mb-3">Categoria</h4>
-                        <Badge variant="outline" className="hover:scale-105 transition-transform duration-200">
+                        <Badge variant="outline" className="hover:scale-105 transition-transform duration-300">
                           {project.category}
                         </Badge>
                       </div>
@@ -130,7 +129,7 @@ const Projetos = () => {
                         <h4 className="font-semibold text-brand-primary mb-2 md:mb-3">Tecnologias</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="secondary" className="text-xs md:text-sm hover:scale-105 transition-transform duration-200">
+                            <Badge key={techIndex} variant="secondary" className="text-xs md:text-sm hover:scale-105 transition-transform duration-300">
                               {tech}
                             </Badge>
                           ))}

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -97,10 +96,10 @@ const Blog = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Blog <span className="text-brand-yellow">Mulheres V8</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
             Conteúdos exclusivos para acelerar sua carreira e desenvolvimento pessoal.
           </p>
-          <div className="flex justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+          <div className="flex justify-center animate-fade-in transition-all duration-300" style={{animationDelay: '0.4s'}}>
             <div className="relative max-w-md w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <Input
@@ -175,7 +174,7 @@ const Blog = () => {
                       {new Date(featuredPost.date).toLocaleDateString('pt-BR')}
                     </div>
                   </div>
-                  <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-transform duration-200">
+                  <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-all duration-300">
                     Ler Artigo Completo
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -257,7 +256,7 @@ const Blog = () => {
                 required
               />
             </div>
-            <Button type="submit" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200">
+            <Button type="submit" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
               Inscrever-se
             </Button>
           </form>
