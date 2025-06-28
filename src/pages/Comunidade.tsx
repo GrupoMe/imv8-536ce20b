@@ -57,7 +57,7 @@ const Comunidade = () => {
       <section className="bg-gradient-to-br from-brand-secondary via-brand-primary to-brand-accent text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Uma <span className="text-brand-yellow animate-pulse">Comunidade</span>
+            Uma <span className="text-brand-yellow">Comunidade</span>
             <br />
             que <span className="text-brand-yellow">Acelera</span> Carreiras
           </h1>
@@ -87,7 +87,7 @@ const Comunidade = () => {
             <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-primary animate-fade-in" style={{animationDelay: '0.1s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
-                  <Users className="w-12 h-12 text-brand-yellow animate-pulse" />
+                  <Users className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter end={2500} duration={2000} />+
@@ -99,7 +99,7 @@ const Comunidade = () => {
             <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-secondary animate-fade-in" style={{animationDelay: '0.2s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
-                  <Target className="w-12 h-12 text-brand-yellow animate-pulse" style={{animationDelay: '0.5s'}} />
+                  <Target className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter end={89} duration={2000} />%
@@ -111,7 +111,7 @@ const Comunidade = () => {
             <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-accent animate-fade-in" style={{animationDelay: '0.3s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
-                  <Calendar className="w-12 h-12 text-brand-yellow animate-pulse" style={{animationDelay: '1s'}} />
+                  <Calendar className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter end={150} duration={2000} />+
@@ -123,7 +123,7 @@ const Comunidade = () => {
             <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-yellow animate-fade-in" style={{animationDelay: '0.4s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
-                  <Heart className="w-12 h-12 text-brand-yellow animate-pulse" style={{animationDelay: '1.5s'}} />
+                  <Heart className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter end={98} duration={2000} />%
@@ -143,11 +143,11 @@ const Comunidade = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
                 Mais que uma Rede de Contatos
               </h2>
-              <p className="text-lg text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
+              <p className="text-lg text-gray-600 mb-6">
                 Nossa comunidade é um ecossistema de crescimento onde mulheres ambiciosas se conectam, 
                 colaboram e se inspiram mutuamente para alcançar objetivos extraordinários.
               </p>
-              <p className="text-lg text-gray-600 mb-8 hover:text-gray-800 transition-colors duration-300">
+              <p className="text-lg text-gray-600 mb-8">
                 Aqui, você encontra não apenas oportunidades profissionais, mas também um ambiente 
                 de apoio genuíno, onde cada conquista é celebrada e cada desafio é enfrentado em conjunto.
               </p>
@@ -162,7 +162,7 @@ const Comunidade = () => {
                 alt="Mulheres em reunião"
                 className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
               />
-              <div className="absolute -bottom-4 -right-4 bg-brand-yellow text-brand-accent p-4 rounded-lg hover:scale-110 transition-transform duration-300">
+              <div className="absolute -bottom-4 -right-4 bg-brand-yellow text-brand-accent p-4 rounded-lg">
                 <Sparkles className="w-8 h-8" />
               </div>
             </div>
@@ -191,10 +191,10 @@ const Comunidade = () => {
                       {benefit.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-3 text-brand-primary hover:text-brand-dark transition-colors duration-300">
+                      <h3 className="text-xl font-semibold mb-3 text-brand-primary">
                         {benefit.title}
                       </h3>
-                      <p className="text-gray-600 hover:text-gray-800 transition-colors duration-300">
+                      <p className="text-gray-600">
                         {benefit.description}
                       </p>
                     </div>
@@ -224,10 +224,10 @@ const Comunidade = () => {
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current animate-pulse" style={{animationDelay: `${i * 0.1 + index * 0.5}s`}} />
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
+                  <p className="text-gray-600 mb-6">
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center">

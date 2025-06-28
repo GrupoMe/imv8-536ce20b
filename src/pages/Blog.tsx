@@ -95,7 +95,7 @@ const Blog = () => {
       <section className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Blog <span className="text-brand-yellow animate-pulse">Mulheres V8</span>
+            Blog <span className="text-brand-yellow">Mulheres V8</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
             Conteúdos exclusivos para acelerar sua carreira e desenvolvimento pessoal.
@@ -151,7 +151,7 @@ const Blog = () => {
                     alt={featuredPost.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                   />
-                  <Badge className="absolute top-4 left-4 bg-brand-yellow text-brand-accent animate-pulse">
+                  <Badge className="absolute top-4 left-4 bg-brand-yellow text-brand-accent">
                     Destaque
                   </Badge>
                 </div>
@@ -162,7 +162,7 @@ const Blog = () => {
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary hover:text-brand-dark transition-colors duration-300">
                     {featuredPost.title}
                   </h3>
-                  <p className="text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
+                  <p className="text-gray-600 mb-6">
                     {featuredPost.excerpt}
                   </p>
                   <div className="flex items-center justify-between mb-6">
@@ -212,7 +212,7 @@ const Blog = () => {
                   <h3 className="text-xl font-bold mb-3 text-brand-primary hover:text-brand-dark transition-colors duration-300">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 hover:text-gray-800 transition-colors duration-300">
+                  <p className="text-gray-600 mb-4">
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between text-sm text-gray-500 mb-4">

@@ -13,7 +13,7 @@ const Home = () => {
       <section className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Acelere sua <span className="text-brand-yellow animate-pulse">Carreira</span>
+            Acelere sua <span className="text-brand-yellow">Carreira</span>
             <br />
             com o Poder da <span className="text-brand-yellow">Comunidade</span>
           </h1>
@@ -46,10 +46,10 @@ const Home = () => {
           <Card className="max-w-4xl mx-auto overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="bg-gradient-to-br from-brand-primary to-brand-secondary p-8 text-white">
-                <Badge className="bg-brand-yellow text-brand-accent mb-4 animate-pulse">
+                <Badge className="bg-brand-yellow text-brand-accent mb-4">
                   Destaque
                 </Badge>
-                <h3 className="text-2xl font-bold mb-4 hover:scale-105 transition-transform duration-200">
+                <h3 className="text-2xl font-bold mb-4">
                   Workshop: Liderança Feminina no Século XXI
                 </h3>
                 <div className="flex items-center mb-4 text-brand-yellow">
@@ -121,7 +121,7 @@ const Home = () => {
                 alt="Eva Gomes"
                 className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
               />
-              <div className="absolute -bottom-4 -right-4 bg-brand-primary text-white p-4 rounded-lg hover:scale-110 transition-transform duration-300">
+              <div className="absolute -bottom-4 -right-4 bg-brand-primary text-white p-4 rounded-lg">
                 <Star className="w-8 h-8" />
               </div>
             </div>
@@ -132,11 +132,11 @@ const Home = () => {
               <h3 className="text-xl text-brand-secondary mb-4 font-semibold">
                 Fundadora & CEO do Instituto Mulheres V8
               </h3>
-              <p className="text-gray-600 mb-4 hover:text-gray-800 transition-colors duration-300">
+              <p className="text-gray-600 mb-4">
                 Com mais de 15 anos de experiência em liderança corporativa e desenvolvimento humano, 
                 Eva é uma das principais vozes sobre empoderamento feminino no mercado brasileiro.
               </p>
-              <p className="text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
+              <p className="text-gray-600 mb-6">
                 Formada em Administração e especialista em Gestão de Pessoas, ela já impactou 
                 diretamente a vida de mais de 5.000 mulheres através de mentorias, workshops e 
                 programas de desenvolvimento.
@@ -220,10 +220,10 @@ const Home = () => {
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current animate-pulse" style={{animationDelay: `${i * 0.1}s`}} />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 hover:text-gray-800 transition-colors duration-300">
+                <p className="text-gray-600 mb-4">
                   "O Instituto Mulheres V8 transformou minha perspectiva sobre liderança. 
                   Hoje ocupo um cargo executivo que sempre sonhei."
                 </p>
@@ -245,10 +245,10 @@ const Home = () => {
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current animate-pulse" style={{animationDelay: `${i * 0.1 + 0.5}s`}} />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 hover:text-gray-800 transition-colors duration-300">
+                <p className="text-gray-600 mb-4">
                   "A rede de networking que construí aqui foi fundamental para o crescimento 
                   da minha startup. Gratidão eterna!"
                 </p>
@@ -270,10 +270,10 @@ const Home = () => {
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current animate-pulse" style={{animationDelay: `${i * 0.1 + 1}s`}} />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 hover:text-gray-800 transition-colors duration-300">
+                <p className="text-gray-600 mb-4">
                   "Os workshops e mentorias me deram a confiança que precisava para 
                   empreender. Hoje minha empresa fatura 7 dígitos!"
                 </p>
