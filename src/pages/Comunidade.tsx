@@ -1,191 +1,204 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Users, Heart, MessageCircle, Calendar, Award, TrendingUp, CheckCircle, Star, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Users, Target, Heart, Star, Calendar, MessageCircle, ArrowRight, Sparkles } from 'lucide-react';
 import AnimatedCounter from '@/components/AnimatedCounter';
 
 const Comunidade = () => {
-  const communityNumbers = [
-    { number: 2500, label: 'Mulheres Ativas', suffix: '+' },
-    { number: 150, label: 'Eventos por Ano', suffix: '+' },
-    { number: 50, label: 'Mentoras Especialistas', suffix: '+' },
-    { number: 98, label: 'Satisfação da Comunidade', suffix: '%' }
-  ];
-
   const benefits = [
     {
-      icon: <Heart className="w-8 h-8 text-brand-primary" />,
-      title: "Rede de Apoio",
-      description: "Uma comunidade acolhedora onde mulheres se apoiam mutuamente em suas jornadas profissionais."
+      icon: <Users className="w-8 h-8 text-brand-primary" />,
+      title: "Networking Estratégico",
+      description: "Conecte-se com mulheres inspiradoras de diversas áreas e níveis profissionais."
     },
     {
       icon: <MessageCircle className="w-8 h-8 text-brand-primary" />,
-      title: "Mentorias Exclusivas",
-      description: "Acesso a mentoras experientes do setor automotivo para orientação personalizada."
+      title: "Mentorias Personalizadas",
+      description: "Receba orientação de líderes experientes para acelerar seu crescimento."
     },
     {
       icon: <Calendar className="w-8 h-8 text-brand-primary" />,
-      title: "Eventos Regulares",
-      description: "Workshops, palestras e networking events desenvolvidos especialmente para nossa comunidade."
+      title: "Eventos Exclusivos",
+      description: "Participe de workshops, palestras e encontros focados no seu desenvolvimento."
     },
     {
-      icon: <Award className="w-8 h-8 text-brand-primary" />,
-      title: "Oportunidades Exclusivas",
-      description: "Primeiro acesso a vagas, projetos e oportunidades de negócios no setor."
+      icon: <Sparkles className="w-8 h-8 text-brand-primary" />,
+      title: "Conteúdo Premium",
+      description: "Acesse materiais exclusivos, cursos e recursos para turbinar sua carreira."
     }
   ];
 
   const testimonials = [
     {
-      name: "Carla Rodrigues",
-      text: "A comunidade V8 mudou minha perspectiva profissional. Encontrei aqui não apenas conhecimento, mas verdadeiras amigas que me apoiam em todos os desafios.",
-      rating: 5,
-      company: "Gerente de Vendas - Concessionária Premium",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b814?w=150&h=150&fit=crop&crop=face"
+      name: "Júlia Rodrigues",
+      role: "Head de Tecnologia",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face",
+      text: "A comunidade me deu suporte e conexões que foram fundamentais para minha promoção a Head."
     },
     {
-      name: "Fernanda Lima",
-      text: "Através da comunidade consegui minha primeira posição de liderança. O suporte e os conselhos que recebi foram fundamentais para meu crescimento.",
-      rating: 5,
-      company: "Supervisora de Produção - Montadora",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      name: "Patrícia Lima",
+      role: "Consultora Estratégica",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
+      text: "Aqui encontrei não apenas colegas, mas amigas que torcem pelo meu sucesso."
     },
     {
-      name: "Juliana Santos",
-      text: "Participar da comunidade V8 foi o melhor investimento que fiz na minha carreira. Hoje sou CEO da minha própria empresa automotiva!",
-      rating: 5,
-      company: "CEO - JM Auto Solutions",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face"
+      name: "Fernanda Castro",
+      role: "Diretora Comercial",
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face",
+      text: "Os insights e experiências compartilhadas aqui transformaram minha visão de liderança."
     }
-  ];
-
-  const features = [
-    "Grupo exclusivo no WhatsApp",
-    "Acesso ao portal de membros",
-    "Descontos em cursos e eventos",
-    "Mentoria em grupo mensal",
-    "Biblioteca de recursos",
-    "Job board exclusivo"
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Header - Frase de Impacto */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white py-20 px-4">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-brand-secondary via-brand-primary to-brand-accent text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            UMA COMUNIDADE<br />
-            QUE <span className="text-brand-yellow">ACELERA</span><br />
-            CARREIRAS
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+            Uma <span className="text-brand-yellow animate-pulse">Comunidade</span>
+            <br />
+            que <span className="text-brand-yellow">Acelera</span> Carreiras
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto mb-8">
-            Mais de 2.500 mulheres conectadas, compartilhando experiências, oportunidades 
-            e construindo o futuro do setor automotivo juntas.
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+            Conecte-se com mulheres que pensam grande, compartilhe experiências e cresça junto com quem entende sua jornada.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
-            Quero Fazer Parte
+          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200 animate-fade-in" style={{animationDelay: '0.4s'}}>
+            Fazer Parte da Comunidade
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>
       </section>
 
-      {/* Números Dinâmicos da Comunidade */}
-      <section className="py-20 px-4 bg-white">
+      {/* Números da Comunidade */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
               Nossa Comunidade em Números
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Uma rede em constante crescimento de mulheres determinadas a transformar o setor automotivo
+            <p className="text-xl text-gray-600">
+              Juntas, somos mais fortes e chegamos mais longe
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {communityNumbers.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="mb-2">
-                  <AnimatedCounter 
-                    end={stat.number} 
-                    suffix={stat.suffix}
-                    duration={2000}
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-primary animate-fade-in" style={{animationDelay: '0.1s'}}>
+              <CardContent className="p-0">
+                <div className="mb-4 flex justify-center">
+                  <Users className="w-12 h-12 text-brand-yellow animate-pulse" />
                 </div>
-                <p className="text-gray-600 font-medium">{stat.label}</p>
-              </div>
-            ))}
+                <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter end={2500} duration={2000} />+
+                </div>
+                <p className="text-gray-600">Mulheres Conectadas</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-secondary animate-fade-in" style={{animationDelay: '0.2s'}}>
+              <CardContent className="p-0">
+                <div className="mb-4 flex justify-center">
+                  <Target className="w-12 h-12 text-brand-yellow animate-pulse" style={{animationDelay: '0.5s'}} />
+                </div>
+                <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter end={89} duration={2000} />%
+                </div>
+                <p className="text-gray-600">Alcançaram Objetivos</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-accent animate-fade-in" style={{animationDelay: '0.3s'}}>
+              <CardContent className="p-0">
+                <div className="mb-4 flex justify-center">
+                  <Calendar className="w-12 h-12 text-brand-yellow animate-pulse" style={{animationDelay: '1s'}} />
+                </div>
+                <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter end={150} duration={2000} />+
+                </div>
+                <p className="text-gray-600">Eventos Realizados</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-yellow animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <CardContent className="p-0">
+                <div className="mb-4 flex justify-center">
+                  <Heart className="w-12 h-12 text-brand-yellow animate-pulse" style={{animationDelay: '1.5s'}} />
+                </div>
+                <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter end={98} duration={2000} />%
+                </div>
+                <p className="text-gray-600">Satisfação</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Sobre a Comunidade */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
-                Mais que uma Comunidade,<br />uma Família
+                Mais que uma Rede de Contatos
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Nossa comunidade foi criada para ser um espaço seguro onde mulheres do setor automotivo 
-                podem compartilhar experiências, desafios e conquistas. Aqui, cada vitória é celebrada 
-                coletivamente e cada obstáculo é superado com apoio mútuo.
+              <p className="text-lg text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
+                Nossa comunidade é um ecossistema de crescimento onde mulheres ambiciosas se conectam, 
+                colaboram e se inspiram mutuamente para alcançar objetivos extraordinários.
               </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Desde mecânicas até CEOs, vendedoras até engenheiras, nossa diversidade é nossa força. 
-                Juntas, estamos redefinindo o que significa ser mulher no universo automotivo.
+              <p className="text-lg text-gray-600 mb-8 hover:text-gray-800 transition-colors duration-300">
+                Aqui, você encontra não apenas oportunidades profissionais, mas também um ambiente 
+                de apoio genuíno, onde cada conquista é celebrada e cada desafio é enfrentado em conjunto.
               </p>
-              <div className="space-y-3">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-brand-primary mr-3" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
+              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-transform duration-200">
+                Conhecer Mais Sobre Nós
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="relative animate-fade-in" style={{animationDelay: '0.3s'}}>
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop" 
-                alt="Mulheres trabalhando"
-                className="rounded-lg shadow-lg"
+                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=400&fit=crop"
+                alt="Mulheres em reunião"
+                className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=300&fit=crop" 
-                alt="Networking feminino"
-                className="rounded-lg shadow-lg mt-8"
-              />
+              <div className="absolute -bottom-4 -right-4 bg-brand-yellow text-brand-accent p-4 rounded-lg hover:scale-110 transition-transform duration-300">
+                <Sparkles className="w-8 h-8" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Benefícios */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-              Por que Fazer Parte?
+              O que Você Ganha Fazendo Parte
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Benefícios exclusivos para membros da nossa comunidade
+              Cada benefício foi pensado para acelerar seu crescimento profissional e pessoal
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="p-0">
-                  <div className="mb-4 flex justify-center">
-                    {benefit.icon}
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 p-3 bg-brand-light rounded-lg hover:scale-110 transition-transform duration-300">
+                      {benefit.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3 text-brand-primary hover:text-brand-dark transition-colors duration-300">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-gray-600 hover:text-gray-800 transition-colors duration-300">
+                        {benefit.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 text-brand-primary">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {benefit.description}
-                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -194,44 +207,40 @@ const Comunidade = () => {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-              Histórias de Transformação
+              Histórias de Sucesso
             </h2>
             <p className="text-xl text-gray-600">
-              Conheça algumas das mulheres que transformaram suas carreiras através da nossa comunidade
+              Veja como nossa comunidade está transformando carreiras
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-0">
+              <Card key={index} className="hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+                <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full mr-4 object-cover"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-brand-primary">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-gray-500">
-                        {testimonial.company}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-brand-yellow fill-current" />
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current animate-pulse" style={{animationDelay: `${i * 0.1 + index * 0.5}s`}} />
                     ))}
                   </div>
-                  <p className="text-gray-600 italic">
+                  <p className="text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
                     "{testimonial.text}"
                   </p>
+                  <div className="flex items-center">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-brand-primary">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -239,22 +248,22 @@ const Comunidade = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-brand-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* CTA */}
+      <section className="py-20 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronta para Acelerar Junto com a Gente?
+            Pronta para Acelerar sua Carreira?
           </h2>
           <p className="text-xl mb-8 text-gray-100">
-            Junte-se a mais de 2.500 mulheres que já fazem parte da maior comunidade 
-            feminina do setor automotivo no Brasil.
+            Junte-se a milhares de mulheres que estão transformando suas vidas profissionais.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
-              Entrar na Comunidade
+            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200">
+              Fazer Parte Agora
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary" asChild>
-              <Link to="/clube">Conhecer o Clube V8</Link>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-200">
+              Conhecer Benefícios
             </Button>
           </div>
         </div>

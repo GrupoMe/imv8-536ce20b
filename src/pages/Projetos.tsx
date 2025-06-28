@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Users } from 'lucide-react';
+import { Calendar, Users, ArrowRight, CheckCircle } from 'lucide-react';
 
 const Projetos = () => {
   const projects = [
@@ -70,12 +70,12 @@ const Projetos = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="v8-gradient text-white py-12 md:py-16 px-4">
+      <section className="v8-gradient text-white py-12 md:py-16 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 animate-fade-in">
             Nossos Projetos
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-purple-100 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl text-purple-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
             Conheça alguns dos projetos que desenvolvemos e os resultados alcançados para nossa comunidade.
           </p>
         </div>
@@ -86,23 +86,23 @@ const Projetos = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 gap-6 md:gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
                 <CardHeader className="bg-brand-light p-4 md:p-6">
                   <div className="flex flex-col gap-4">
                     <div>
-                      <CardTitle className="text-xl md:text-2xl text-brand-primary mb-2">
+                      <CardTitle className="text-xl md:text-2xl text-brand-primary mb-2 hover:text-brand-dark transition-colors duration-300">
                         {project.title}
                       </CardTitle>
-                      <Badge className={getStatusColor(project.status)}>
+                      <Badge className={`${getStatusColor(project.status)} animate-pulse`}>
                         {project.status}
                       </Badge>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-600 hover:text-gray-800 transition-colors duration-300">
                         <Calendar className="w-4 h-4 mr-1" />
                         {project.duration}
                       </div>
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-600 hover:text-gray-800 transition-colors duration-300">
                         <Users className="w-4 h-4 mr-1" />
                         {project.team}
                       </div>
@@ -114,14 +114,14 @@ const Projetos = () => {
                     <div className="space-y-4 md:space-y-6">
                       <div>
                         <h4 className="font-semibold text-brand-primary mb-2 md:mb-3">Descrição do Projeto</h4>
-                        <p className="text-gray-600 text-sm md:text-base">
+                        <p className="text-gray-600 text-sm md:text-base hover:text-gray-800 transition-colors duration-300">
                           {project.description}
                         </p>
                       </div>
                       
                       <div>
                         <h4 className="font-semibold text-brand-primary mb-2 md:mb-3">Categoria</h4>
-                        <Badge variant="outline">
+                        <Badge variant="outline" className="hover:scale-105 transition-transform duration-200">
                           {project.category}
                         </Badge>
                       </div>
@@ -130,7 +130,7 @@ const Projetos = () => {
                         <h4 className="font-semibold text-brand-primary mb-2 md:mb-3">Tecnologias</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="secondary" className="text-xs md:text-sm">
+                            <Badge key={techIndex} variant="secondary" className="text-xs md:text-sm hover:scale-105 transition-transform duration-200">
                               {tech}
                             </Badge>
                           ))}
@@ -142,9 +142,9 @@ const Projetos = () => {
                       <h4 className="font-semibold text-brand-primary mb-2 md:mb-3">Resultados Alcançados</h4>
                       <ul className="space-y-2">
                         {project.results.map((result, resultIndex) => (
-                          <li key={resultIndex} className="flex items-start">
-                            <div className="w-2 h-2 bg-brand-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                            <span className="text-gray-600 text-sm md:text-base">{result}</span>
+                          <li key={resultIndex} className="flex items-start group">
+                            <CheckCircle className="w-5 h-5 text-brand-primary mt-0.5 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                            <span className="text-gray-600 text-sm md:text-base group-hover:text-gray-800 transition-colors duration-300">{result}</span>
                           </li>
                         ))}
                       </ul>
@@ -158,16 +158,17 @@ const Projetos = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-12 md:py-16 px-4 bg-brand-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-12 md:py-16 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
             Quer Fazer Parte da Nossa Comunidade?
           </h2>
           <p className="text-lg md:text-xl mb-6 md:mb-8 text-purple-100">
             Vamos conversar sobre como você pode acelerar sua carreira conosco.
           </p>
-          <button className="bg-white text-brand-primary px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm md:text-base">
+          <button className="bg-white text-brand-primary px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-sm md:text-base hover:scale-105 hover:shadow-lg">
             Quero Participar
+            <ArrowRight className="w-4 h-4 ml-2 inline" />
           </button>
         </div>
       </section>

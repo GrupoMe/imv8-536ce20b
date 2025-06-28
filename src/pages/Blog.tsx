@@ -1,194 +1,184 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, User, ArrowRight, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Calendar, User, ArrowRight, Search, Mail } from 'lucide-react';
 
 const Blog = () => {
+  const [selectedCategory, setSelectedCategory] = useState('todas');
+  const [emailNewsletter, setEmailNewsletter] = useState('');
+
+  const categories = [
+    { id: 'todas', name: 'Todas', color: 'bg-gray-100 text-gray-800' },
+    { id: 'lideranca', name: 'Liderança', color: 'bg-brand-primary text-white' },
+    { id: 'tecnica', name: 'Técnica', color: 'bg-brand-secondary text-white' },
+    { id: 'emocional', name: 'Emocional', color: 'bg-brand-accent text-white' },
+    { id: 'espiritual', name: 'Espiritual', color: 'bg-brand-yellow text-brand-accent' }
+  ];
+
   const posts = [
     {
       id: 1,
-      title: "5 Características Essenciais de uma Líder no Setor Automotivo",
-      excerpt: "Descubra as principais competências que toda mulher líder deve desenvolver para se destacar no universo V8.",
-      author: "Eva Santos",
+      title: "5 Estratégias Comprovadas para Liderar Equipes Remotas",
+      excerpt: "Descubra como manter sua equipe engajada e produtiva no trabalho remoto com técnicas testadas por líderes de sucesso.",
+      category: 'lideranca',
+      author: "Eva Gomes",
       date: "2025-01-15",
-      readTime: "8 min",
-      category: "Liderança",
-      featured: true,
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=250&fit=crop",
+      featured: true
     },
     {
       id: 2,
-      title: "Dominando a Mecânica: Guia Técnico para Mulheres",
-      excerpt: "Um guia completo sobre conceitos técnicos fundamentais no setor automotivo, explicado de forma clara e objetiva.",
-      author: "Natália Ferrarini",
+      title: "Inteligência Emocional: O Diferencial das Líderes Modernas",
+      excerpt: "Como desenvolver e aplicar a inteligência emocional para se tornar uma líder mais eficaz e inspiradora.",
+      category: 'emocional',
+      author: "Marina Santos",
       date: "2025-01-12",
-      readTime: "12 min",
-      category: "Técnica",
-      featured: false,
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=250&fit=crop"
     },
     {
       id: 3,
-      title: "Superando a Síndrome da Impostora",
-      excerpt: "Como lidar com a insegurança e fortalecer sua confiança em ambientes tradicionalmente masculinos.",
-      author: "Eva Santos",
+      title: "Tecnologias Emergentes que Todo Profissional Deve Conhecer",
+      excerpt: "Um guia prático sobre as principais tecnologias que estão moldando o futuro do trabalho.",
+      category: 'tecnica',
+      author: "Ana Costa",
       date: "2025-01-10",
-      readTime: "6 min",
-      category: "Emocional",
-      featured: false,
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b814?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=250&fit=crop"
     },
     {
       id: 4,
-      title: "Encontrando Propósito na Carreira Automotiva",
-      excerpt: "Reflexões sobre como alinhar paixão, propósito e profissão no universo dos motores.",
-      author: "Rodrigo Oliveira",
+      title: "Encontrando Equilíbrio Entre Propósito e Performance",
+      excerpt: "Como alinhar seus valores pessoais com seus objetivos profissionais para uma carreira mais plena.",
+      category: 'espiritual',
+      author: "Carla Lima",
       date: "2025-01-08",
-      readTime: "9 min",
-      category: "Espiritual",
-      featured: false,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop"
     },
     {
       id: 5,
-      title: "Negociação Estratégica no Setor Automotivo",
-      excerpt: "Técnicas avançadas de negociação para mulheres que querem fechar mais vendas e parcerias.",
-      author: "Natália Ferrarini",
+      title: "Automação e IA: Preparando-se para o Futuro do Trabalho",
+      excerpt: "Entenda como se adaptar e prosperar em um mundo cada vez mais automatizado.",
+      category: 'tecnica',
+      author: "Patricia Oliveira",
       date: "2025-01-05",
-      readTime: "10 min",
-      category: "Técnica",
-      featured: false,
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
     },
     {
       id: 6,
-      title: "Construindo Resiliência Emocional",
-      excerpt: "Como desenvolver a força emocional necessária para superar desafios e pressões do setor.",
-      author: "Eva Santos",
+      title: "Comunicação Assertiva: Ferramenta de Crescimento Profissional",
+      excerpt: "Técnicas práticas para se comunicar com clareza, confiança e impacto.",
+      category: 'lideranca',
+      author: "Juliana Rocha",
       date: "2025-01-03",
-      readTime: "7 min",
-      category: "Emocional",
-      featured: false,
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&h=400&fit=crop"
+      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop"
     }
   ];
 
-  const categories = ["Todos", "Liderança", "Técnica", "Emocional", "Espiritual"];
-  const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredPosts = posts.filter(post => {
-    const matchesCategory = selectedCategory === "Todos" || post.category === selectedCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredPosts = selectedCategory === 'todas' 
+    ? posts 
+    : posts.filter(post => post.category === selectedCategory);
 
   const featuredPost = posts.find(post => post.featured);
-  const regularPosts = filteredPosts.filter(post => !post.featured || selectedCategory !== "Todos");
+  const regularPosts = posts.filter(post => !post.featured);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Newsletter subscription:', emailNewsletter);
+    setEmailNewsletter('');
   };
 
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white py-20 px-4">
+      <section className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            BLOG<br />
-            <span className="text-brand-yellow">MULHERES V8</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+            Blog <span className="text-brand-yellow animate-pulse">Mulheres V8</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto mb-8">
-            Conteúdos exclusivos sobre liderança, técnica, desenvolvimento emocional e 
-            crescimento espiritual para mulheres do setor automotivo.
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+            Conteúdos exclusivos para acelerar sua carreira e desenvolvimento pessoal.
           </p>
-          
-          {/* Barra de Pesquisa */}
-          <div className="max-w-md mx-auto relative">
-            <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Buscar artigos..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-lg text-gray-900"
-            />
+          <div className="flex justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <div className="relative max-w-md w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Input
+                placeholder="Buscar artigos..."
+                className="pl-10 bg-white/10 border-white/20 text-white placeholder-gray-300 hover:bg-white/20 transition-colors duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Filtros por Categoria */}
+      {/* Categories Filter */}
       <section className="py-8 px-4 bg-white border-b">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? 'bg-brand-primary text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          <div className="flex flex-wrap justify-center gap-4 animate-fade-in">
+            {categories.map((category, index) => (
+              <Button
+                key={category.id}
+                variant={selectedCategory === category.id ? "default" : "outline"}
+                className={`hover:scale-105 transition-all duration-300 animate-fade-in ${
+                  selectedCategory === category.id ? category.color : 'hover:shadow-lg'
                 }`}
+                style={{animationDelay: `${index * 0.1}s`}}
+                onClick={() => setSelectedCategory(category.id)}
               >
-                {category}
-              </button>
+                {category.name}
+              </Button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Post em Destaque */}
-      {featuredPost && selectedCategory === "Todos" && searchTerm === "" && (
+      {/* Featured Post */}
+      {featuredPost && selectedCategory === 'todas' && (
         <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold text-brand-primary mb-8 text-center">
-              Artigo em Destaque
-            </h2>
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div className="text-center mb-12 animate-fade-in">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+                Post em Destaque
+              </h2>
+            </div>
+            
+            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
               <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="aspect-video lg:aspect-square">
-                  <img
+                <div className="relative overflow-hidden">
+                  <img 
                     src={featuredPost.image}
                     alt={featuredPost.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                   />
+                  <Badge className="absolute top-4 left-4 bg-brand-yellow text-brand-accent animate-pulse">
+                    Destaque
+                  </Badge>
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <Badge className="w-fit mb-4 bg-brand-primary text-white">
-                    {featuredPost.category}
+                    {categories.find(cat => cat.id === featuredPost.category)?.name}
                   </Badge>
-                  <h3 className="text-2xl md:text-3xl font-bold text-brand-primary mb-4 leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary hover:text-brand-dark transition-colors duration-300">
                     {featuredPost.title}
                   </h3>
-                  <p className="text-gray-600 mb-6 text-lg">
+                  <p className="text-gray-600 mb-6 hover:text-gray-800 transition-colors duration-300">
                     {featuredPost.excerpt}
                   </p>
-                  <div className="flex items-center text-sm text-gray-500 mb-6">
-                    <User className="w-4 h-4 mr-1" />
-                    <span className="mr-4">{featuredPost.author}</span>
-                    <Calendar className="w-4 h-4 mr-1" />
-                    <span className="mr-4">{formatDate(featuredPost.date)}</span>
-                    <Clock className="w-4 h-4 mr-1" />
-                    <span>{featuredPost.readTime}</span>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center text-sm text-gray-500">
+                      <User className="w-4 h-4 mr-1" />
+                      {featuredPost.author}
+                    </div>
+                    <div className="flex items-center text-sm text-gray-500">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {new Date(featuredPost.date).toLocaleDateString('pt-BR')}
+                    </div>
                   </div>
-                  <Link
-                    to={`/blog/${featuredPost.id}`}
-                    className="inline-flex items-center text-brand-primary font-semibold hover:text-brand-secondary transition-colors"
-                  >
+                  <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-transform duration-200">
                     Ler Artigo Completo
                     <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </Card>
@@ -196,85 +186,81 @@ const Blog = () => {
         </section>
       )}
 
-      {/* Lista de Posts */}
+      {/* Posts Grid */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-brand-primary mb-8 text-center">
-            {selectedCategory === "Todos" ? "Últimos Artigos" : `Artigos sobre ${selectedCategory}`}
-          </h2>
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+              {selectedCategory === 'todas' ? 'Todos os Artigos' : `Artigos de ${categories.find(cat => cat.id === selectedCategory)?.name}`}
+            </h2>
+          </div>
           
-          {regularPosts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">Nenhum artigo encontrado com os filtros selecionados.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <div className="aspect-video">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <Badge className="w-fit mb-2 bg-brand-primary text-white">
-                      {post.category}
-                    </Badge>
-                    <CardTitle className="text-lg text-brand-primary line-clamp-2">
-                      {post.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center text-sm text-gray-500 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(selectedCategory === 'todas' ? regularPosts : filteredPosts).map((post, index) => (
+              <Card key={post.id} className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-48 object-cover hover:scale-110 transition-transform duration-700"
+                  />
+                  <Badge className={`absolute top-4 left-4 ${categories.find(cat => cat.id === post.category)?.color}`}>
+                    {categories.find(cat => cat.id === post.category)?.name}
+                  </Badge>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-brand-primary hover:text-brand-dark transition-colors duration-300">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 hover:text-gray-800 transition-colors duration-300">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <div className="flex items-center">
                       <User className="w-4 h-4 mr-1" />
-                      <span className="mr-3">{post.author}</span>
-                      <Clock className="w-4 h-4 mr-1" />
-                      <span>{post.readTime}</span>
+                      {post.author}
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">
-                        {formatDate(post.date)}
-                      </span>
-                      <Link
-                        to={`/blog/${post.id}`}
-                        className="text-brand-primary font-semibold hover:text-brand-secondary transition-colors"
-                      >
-                        Ler mais
-                      </Link>
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {new Date(post.date).toLocaleDateString('pt-BR')}
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
+                  </div>
+                  <Button variant="outline" className="w-full hover:bg-brand-primary hover:text-white hover:scale-105 transition-all duration-300">
+                    Ler Mais
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 px-4 bg-brand-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Receba Nossos Insights
+            Não Perca Nenhum Conteúdo
           </h2>
           <p className="text-xl mb-8 text-gray-100">
-            Assine nossa newsletter e receba conteúdos exclusivos sobre liderança, 
-            técnica e desenvolvimento pessoal no setor automotivo.
+            Receba nossos melhores artigos diretamente no seu e-mail.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Seu melhor e-mail"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900"
-            />
-            <Button className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
-              Assinar Newsletter
+          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <div className="relative flex-1">
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Input
+                type="email"
+                value={emailNewsletter}
+                onChange={(e) => setEmailNewsletter(e.target.value)}
+                placeholder="Seu melhor e-mail"
+                className="pl-10 bg-white/10 border-white/20 text-white placeholder-gray-300 hover:bg-white/20 transition-colors duration-300"
+                required
+              />
+            </div>
+            <Button type="submit" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-transform duration-200">
+              Inscrever-se
             </Button>
-          </div>
+          </form>
         </div>
       </section>
     </div>
