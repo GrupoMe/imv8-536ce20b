@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, FileText, Users, BarChart3, Settings, LogOut } from 'lucide-react';
+import { Calendar, Image, Settings, LogOut } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -29,25 +29,11 @@ const Admin = () => {
       color: 'bg-blue-50 border-blue-200'
     },
     {
-      title: 'Gerenciar Blog',
-      description: 'Criar, editar e publicar posts do blog',
-      icon: FileText,
-      link: '/admin/blog',
-      color: 'bg-green-50 border-green-200'
-    },
-    {
-      title: 'Usuários',
-      description: 'Gerenciar usuários e permissões',
-      icon: Users,
-      link: '#',
-      color: 'bg-purple-50 border-purple-200'
-    },
-    {
-      title: 'Relatórios',
-      description: 'Visualizar estatísticas e métricas',
-      icon: BarChart3,
-      link: '#',
-      color: 'bg-orange-50 border-orange-200'
+      title: 'Gerenciar Galeria',
+      description: 'Adicionar, editar e remover fotos de eventos',
+      icon: Image,
+      link: '/admin/galeria',
+      color: 'bg-pink-50 border-pink-200'
     }
   ];
 
@@ -76,12 +62,12 @@ const Admin = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Eventos Ativos</p>
+                  <p className="text-sm text-gray-600">Eventos da Agenda</p>
                   <p className="text-2xl font-bold text-brand-primary">8</p>
                 </div>
                 <Calendar className="w-8 h-8 text-brand-primary" />
@@ -92,32 +78,10 @@ const Admin = () => {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600">Posts do Blog</p>
-                  <p className="text-2xl font-bold text-brand-primary">24</p>
+                  <p className="text-sm text-gray-600">Eventos na Galeria</p>
+                  <p className="text-2xl font-bold text-brand-primary">6</p>
                 </div>
-                <FileText className="w-8 h-8 text-brand-primary" />
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">Usuários</p>
-                  <p className="text-2xl font-bold text-brand-primary">156</p>
-                </div>
-                <Users className="w-8 h-8 text-brand-primary" />
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">Inscrições</p>
-                  <p className="text-2xl font-bold text-brand-primary">89</p>
-                </div>
-                <BarChart3 className="w-8 h-8 text-brand-primary" />
+                <Image className="w-8 h-8 text-brand-primary" />
               </div>
             </CardContent>
           </Card>
@@ -156,16 +120,10 @@ const Admin = () => {
           <CardContent>
             <div className="flex flex-wrap gap-4">
               <Button asChild>
-                <Link to="/admin/agenda">Criar Novo Evento</Link>
+                <Link to="/admin/agenda">Gerenciar Agenda</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/admin/blog">Escrever Post</Link>
-              </Button>
-              <Button variant="outline">
-                Ver Relatórios
-              </Button>
-              <Button variant="outline">
-                Configurações
+                <Link to="/admin/galeria">Gerenciar Galeria</Link>
               </Button>
             </div>
           </CardContent>
