@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink, ShoppingBag, Tv } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -10,13 +10,17 @@ const Navbar = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Quem Somos', href: '/quem-somos' },
+    { name: 'Institucional', href: '/institucional' },
+    { name: 'Benefícios', href: '/beneficios' },
+    { name: 'Formações', href: '/formacoes' },
     { name: 'Agenda', href: '/agenda' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Comunidade', href: '/comunidade' },
-    { name: 'Clube', href: '/clube' },
-    { name: 'Parceiros', href: '/parceiros' },
-    { name: 'Contatos', href: '/contatos' },
+    { name: 'Galeria', href: '/galeria' },
+  ];
+
+  const externalLinks = [
+    { name: 'E-commerce', href: '#ecommerce', icon: ShoppingBag },
+    { name: 'Streaming', href: '#streaming', icon: Tv },
   ];
 
   const isActivePath = (path: string) => {
@@ -38,7 +42,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden xl:flex items-center space-x-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -52,13 +56,29 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-brand-primary hover:bg-brand-dark">
+            
+            {/* External Links */}
+            {externalLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-primary transition-colors duration-200"
+              >
+                <item.icon className="w-4 h-4" />
+                {item.name}
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            ))}
+
+            <Button asChild className="bg-brand-primary hover:bg-brand-dark ml-2">
               <Link to="/login">Login</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center">
+          <div className="xl:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-brand-primary"
@@ -71,8 +91,8 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="lg:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+        <div className="xl:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t max-h-[80vh] overflow-y-auto">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -87,9 +107,27 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            
+            <div className="border-t my-2 pt-2">
+              {externalLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-gray-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <item.icon className="w-4 h-4" />
+                  {item.name}
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              ))}
+            </div>
+
             <Link
               to="/login"
-              className="block px-3 py-2 text-base font-medium text-white bg-brand-primary hover:bg-brand-dark rounded-md mx-3 mt-4"
+              className="block px-3 py-2 text-base font-medium text-white bg-brand-primary hover:bg-brand-dark rounded-md mx-3 mt-4 text-center"
               onClick={() => setIsOpen(false)}
             >
               Login

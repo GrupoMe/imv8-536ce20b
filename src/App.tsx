@@ -7,18 +7,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Projetos from "./pages/Projetos";
-import Blog from "./pages/Blog";
+import Institucional from "./pages/Institucional";
+import Beneficios from "./pages/Beneficios";
+import Formacoes from "./pages/Formacoes";
 import Agenda from "./pages/Agenda";
-import Clube from "./pages/Clube";
-import QuemSomos from "./pages/QuemSomos";
 import Comunidade from "./pages/Comunidade";
-import Parceiros from "./pages/Parceiros";
-import Contatos from "./pages/Contatos";
+import Galeria from "./pages/Galeria";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import AdminAgenda from "./pages/AdminAgenda";
-import AdminBlog from "./pages/AdminBlog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,17 +33,14 @@ const App = () => (
               <Layout>
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/quem-somos" element={<QuemSomos />} />
+                  <Route path="/institucional" element={<Institucional />} />
+                  <Route path="/beneficios" element={<Beneficios />} />
+                  <Route path="/formacoes" element={<Formacoes />} />
                   <Route path="/agenda" element={<Agenda />} />
                   <Route path="/comunidade" element={<Comunidade />} />
-                  <Route path="/clube" element={<Clube />} />
-                  <Route path="/parceiros" element={<Parceiros />} />
-                  <Route path="/contatos" element={<Contatos />} />
-                  <Route path="/projetos" element={<Projetos />} />
-                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/galeria" element={<Galeria />} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/admin/agenda" element={<AdminAgenda />} />
-                  <Route path="/admin/blog" element={<AdminBlog />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
