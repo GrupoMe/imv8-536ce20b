@@ -121,7 +121,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in">
               <img 
-                src="https://images.unsplash.com/photo-1594736797933-d0b22e5e6094?w=500&h=600&fit=crop"
+                src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
                 alt="Eva Gomes"
                 className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
               />
