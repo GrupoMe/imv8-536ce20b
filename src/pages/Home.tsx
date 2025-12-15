@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -21,12 +21,16 @@ const Home = () => {
             Conecte-se, cresça e conquiste seus objetivos profissionais ao lado de mulheres inspiradoras.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in transition-all duration-300" style={{animationDelay: '0.4s'}}>
-            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
-              Fazer Parte da Comunidade
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
-              Conhecer Eventos
-            </Button>
+            <Link to="/comunidade">
+              <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+                Fazer Parte da Comunidade
+              </Button>
+            </Link>
+            <Link to="/agenda">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
+                Conhecer Eventos
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -141,10 +145,12 @@ const Home = () => {
                 diretamente a vida de mais de 5.000 mulheres através de mentorias, workshops e 
                 programas de desenvolvimento.
               </p>
-              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
-                Conhecer Trajetória
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <Link to="/institucional">
+                <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
+                  Conhecer Trajetória
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -303,10 +309,12 @@ const Home = () => {
           <p className="text-xl mb-8 text-gray-100">
             Faça parte de uma comunidade que acredita no seu potencial e quer ver você brilhar.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
-            Começar Minha Jornada Agora
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <Link to="/comunidade">
+            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
+              Começar Minha Jornada Agora
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
         </div>
       </section>
     </div>
