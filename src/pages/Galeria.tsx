@@ -1,13 +1,101 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
+interface GalleryEvent {
+  id: number;
+  title: string;
+  category: string;
+  date: string;
+  location: string;
+  images: string[];
+}
+
+const defaultEvents: GalleryEvent[] = [
+  {
+    id: 1,
+    title: "Workshop Liderança Feminina 2024",
+    category: "workshop",
+    date: "Novembro 2024",
+    location: "São Paulo - SP",
+    images: [
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=600&fit=crop"
+    ]
+  },
+  {
+    id: 2,
+    title: "Palestra Inovação Automotiva",
+    category: "palestra",
+    date: "Outubro 2024",
+    location: "Online",
+    images: [
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop"
+    ]
+  },
+  {
+    id: 3,
+    title: "Encontro de Networking",
+    category: "networking",
+    date: "Setembro 2024",
+    location: "Rio de Janeiro - RJ",
+    images: [
+      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop"
+    ]
+  },
+  {
+    id: 4,
+    title: "Formatura Turma 2024",
+    category: "formatura",
+    date: "Dezembro 2024",
+    location: "São Paulo - SP",
+    images: [
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?w=800&h=600&fit=crop"
+    ]
+  },
+  {
+    id: 5,
+    title: "Masterclass Gestão de Equipes",
+    category: "workshop",
+    date: "Agosto 2024",
+    location: "Belo Horizonte - MG",
+    images: [
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop"
+    ]
+  },
+  {
+    id: 6,
+    title: "Evento Anual V8 Women",
+    category: "networking",
+    date: "Julho 2024",
+    location: "Porto Alegre - RS",
+    images: [
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800&h=600&fit=crop"
+    ]
+  }
+];
+
 const Galeria = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('todos');
+  const [events, setEvents] = useState<GalleryEvent[]>([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('gallery_events');
+    if (saved) {
+      setEvents(JSON.parse(saved));
+    } else {
+      setEvents(defaultEvents);
+    }
+  }, []);
 
   const categories = [
     { key: 'todos', label: 'Todos' },
@@ -15,75 +103,6 @@ const Galeria = () => {
     { key: 'palestra', label: 'Palestras' },
     { key: 'networking', label: 'Networking' },
     { key: 'formatura', label: 'Formaturas' }
-  ];
-
-  const events = [
-    {
-      id: 1,
-      title: "Workshop Liderança Feminina 2024",
-      category: "workshop",
-      date: "Novembro 2024",
-      location: "São Paulo - SP",
-      images: [
-        "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 2,
-      title: "Palestra Inovação Automotiva",
-      category: "palestra",
-      date: "Outubro 2024",
-      location: "Online",
-      images: [
-        "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 3,
-      title: "Encontro de Networking",
-      category: "networking",
-      date: "Setembro 2024",
-      location: "Rio de Janeiro - RJ",
-      images: [
-        "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 4,
-      title: "Formatura Turma 2024",
-      category: "formatura",
-      date: "Dezembro 2024",
-      location: "São Paulo - SP",
-      images: [
-        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 5,
-      title: "Masterclass Gestão de Equipes",
-      category: "workshop",
-      date: "Agosto 2024",
-      location: "Belo Horizonte - MG",
-      images: [
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 6,
-      title: "Evento Anual V8 Women",
-      category: "networking",
-      date: "Julho 2024",
-      location: "Porto Alegre - RS",
-      images: [
-        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800&h=600&fit=crop"
-      ]
-    }
   ];
 
   const allImages = events.flatMap((event, eventIndex) => 

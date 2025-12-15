@@ -16,6 +16,7 @@ import Galeria from "./pages/Galeria";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import AdminAgenda from "./pages/AdminAgenda";
+import AdminGaleria from "./pages/AdminGaleria";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
                   <Route path="/galeria" element={<Galeria />} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/admin/agenda" element={<AdminAgenda />} />
+                  <Route path="/admin/galeria" element={<AdminGaleria />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
