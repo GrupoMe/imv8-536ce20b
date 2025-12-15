@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -151,10 +151,12 @@ const Comunidade = () => {
                 Aqui, você encontra não apenas oportunidades profissionais, mas também um ambiente 
                 de apoio genuíno, onde cada conquista é celebrada e cada desafio é enfrentado em conjunto.
               </p>
-              <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
-                Conhecer Mais Sobre Nós
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <Link to="/institucional">
+                <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
+                  Conhecer Mais Sobre Nós
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
             <div className="relative animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <img 
@@ -262,9 +264,11 @@ const Comunidade = () => {
               Fazer Parte Agora
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
-              Conhecer Benefícios
-            </Button>
+            <Link to="/beneficios">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
+                Conhecer Benefícios
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
