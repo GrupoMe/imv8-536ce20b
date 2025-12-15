@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Linkedin, Instagram, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, Clock, ExternalLink, ShoppingBag, Tv } from 'lucide-react';
 
 const Footer = () => {
   const location = useLocation();
@@ -13,7 +13,6 @@ const Footer = () => {
       "© 2025 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ por mulheres que aceleram."
     ];
     
-    // Use a simple hash of the pathname to consistently select a text for each page
     const pathHash = location.pathname.split('').reduce((a, b) => {
       a = ((a << 5) - a) + b.charCodeAt(0);
       return a & a;
@@ -35,12 +34,36 @@ const Footer = () => {
               Empoderando mulheres através da educação, tecnologia e desenvolvimento pessoal. 
               Construindo um futuro mais inclusivo e diverso.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-6">
               <a href="https://linkedin.com/company/institutomulheresv8" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Linkedin size={24} />
               </a>
               <a href="https://instagram.com/institutomulheresv8" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Instagram size={24} />
+              </a>
+            </div>
+            
+            {/* External Links */}
+            <div className="flex flex-wrap gap-4">
+              <a 
+                href="#ecommerce" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors text-sm"
+              >
+                <ShoppingBag size={16} />
+                E-commerce
+                <ExternalLink size={12} />
+              </a>
+              <a 
+                href="#streaming" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors text-sm"
+              >
+                <Tv size={16} />
+                Streaming
+                <ExternalLink size={12} />
               </a>
             </div>
           </div>
@@ -50,12 +73,12 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
             <div className="space-y-2">
               <Link to="/" className="block text-gray-300 hover:text-brand-primary transition-colors">Home</Link>
-              <Link to="/quem-somos" className="block text-gray-300 hover:text-brand-primary transition-colors">Quem Somos</Link>
+              <Link to="/institucional" className="block text-gray-300 hover:text-brand-primary transition-colors">Institucional</Link>
+              <Link to="/beneficios" className="block text-gray-300 hover:text-brand-primary transition-colors">Benefícios</Link>
+              <Link to="/formacoes" className="block text-gray-300 hover:text-brand-primary transition-colors">Formações</Link>
               <Link to="/agenda" className="block text-gray-300 hover:text-brand-primary transition-colors">Agenda</Link>
               <Link to="/comunidade" className="block text-gray-300 hover:text-brand-primary transition-colors">Comunidade</Link>
-              <Link to="/clube" className="block text-gray-300 hover:text-brand-primary transition-colors">Clube</Link>
-              <Link to="/parceiros" className="block text-gray-300 hover:text-brand-primary transition-colors">Parceiros</Link>
-              <Link to="/contatos" className="block text-gray-300 hover:text-brand-primary transition-colors">Contatos</Link>
+              <Link to="/galeria" className="block text-gray-300 hover:text-brand-primary transition-colors">Galeria</Link>
             </div>
           </div>
 
