@@ -77,7 +77,7 @@ export default {
 					primary: '#FF0068',
 					secondary: '#5E17EB',
 					accent: '#004172',
-					yellow: '#FFE907',
+					yellow: '#FFC907',
 					gray: '#9a9a9a',
 					'gray-dark': '#5c5c5c',
 					light: '#fff0f6',
