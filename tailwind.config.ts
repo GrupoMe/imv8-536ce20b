@@ -25,18 +25,18 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: '#ff006b',
+			primary: {
+					DEFAULT: '#FF0068',
 					50: '#fff0f6',
 					100: '#ffe1ed',
 					200: '#ffc2db',
 					300: '#ffa3c9',
 					400: '#ff85b7',
-					500: '#ff006b',
-					600: '#e6005f',
-					700: '#cc0054',
-					800: '#b30049',
-					900: '#99003e',
+					500: '#FF0068',
+					600: '#e6005d',
+					700: '#cc0052',
+					800: '#b30048',
+					900: '#99003d',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -74,14 +74,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					primary: '#ff006b',
-					secondary: '#5e17eb',
+					primary: '#FF0068',
+					secondary: '#5E17EB',
 					accent: '#004172',
-					yellow: '#ffe11b',
+					yellow: '#FFE907',
 					gray: '#9a9a9a',
 					'gray-dark': '#5c5c5c',
 					light: '#fff0f6',
-					dark: '#99003e'
+					dark: '#99003d'
 				}
 			},
 			borderRadius: {
