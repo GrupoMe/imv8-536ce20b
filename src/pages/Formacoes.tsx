@@ -30,7 +30,7 @@ const Formacoes = () => {
     },
     {
       id: 2,
-      title: "Mentoria Individual com Eva Gomes",
+      title: "Mentoria Individual com Eva Paiva",
       category: "mentoria",
       duration: "3 meses",
       participants: 25,

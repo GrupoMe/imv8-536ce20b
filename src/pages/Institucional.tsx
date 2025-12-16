@@ -83,7 +83,7 @@ const Institucional = () => {
                 Nossa História
               </h2>
               <p className="text-gray-600 text-lg mb-4">
-                O Instituto Mulheres V8 nasceu da visão de Eva Gomes, uma profissional com mais de 
+                O Instituto Mulheres V8 nasceu da visão de Eva Paiva, uma profissional com mais de 
                 20 anos de experiência no setor automotivo, que identificou a necessidade de criar 
                 oportunidades e caminhos para outras mulheres no mercado.
               </p>
@@ -100,11 +100,11 @@ const Institucional = () => {
             <div className="relative">
               <img 
                 src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png" 
-                alt="Eva Gomes - Fundadora"
+                alt="Eva Paiva - Fundadora"
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-brand-yellow p-4 rounded-xl shadow-lg">
-                <p className="text-brand-primary font-bold text-lg">Eva Gomes</p>
+                <p className="text-brand-primary font-bold text-lg">Eva Paiva</p>
                 <p className="text-gray-700 text-sm">Fundadora & CEO</p>
               </div>
             </div>
