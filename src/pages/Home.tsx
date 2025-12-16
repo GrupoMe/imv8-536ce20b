@@ -89,7 +89,7 @@ const Home = () => {
                 Mensagem da Nossa Fundadora
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Conheça Eva Gomes e sua jornada inspiradora de transformação pessoal e profissional. 
+                Conheça Eva Paiva e sua jornada inspiradora de transformação pessoal e profissional. 
                 Descubra como o Instituto Mulheres V8 nasceu do desejo de empoderar e conectar mulheres.
               </p>
               <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-all duration-300">
@@ -101,7 +101,7 @@ const Home = () => {
               <div className="bg-black rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <img 
                   src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=600&h=400&fit=crop"
-                  alt="Eva Gomes - Fundadora"
+                  alt="Eva Paiva - Fundadora"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -122,7 +122,7 @@ const Home = () => {
             <div className="relative animate-fade-in">
               <img 
                 src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
-                alt="Eva Gomes"
+                alt="Eva Paiva"
                 className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
               />
               <div className="absolute -bottom-4 -right-4 bg-brand-primary text-white p-4 rounded-lg">
@@ -131,7 +131,7 @@ const Home = () => {
             </div>
             <div className="animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
-                Eva Gomes
+                Eva Paiva
               </h2>
               <h3 className="text-xl text-brand-secondary mb-4 font-semibold">
                 Fundadora & CEO do Instituto Mulheres V8
