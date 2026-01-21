@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { BookOpen, Clock, Users, Star, ArrowRight, GraduationCap, Award, Target } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -115,10 +114,10 @@ const Cursos = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      curso: 'bg-blue-100 text-blue-800',
-      programa: 'bg-green-100 text-green-800'
+      curso: 'bg-blue-500/20 text-blue-400',
+      programa: 'bg-green-500/20 text-green-400'
     };
-    return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800';
+    return colors[category as keyof typeof colors] || 'bg-gray-500/20 text-gray-400';
   };
 
   const filteredFormations = selectedCategory === 'todos' 
@@ -126,15 +125,15 @@ const Cursos = () => {
     : formations.filter(f => f.category === selectedCategory);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-zinc-950">
       {/* Hero Section */}
-      <section className="relative bg-brand-primary py-20 px-4">
+      <section className="relative bg-zinc-950 py-20 px-4 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto text-center text-white">
-          <Badge className="bg-white/20 text-white mb-4">Cursos & Programas</Badge>
+          <Badge className="bg-brand-primary/20 text-brand-primary mb-4">Cursos & Programas</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Invista no seu <br />Desenvolvimento Profissional
           </h1>
-          <p className="text-xl md:text-2xl text-pink-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto">
             Cursos e programas de formação criados por especialistas 
             para acelerar sua carreira no setor automotivo.
           </p>
@@ -142,31 +141,31 @@ const Cursos = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-12 px-4 bg-white border-b">
+      <section className="py-12 px-4 bg-zinc-900 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-brand-primary">500+</div>
-              <p className="text-gray-600">Alunas Formadas</p>
+              <p className="text-gray-400">Alunas Formadas</p>
             </div>
             <div>
               <div className="text-4xl font-bold text-brand-primary">15+</div>
-              <p className="text-gray-600">Cursos Disponíveis</p>
+              <p className="text-gray-400">Cursos Disponíveis</p>
             </div>
             <div>
               <div className="text-4xl font-bold text-brand-primary">4.9</div>
-              <p className="text-gray-600">Avaliação Média</p>
+              <p className="text-gray-400">Avaliação Média</p>
             </div>
             <div>
               <div className="text-4xl font-bold text-brand-primary">95%</div>
-              <p className="text-gray-600">Taxa de Satisfação</p>
+              <p className="text-gray-400">Taxa de Satisfação</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="py-8 px-4 bg-gray-50">
+      <section className="py-8 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((cat) => (
@@ -174,6 +173,7 @@ const Cursos = () => {
                 key={cat.key}
                 variant={selectedCategory === cat.key ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory(cat.key)}
+                className={selectedCategory === cat.key ? 'bg-brand-primary' : 'border-zinc-700 text-gray-300 hover:bg-zinc-800'}
               >
                 {cat.label}
               </Button>
@@ -183,11 +183,11 @@ const Cursos = () => {
       </section>
 
       {/* Formations Grid */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredFormations.map((formation) => (
-              <Card key={formation.id} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <Card key={formation.id} className="hover:border-brand-primary transition-all duration-300 overflow-hidden">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-2">
                     <Badge className={getCategoryColor(formation.category)}>
@@ -195,13 +195,13 @@ const Cursos = () => {
                     </Badge>
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                      <span className="text-sm font-medium">{formation.rating}</span>
+                      <span className="text-sm font-medium text-gray-300">{formation.rating}</span>
                     </div>
                   </div>
-                  <CardTitle className="text-xl">{formation.title}</CardTitle>
+                  <CardTitle className="text-xl text-white">{formation.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-gray-600">{formation.description}</p>
+                  <p className="text-gray-400">{formation.description}</p>
                   
                   <div className="flex flex-wrap gap-4 text-sm text-gray-500">
                     <div className="flex items-center gap-1">
@@ -218,23 +218,23 @@ const Cursos = () => {
                     <p className="text-sm text-gray-500 mb-2">Módulos inclusos:</p>
                     <div className="flex flex-wrap gap-2">
                       {formation.modules.slice(0, 3).map((module, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
+                        <Badge key={idx} variant="secondary" className="text-xs bg-zinc-800 text-gray-300">
                           {module}
                         </Badge>
                       ))}
                       {formation.modules.length > 3 && (
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge variant="secondary" className="text-xs bg-zinc-800 text-gray-300">
                           +{formation.modules.length - 3}
                         </Badge>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t">
+                  <div className="flex items-center justify-between pt-4 border-t border-zinc-800">
                     <div>
-                      <span className="text-2xl font-bold text-brand-primary">{formation.price}</span>
+                      <span className="text-2xl font-bold text-brand-yellow">{formation.price}</span>
                     </div>
-                    <Button asChild>
+                    <Button asChild className="bg-brand-primary hover:bg-brand-dark">
                       <a href={formation.checkoutLink} target="_blank" rel="noopener noreferrer">
                         Inscrever-se <ArrowRight className="w-4 h-4 ml-1" />
                       </a>
@@ -248,31 +248,31 @@ const Cursos = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               O que nossas alunas dizem
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Histórias reais de mulheres que transformaram suas carreiras.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-brand-light">
+              <Card key={index} className="hover:border-brand-primary transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
+                  <p className="text-gray-400 mb-6 italic">"{testimonial.quote}"</p>
                   <div>
-                    <p className="font-bold text-brand-primary">{testimonial.name}</p>
+                    <p className="font-bold text-white">{testimonial.name}</p>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>
-                    <p className="text-sm text-gray-400">{testimonial.company}</p>
+                    <p className="text-sm text-gray-600">{testimonial.company}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -284,14 +284,14 @@ const Cursos = () => {
       {/* CTA */}
       <section className="py-16 px-4 bg-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <GraduationCap className="w-16 h-16 mx-auto mb-6 text-pink-200" />
+          <GraduationCap className="w-16 h-16 mx-auto mb-6 text-brand-yellow" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Pronta para dar o próximo passo?
           </h2>
-          <p className="text-xl text-pink-100 mb-8">
+          <p className="text-xl text-gray-200 mb-8">
             Escolha o curso ideal para você e comece sua transformação hoje mesmo.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
+          <Button size="lg" className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold">
             Ver Todos os Cursos
           </Button>
         </div>

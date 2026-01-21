@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { X, Calendar, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -147,22 +146,22 @@ const Galeria = () => {
     : null;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-zinc-950">
       {/* Hero Section */}
-      <section className="relative bg-brand-primary py-20 px-4">
+      <section className="relative bg-zinc-950 py-20 px-4 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto text-center text-white">
-          <Badge className="bg-white/20 text-white mb-4">Galeria de Eventos</Badge>
+          <Badge className="bg-brand-primary/20 text-brand-primary mb-4">Galeria de Eventos</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Momentos que <br />Marcam Nossa História
           </h1>
-          <p className="text-xl md:text-2xl text-pink-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto">
             Reviva os melhores momentos dos nossos eventos, workshops e encontros.
           </p>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="py-8 px-4 bg-white border-b sticky top-16 z-30">
+      <section className="py-8 px-4 bg-zinc-900 border-b border-zinc-800 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((cat) => (
@@ -170,6 +169,7 @@ const Galeria = () => {
                 key={cat.key}
                 variant={selectedCategory === cat.key ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory(cat.key)}
+                className={selectedCategory === cat.key ? 'bg-brand-primary' : 'border-zinc-700 text-gray-300 hover:bg-zinc-800'}
               >
                 {cat.label}
               </Button>
@@ -179,13 +179,13 @@ const Galeria = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredImages.map((image) => (
               <Card 
                 key={image.globalIndex} 
-                className="overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300"
+                className="overflow-hidden cursor-pointer group hover:border-brand-primary transition-all duration-300"
                 onClick={() => openLightbox(image.globalIndex)}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -197,7 +197,7 @@ const Galeria = () => {
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <h3 className="font-bold text-lg mb-1">{image.event}</h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-200">
+                    <div className="flex items-center gap-4 text-sm text-gray-300">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         {image.date}
@@ -257,11 +257,11 @@ const Galeria = () => {
             <img 
               src={selectedImageData.src} 
               alt={selectedImageData.event}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              className="max-w-full max-h-[80vh] object-contain rounded-xl"
             />
             <div className="text-white text-center mt-4">
               <h3 className="text-xl font-bold mb-1">{selectedImageData.event}</h3>
-              <div className="flex items-center justify-center gap-4 text-sm text-gray-300">
+              <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
                 <span className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
                   {selectedImageData.date}
@@ -279,13 +279,13 @@ const Galeria = () => {
       {/* CTA */}
       <section className="py-16 px-4 bg-brand-yellow">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
             Quer fazer parte do próximo evento?
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="text-xl text-zinc-700 mb-8">
             Confira nossa agenda e garanta sua vaga nos próximos encontros.
           </p>
-          <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-dark">
+          <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-dark text-white">
             <a href="/agenda">Ver Agenda de Eventos</a>
           </Button>
         </div>

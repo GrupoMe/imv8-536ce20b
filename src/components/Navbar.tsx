@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm shadow-lg fixed w-full z-50">
+    <nav className="bg-zinc-950/95 backdrop-blur-sm shadow-lg fixed w-full z-50 border-b border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -49,7 +49,7 @@ const Navbar = () => {
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActivePath(item.href)
                     ? 'text-brand-primary border-b-2 border-brand-primary'
-                    : 'text-gray-700 hover:text-brand-primary'
+                    : 'text-gray-300 hover:text-brand-primary'
                 }`}
               >
                 {item.name}
@@ -63,7 +63,7 @@ const Navbar = () => {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-brand-primary transition-colors duration-200"
+                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 hover:text-brand-primary transition-colors duration-200"
               >
                 <item.icon className="w-4 h-4" />
                 {item.name}
@@ -80,7 +80,7 @@ const Navbar = () => {
           <div className="xl:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-brand-primary"
+              className="text-gray-300 hover:text-brand-primary"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -91,15 +91,15 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="xl:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t max-h-[80vh] overflow-y-auto">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-zinc-950 border-t border-zinc-800 max-h-[80vh] overflow-y-auto">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
                   isActivePath(item.href)
-                    ? 'text-brand-primary bg-brand-light'
-                    : 'text-gray-700 hover:text-brand-primary hover:bg-gray-50'
+                    ? 'text-brand-primary bg-zinc-900'
+                    : 'text-gray-300 hover:text-brand-primary hover:bg-zinc-900'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -107,14 +107,14 @@ const Navbar = () => {
               </Link>
             ))}
             
-            <div className="border-t my-2 pt-2">
+            <div className="border-t border-zinc-800 my-2 pt-2">
               {externalLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-gray-50"
+                  className="flex items-center gap-2 px-3 py-2 text-base font-medium text-gray-300 hover:text-brand-primary hover:bg-zinc-900"
                   onClick={() => setIsOpen(false)}
                 >
                   <item.icon className="w-4 h-4" />

@@ -31,28 +31,28 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-zinc-950">
       {/* Hero Section */}
-      <section className="bg-brand-primary text-white py-20 px-4 overflow-hidden">
+      <section className="bg-zinc-950 text-white py-20 px-4 overflow-hidden border-b border-zinc-800">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Da formação à <span className="text-brand-yellow">liderança</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-4 text-gray-100 max-w-4xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl md:text-2xl mb-4 text-gray-300 max-w-4xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
             Educação que forma mulheres para liderar e transformar o setor automotivo.
           </p>
-          <p className="text-lg md:text-xl mb-8 text-pink-100 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
+          <p className="text-lg md:text-xl mb-8 text-gray-400 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
             O Instituto Mulheres V8 criou uma comunidade exclusiva no WhatsApp para mulheres que movem o mercado 
             por meio da educação, conteúdos estratégicos e conexão entre as mulheres.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in transition-all duration-300" style={{animationDelay: '0.4s'}}>
             <Link to="/comunidade">
-              <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+              <Button size="lg" className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
                 Fazer Parte da Comunidade
               </Button>
             </Link>
             <Link to="/agenda">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300">
                 Conhecer Eventos
               </Button>
             </Link>
@@ -67,7 +67,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Nosso Impacto em Números
             </h2>
-            <p className="text-xl text-gray-100">
+            <p className="text-xl text-gray-200">
               Juntas, estamos transformando carreiras e vidas
             </p>
           </div>
@@ -80,7 +80,7 @@ const Home = () => {
               <div className="text-4xl font-bold mb-2">
                 +<AnimatedCounter end={15} duration={2000} /> mil
               </div>
-              <p className="text-gray-100">Mulheres Impactadas</p>
+              <p className="text-gray-200">Mulheres Impactadas</p>
             </div>
             <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.2s'}}>
               <div className="mb-4">
@@ -89,7 +89,7 @@ const Home = () => {
               <div className="text-4xl font-bold mb-2">
                 +<AnimatedCounter end={500} duration={2000} />
               </div>
-              <p className="text-gray-100">Eventos Educacionais Realizados</p>
+              <p className="text-gray-200">Eventos Educacionais Realizados</p>
             </div>
             <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <div className="mb-4">
@@ -98,33 +98,33 @@ const Home = () => {
               <div className="text-4xl font-bold mb-2">
                 <AnimatedCounter end={18} duration={2000} />
               </div>
-              <p className="text-gray-100">Estados do Brasil</p>
+              <p className="text-gray-200">Estados do Brasil</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 4 Pilares de Formação */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               4 Pilares de Formação
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Nossa metodologia integra quatro pilares fundamentais para o desenvolvimento completo da mulher no setor automotivo.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pilares.map((pilar, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in border-t-4 border-brand-primary" style={{animationDelay: `${index * 0.1}s`}}>
+              <Card key={index} className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in border-t-4 border-t-brand-primary" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
                     <pilar.icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-brand-primary mb-3">{pilar.title}</h3>
-                  <p className="text-gray-600">{pilar.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{pilar.title}</h3>
+                  <p className="text-gray-400">{pilar.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -133,21 +133,21 @@ const Home = () => {
       </section>
 
       {/* Próximo Evento */}
-      <section className="py-16 px-4 bg-brand-light relative">
+      <section className="py-16 px-4 bg-zinc-900 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Próximo Evento
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-400">
               Não perca nossa próxima oportunidade de crescimento
             </p>
           </div>
           
-          <Card className="max-w-4xl mx-auto overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <Card className="max-w-4xl mx-auto overflow-hidden hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="bg-brand-primary p-8 text-white">
-                <Badge className="bg-brand-yellow text-brand-accent mb-4">
+                <Badge className="bg-brand-yellow text-zinc-900 mb-4">
                   Destaque
                 </Badge>
                 <h3 className="text-2xl font-bold mb-4">
@@ -160,7 +160,7 @@ const Home = () => {
                 <p className="mb-6 text-gray-100">
                   Descubra estratégias práticas para desenvolver sua liderança e influenciar positivamente sua equipe e organização.
                 </p>
-                <Button className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+                <Button className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
                   Garantir Minha Vaga
                 </Button>
               </div>
@@ -178,14 +178,14 @@ const Home = () => {
       </section>
 
       {/* Vídeo de Boas-vindas da Eva */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Mensagem da Nossa Fundadora
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-400 mb-6">
                 Conheça Eva Paiva e sua jornada inspiradora de transformação pessoal e profissional. 
                 Descubra como o Instituto Mulheres V8 nasceu do desejo de empoderar e conectar mulheres.
               </p>
@@ -195,7 +195,7 @@ const Home = () => {
               </Button>
             </div>
             <div className="relative group animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
-              <div className="bg-black rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="bg-zinc-900 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <img 
                   src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=400&fit=crop"
                   alt="Eva Paiva - Fundadora"
@@ -213,33 +213,33 @@ const Home = () => {
       </section>
 
       {/* Bio Eva */}
-      <section className="py-16 px-4 bg-brand-light">
+      <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in">
               <img 
                 src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
                 alt="Eva Paiva"
-                className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
+                className="w-full rounded-xl hover:scale-105 transition-all duration-500"
               />
-              <div className="absolute -bottom-4 -right-4 bg-brand-primary text-white p-4 rounded-lg">
+              <div className="absolute -bottom-4 -right-4 bg-brand-primary text-white p-4 rounded-xl">
                 <Star className="w-8 h-8" />
               </div>
             </div>
             <div className="animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Eva Paiva
               </h2>
-              <h3 className="text-xl text-brand-secondary mb-4 font-semibold">
+              <h3 className="text-xl text-brand-yellow mb-4 font-semibold">
                 Fundadora & CEO do Instituto Mulheres V8
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-400 mb-4">
                 Eva Paiva é fundadora do Instituto Mulheres V8, palestrante e mentora especializada no 
                 desenvolvimento de mulheres líderes e empreendedoras. Filha de mecânico, construiu sua 
                 trajetória profissional conectando a vivência prática do setor automotivo à formação 
                 acadêmica e à visão estratégica de negócios.
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-400 mb-6">
                 Formada em Contabilidade, com especializações em Finanças, Controladoria, Neurociência 
                 e Planejamento Estratégico. Autora do livro "99 Cartas" e idealizadora do podcast MulherPod.
               </p>
@@ -255,20 +255,20 @@ const Home = () => {
       </section>
 
       {/* Marcas Parceiras */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Marcas que Aceleram com a Gente
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-400">
               Parceiros que acreditam no potencial feminino no setor automotivo
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="w-32 h-20 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-200 transition-colors">
+              <div key={i} className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors">
                 Logo {i}
               </div>
             ))}
@@ -277,26 +277,26 @@ const Home = () => {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Histórias de Transformação
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-400">
               Veja como nossa comunidade está mudando vidas
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.1s'}}>
+            <Card className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.1s'}}>
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-400 mb-4">
                   "O Instituto Mulheres V8 transformou minha perspectiva sobre liderança. 
                   Hoje ocupo um cargo executivo que sempre sonhei."
                 </p>
@@ -307,21 +307,21 @@ const Home = () => {
                     className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                   />
                   <div>
-                    <h4 className="font-semibold text-brand-primary">Marina Silva</h4>
+                    <h4 className="font-semibold text-white">Marina Silva</h4>
                     <p className="text-sm text-gray-500">Diretora de Marketing</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
+            <Card className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-400 mb-4">
                   "A rede de networking que construí aqui foi fundamental para o crescimento 
                   da minha startup. Gratidão eterna!"
                 </p>
@@ -332,21 +332,21 @@ const Home = () => {
                     className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                   />
                   <div>
-                    <h4 className="font-semibold text-brand-primary">Ana Costa</h4>
+                    <h4 className="font-semibold text-white">Ana Costa</h4>
                     <p className="text-sm text-gray-500">CEO & Fundadora</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
+            <Card className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-400 mb-4">
                   "Os workshops e mentorias me deram a confiança que precisava para 
                   empreender. Hoje minha empresa fatura 7 dígitos!"
                 </p>
@@ -357,8 +357,8 @@ const Home = () => {
                     className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                   />
                   <div>
-                    <h4 className="font-semibold text-brand-primary">Carla Santos</h4>
-                    <p className="text-sm text-gray-500">Empreendedora</p>
+                    <h4 className="font-semibold text-white">Carla Santos</h4>
+                    <p className="text-sm text-gray-500">Empresária</p>
                   </div>
                 </div>
               </CardContent>
@@ -368,20 +368,27 @@ const Home = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 px-4 bg-gradient-to-r from-brand-accent to-brand-primary text-white">
+      <section className="py-20 px-4 bg-brand-yellow">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6">
             Pronta para Acelerar sua Carreira?
           </h2>
-          <p className="text-xl mb-8 text-gray-100">
-            Faça parte de uma comunidade que acredita no seu potencial e quer ver você brilhar.
+          <p className="text-xl text-zinc-700 mb-8">
+            Junte-se a milhares de mulheres que estão transformando o setor automotivo.
           </p>
-          <Link to="/comunidade">
-            <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
-              Começar Minha Jornada Agora
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/comunidade">
+              <Button size="lg" className="bg-brand-primary hover:bg-brand-dark text-white font-bold hover:scale-105 transition-all duration-300">
+                Entrar na Comunidade
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/cursos">
+              <Button size="lg" variant="outline" className="border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white hover:scale-105 transition-all duration-300">
+                Conhecer Cursos
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
