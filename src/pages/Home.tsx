@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Play, Star, Users, MapPin, ArrowRight, Wrench, Brain, TrendingUp, Sparkles } from 'lucide-react';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import heroEventBg from '@/assets/hero-event-bg.jpg';
 
 const Home = () => {
   const pilares = [
@@ -32,73 +33,66 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      {/* Hero Section */}
-      <section className="bg-zinc-950 text-white py-20 px-4 overflow-hidden border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Da formação à <span className="text-brand-yellow">liderança</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-4 text-gray-300 max-w-4xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
-            Educação que forma mulheres para liderar e transformar o setor automotivo.
-          </p>
-          <p className="text-lg md:text-xl mb-8 text-gray-400 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
-            O Instituto Mulheres V8 criou uma comunidade exclusiva no WhatsApp para mulheres que movem o mercado 
-            por meio da educação, conteúdos estratégicos e conexão entre as mulheres.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in transition-all duration-300" style={{animationDelay: '0.4s'}}>
-            <Link to="/comunidade">
-              <Button size="lg" className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
-                Fazer Parte da Comunidade
-              </Button>
-            </Link>
-            <Link to="/agenda">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300">
-                Conhecer Eventos
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Números de Impacto */}
-      <section className="py-16 px-4 bg-brand-secondary text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Nosso Impacto em Números
-            </h2>
-            <p className="text-xl text-gray-200">
-              Juntas, estamos transformando carreiras e vidas
+      {/* Hero Section com Imagem de Fundo */}
+      <section 
+        className="relative min-h-[90vh] flex items-center justify-center text-white py-16 px-4 overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroEventBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-black/70"></div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          {/* Hero Content - Quadro compacto */}
+          <div className="text-center mb-12 bg-zinc-950/80 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-zinc-800">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
+              Da formação à <span className="text-brand-yellow">liderança</span>
+            </h1>
+            <p className="text-lg md:text-xl mb-3 text-gray-300 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+              Educação que forma mulheres para liderar e transformar o setor automotivo.
             </p>
+            <p className="text-base md:text-lg mb-6 text-gray-400 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.3s'}}>
+              Comunidade exclusiva no WhatsApp para mulheres que movem o mercado automotivo.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <Link to="/comunidade">
+                <Button size="lg" className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+                  Fazer Parte da Comunidade
+                </Button>
+              </Link>
+              <Link to="/agenda">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300">
+                  Conhecer Eventos
+                </Button>
+              </Link>
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.1s'}}>
-              <div className="mb-4">
-                <Users className="w-12 h-12 mx-auto text-brand-yellow" />
-              </div>
-              <div className="text-4xl font-bold mb-2">
+
+          {/* Números de Impacto - Quadros compactos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-zinc-950/80 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.1s'}}>
+              <Users className="w-10 h-10 mx-auto text-brand-yellow mb-3" />
+              <div className="text-3xl font-bold mb-1">
                 +<AnimatedCounter end={15} duration={2000} /> mil
               </div>
-              <p className="text-gray-200">Mulheres Impactadas</p>
+              <p className="text-gray-400 text-sm">Mulheres Impactadas</p>
             </div>
-            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.2s'}}>
-              <div className="mb-4">
-                <Calendar className="w-12 h-12 mx-auto text-brand-yellow" />
-              </div>
-              <div className="text-4xl font-bold mb-2">
+            <div className="bg-zinc-950/80 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.2s'}}>
+              <Calendar className="w-10 h-10 mx-auto text-brand-yellow mb-3" />
+              <div className="text-3xl font-bold mb-1">
                 +<AnimatedCounter end={500} duration={2000} />
               </div>
-              <p className="text-gray-200">Eventos Educacionais Realizados</p>
+              <p className="text-gray-400 text-sm">Eventos Realizados</p>
             </div>
-            <div className="text-center animate-fade-in hover:scale-110 transition-all duration-300" style={{animationDelay: '0.3s'}}>
-              <div className="mb-4">
-                <MapPin className="w-12 h-12 mx-auto text-brand-yellow" />
-              </div>
-              <div className="text-4xl font-bold mb-2">
+            <div className="bg-zinc-950/80 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.3s'}}>
+              <MapPin className="w-10 h-10 mx-auto text-brand-yellow mb-3" />
+              <div className="text-3xl font-bold mb-1">
                 <AnimatedCounter end={18} duration={2000} />
               </div>
-              <p className="text-gray-200">Estados do Brasil</p>
+              <p className="text-gray-400 text-sm">Estados do Brasil</p>
             </div>
           </div>
         </div>
