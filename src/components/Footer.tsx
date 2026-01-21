@@ -27,12 +27,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold mb-4 text-brand-primary">
               Instituto Mulheres V8
             </h3>
             <p className="text-gray-300 mb-6 max-w-md">
-              Empoderando mulheres através da educação, tecnologia e desenvolvimento pessoal. 
-              Construindo um futuro mais inclusivo e diverso.
+              A potência que acelera o setor automotivo.
             </p>
             <div className="flex space-x-4 mb-6">
               <a href="https://linkedin.com/company/institutomulheresv8" className="text-gray-300 hover:text-brand-primary transition-colors">
