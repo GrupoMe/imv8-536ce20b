@@ -8,8 +8,8 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Institucional from "./pages/Institucional";
-import Beneficios from "./pages/Beneficios";
-import Formacoes from "./pages/Formacoes";
+import Cursos from "./pages/Cursos";
+import Mentorias from "./pages/Mentorias";
 import Agenda from "./pages/Agenda";
 import Comunidade from "./pages/Comunidade";
 import Galeria from "./pages/Galeria";
@@ -35,8 +35,8 @@ const App = () => (
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/institucional" element={<Institucional />} />
-                  <Route path="/beneficios" element={<Beneficios />} />
-                  <Route path="/formacoes" element={<Formacoes />} />
+                  <Route path="/cursos" element={<Cursos />} />
+                  <Route path="/mentorias" element={<Mentorias />} />
                   <Route path="/agenda" element={<Agenda />} />
                   <Route path="/comunidade" element={<Comunidade />} />
                   <Route path="/galeria" element={<Galeria />} />

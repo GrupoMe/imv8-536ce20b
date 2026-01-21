@@ -124,8 +124,8 @@ const Agenda = () => {
             Agenda de Eventos
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Participe dos nossos eventos e acelere sua carreira no setor automotivo. 
-            Workshops, palestras e masterclasses com especialistas da indústria.
+            Confira a programação mensal do Mulheres V8 com eventos, aulas, mentorias e encontros 
+            que fortalecem negócios, carreiras e identidade feminina no setor automotivo.
           </p>
         </div>
 
@@ -214,14 +214,14 @@ const Agenda = () => {
         )}
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-gradient-to-r from-brand-primary to-brand-purple rounded-xl p-8 text-white">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+        <div className="mt-16 text-center bg-brand-yellow rounded-xl p-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
             Não Perca Nenhum Evento!
           </h2>
-          <p className="text-lg sm:text-xl mb-6 text-pink-100">
+          <p className="text-lg sm:text-xl mb-6 text-gray-800">
             Cadastre-se em nossa newsletter e receba notificações sobre novos eventos.
           </p>
-          <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100">
+          <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-dark">
             Cadastrar Newsletter
           </Button>
         </div>

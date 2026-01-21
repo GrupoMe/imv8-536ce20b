@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ExternalLink, ShoppingBag, Tv } from 'lucide-react';
+import { Menu, X, ExternalLink, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -11,16 +11,15 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Institucional', href: '/institucional' },
-    { name: 'Benefícios', href: '/beneficios' },
-    { name: 'Formações', href: '/formacoes' },
+    { name: 'Cursos', href: '/cursos' },
+    { name: 'Mentorias', href: '/mentorias' },
     { name: 'Agenda', href: '/agenda' },
     { name: 'Comunidade', href: '/comunidade' },
     { name: 'Galeria', href: '/galeria' },
   ];
 
   const externalLinks = [
-    { name: 'E-commerce', href: '#ecommerce', icon: ShoppingBag },
-    { name: 'Streaming', href: '#streaming', icon: Tv },
+    { name: 'E-commerce', href: 'https://mulheresv8.lojavirtualnuvem.com.br/password/', icon: ShoppingBag },
   ];
 
   const isActivePath = (path: string) => {

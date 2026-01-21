@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Linkedin, Instagram, Clock, ExternalLink, ShoppingBag, Tv } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, ExternalLink, ShoppingBag } from 'lucide-react';
 
 const Footer = () => {
   const location = useLocation();
@@ -46,23 +46,13 @@ const Footer = () => {
             {/* External Links */}
             <div className="flex flex-wrap gap-4">
               <a 
-                href="#ecommerce" 
+                href="https://mulheresv8.lojavirtualnuvem.com.br/password/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors text-sm"
               >
                 <ShoppingBag size={16} />
                 E-commerce
-                <ExternalLink size={12} />
-              </a>
-              <a 
-                href="#streaming" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors text-sm"
-              >
-                <Tv size={16} />
-                Streaming
                 <ExternalLink size={12} />
               </a>
             </div>
@@ -74,8 +64,8 @@ const Footer = () => {
             <div className="space-y-2">
               <Link to="/" className="block text-gray-300 hover:text-brand-primary transition-colors">Home</Link>
               <Link to="/institucional" className="block text-gray-300 hover:text-brand-primary transition-colors">Institucional</Link>
-              <Link to="/beneficios" className="block text-gray-300 hover:text-brand-primary transition-colors">Benefícios</Link>
-              <Link to="/formacoes" className="block text-gray-300 hover:text-brand-primary transition-colors">Formações</Link>
+              <Link to="/cursos" className="block text-gray-300 hover:text-brand-primary transition-colors">Cursos</Link>
+              <Link to="/mentorias" className="block text-gray-300 hover:text-brand-primary transition-colors">Mentorias</Link>
               <Link to="/agenda" className="block text-gray-300 hover:text-brand-primary transition-colors">Agenda</Link>
               <Link to="/comunidade" className="block text-gray-300 hover:text-brand-primary transition-colors">Comunidade</Link>
               <Link to="/galeria" className="block text-gray-300 hover:text-brand-primary transition-colors">Galeria</Link>
@@ -97,10 +87,6 @@ const Footer = () => {
               <div className="flex items-center">
                 <MapPin size={18} className="mr-3 text-gray-300" />
                 <span className="text-gray-300">Av. Ipiranga 7454, sala 415<br />Jardim Botânico, Porto Alegre - RS</span>
-              </div>
-              <div className="flex items-center">
-                <Clock size={18} className="mr-3 text-gray-300" />
-                <span className="text-gray-300">10h às 18h (Seg-Sex)</span>
               </div>
             </div>
           </div>

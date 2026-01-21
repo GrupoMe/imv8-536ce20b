@@ -1,33 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Users, Target, Heart, Star, Calendar, MessageCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { Users, Target, Heart, Star, Calendar, MessageCircle, ArrowRight, Sparkles, CheckCircle, Shield, Bell, Handshake } from 'lucide-react';
 import AnimatedCounter from '@/components/AnimatedCounter';
 
 const Comunidade = () => {
-  const benefits = [
-    {
-      icon: <Users className="w-8 h-8 text-brand-primary" />,
-      title: "Networking Estratégico",
-      description: "Conecte-se com mulheres inspiradoras de diversas áreas e níveis profissionais."
-    },
-    {
-      icon: <MessageCircle className="w-8 h-8 text-brand-primary" />,
-      title: "Mentorias Personalizadas",
-      description: "Receba orientação de líderes experientes para acelerar seu crescimento."
-    },
-    {
-      icon: <Calendar className="w-8 h-8 text-brand-primary" />,
-      title: "Eventos Exclusivos",
-      description: "Participe de workshops, palestras e encontros focados no seu desenvolvimento."
-    },
-    {
-      icon: <Sparkles className="w-8 h-8 text-brand-primary" />,
-      title: "Conteúdo Premium",
-      description: "Acesse materiais exclusivos, cursos e recursos para turbinar sua carreira."
-    }
+  const paraQuemE = [
+    "Atuam ou desejam atuar no setor automotivo",
+    "São donas, gestoras ou líderes de negócios",
+    "Buscam crescimento profissional com propósito",
+    "Querem trocar experiências com outras mulheres",
+    "Valorizam desenvolvimento técnico, estratégico e humano"
+  ];
+
+  const oQueAcontece = [
+    { icon: Sparkles, text: "Conteúdos exclusivos e direcionados" },
+    { icon: Bell, text: "Avisos antecipados sobre eventos, aulas e treinamentos" },
+    { icon: MessageCircle, text: "Trocas reais sobre gestão, rotina, desafios e decisões" },
+    { icon: Handshake, text: "Indicações, oportunidades e networking qualificado" },
+    { icon: Shield, text: "Espaço seguro, respeitoso e sem julgamentos" },
+    { icon: Users, text: "Presença e direcionamento da equipe Mulheres V8" }
   ];
 
   const testimonials = [
@@ -62,7 +55,8 @@ const Comunidade = () => {
             que <span className="text-brand-yellow">Acelera</span> Carreiras
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
-            Conecte-se com mulheres que pensam grande, compartilhe experiências e cresça junto com quem entende sua jornada.
+            Um espaço exclusivo no WhatsApp para mulheres que desejam crescer juntas, 
+            trocar experiências reais e evoluir com direção no setor automotivo.
           </p>
           <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
             Fazer Parte da Comunidade
@@ -83,14 +77,14 @@ const Comunidade = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-primary animate-fade-in" style={{animationDelay: '0.1s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
                   <Users className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
-                  <AnimatedCounter end={2500} duration={2000} />+
+                  +<AnimatedCounter end={15} duration={2000} /> mil
                 </div>
                 <p className="text-gray-600">Mulheres Conectadas</p>
               </CardContent>
@@ -99,64 +93,49 @@ const Comunidade = () => {
             <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-secondary animate-fade-in" style={{animationDelay: '0.2s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
-                  <Target className="w-12 h-12 text-brand-yellow" />
-                </div>
-                <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
-                  <AnimatedCounter end={89} duration={2000} />%
-                </div>
-                <p className="text-gray-600">Alcançaram Objetivos</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-accent animate-fade-in" style={{animationDelay: '0.3s'}}>
-              <CardContent className="p-0">
-                <div className="mb-4 flex justify-center">
                   <Calendar className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
-                  <AnimatedCounter end={150} duration={2000} />+
+                  +<AnimatedCounter end={500} duration={2000} />
                 </div>
                 <p className="text-gray-600">Eventos Realizados</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-yellow animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <Card className="text-center p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-t-4 border-brand-yellow animate-fade-in" style={{animationDelay: '0.3s'}}>
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
-                  <Heart className="w-12 h-12 text-brand-yellow" />
+                  <Target className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-brand-primary mb-2 hover:scale-110 transition-transform duration-300">
-                  <AnimatedCounter end={98} duration={2000} />%
+                  <AnimatedCounter end={18} duration={2000} />
                 </div>
-                <p className="text-gray-600">Satisfação</p>
+                <p className="text-gray-600">Estados do Brasil</p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Sobre a Comunidade */}
+      {/* O que é a Comunidade */}
       <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
-                Mais que uma Rede de Contatos
+                O que é a Comunidade Mulheres V8?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Nossa comunidade é um ecossistema de crescimento onde mulheres ambiciosas se conectam, 
-                colaboram e se inspiram mutuamente para alcançar objetivos extraordinários.
+                A Comunidade Mulheres V8 é um ambiente fechado e intencional, criado para mulheres que 
+                querem mais do que conteúdo solto nas redes sociais.
               </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Aqui, você encontra não apenas oportunidades profissionais, mas também um ambiente 
-                de apoio genuíno, onde cada conquista é celebrada e cada desafio é enfrentado em conjunto.
+              <p className="text-lg text-gray-600 mb-6">
+                É onde o aprendizado continua, as conexões se fortalecem e as decisões deixam de ser solitárias.
               </p>
-              <Link to="/institucional">
-                <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
-                  Conhecer Mais Sobre Nós
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
+              <p className="text-lg text-gray-600">
+                Aqui, mulheres que empreendem, lideram ou desejam evoluir profissionalmente compartilham 
+                desafios reais, aprendizados práticos e oportunidades de crescimento.
+              </p>
             </div>
             <div className="relative animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <img 
@@ -165,40 +144,57 @@ const Comunidade = () => {
                 className="w-full rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500"
               />
               <div className="absolute -bottom-4 -right-4 bg-brand-yellow text-brand-accent p-4 rounded-lg">
-                <Sparkles className="w-8 h-8" />
+                <MessageCircle className="w-8 h-8" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefícios */}
+      {/* Para quem é */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-              O que Você Ganha Fazendo Parte
+              Para Quem é essa Comunidade?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Cada benefício foi pensado para acelerar seu crescimento profissional e pessoal
+              Mulheres que...
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {benefits.map((benefit, index) => (
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-4">
+              {paraQuemE.map((item, index) => (
+                <div key={index} className="flex items-center gap-4 p-4 bg-brand-light rounded-lg animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                  <CheckCircle className="w-6 h-6 text-brand-primary flex-shrink-0" />
+                  <span className="text-lg text-gray-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* O que acontece dentro */}
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+              O que Acontece Dentro da Comunidade?
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {oQueAcontece.map((item, index) => (
               <Card key={index} className="p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="p-0">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 p-3 bg-brand-light rounded-lg hover:scale-110 transition-transform duration-300">
-                      {benefit.icon}
+                      <item.icon className="w-6 h-6 text-brand-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-3 text-brand-primary">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-gray-600">
-                        {benefit.description}
-                      </p>
+                      <p className="text-gray-700 font-medium">{item.text}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -209,7 +205,7 @@ const Comunidade = () => {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -254,19 +250,19 @@ const Comunidade = () => {
       <section className="py-20 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronta para Acelerar sua Carreira?
+            Pronta para Evoluir com Clareza, Apoio e Conexão?
           </h2>
           <p className="text-xl mb-8 text-gray-100">
-            Junte-se a milhares de mulheres que estão transformando suas vidas profissionais.
+            Se você sente que é hora de evoluir com mais clareza, apoio e conexão, essa comunidade é para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
-              Fazer Parte Agora
+              Entrar na Comunidade WhatsApp
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Link to="/beneficios">
+            <Link to="/cursos">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-primary hover:scale-105 transition-all duration-300">
-                Conhecer Benefícios
+                Conhecer Cursos
               </Button>
             </Link>
           </div>
