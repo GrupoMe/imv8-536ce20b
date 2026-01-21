@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Users, Filter, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -93,18 +92,18 @@ const Agenda = () => {
 
   const getEventTypeColor = (type: string) => {
     const colors = {
-      workshop: 'bg-blue-100 text-blue-800',
-      palestra: 'bg-green-100 text-green-800',
-      masterclass: 'bg-purple-100 text-purple-800',
-      webinar: 'bg-orange-100 text-orange-800'
+      workshop: 'bg-blue-500/20 text-blue-400',
+      palestra: 'bg-green-500/20 text-green-400',
+      masterclass: 'bg-purple-500/20 text-purple-400',
+      webinar: 'bg-orange-500/20 text-orange-400'
     };
-    return colors[type as keyof typeof colors] || 'bg-gray-100 text-gray-800';
+    return colors[type as keyof typeof colors] || 'bg-gray-500/20 text-gray-400';
   };
 
   const getStatusColor = (status: string) => {
     return status === 'lotado' 
-      ? 'bg-red-100 text-red-800' 
-      : 'bg-green-100 text-green-800';
+      ? 'bg-red-500/20 text-red-400' 
+      : 'bg-green-500/20 text-green-400';
   };
 
   const getStatusText = (status: string) => {
@@ -116,14 +115,14 @@ const Agenda = () => {
     : events.filter(event => event.type === selectedFilter);
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-zinc-950 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary mb-4">
+        <div className="text-center mb-8 sm:mb-12 pt-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Agenda de Eventos
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
             Confira a programação mensal do Mulheres V8 com eventos, aulas, mentorias e encontros 
             que fortalecem negócios, carreiras e identidade feminina no setor automotivo.
           </p>
@@ -133,7 +132,7 @@ const Agenda = () => {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <Filter className="w-5 h-5 text-brand-primary" />
-            <span className="text-sm font-medium text-gray-700">Filtrar por tipo:</span>
+            <span className="text-sm font-medium text-gray-400">Filtrar por tipo:</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {eventTypes.map((type) => (
@@ -142,7 +141,7 @@ const Agenda = () => {
                 variant={selectedFilter === type.key ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedFilter(type.key)}
-                className="text-xs sm:text-sm"
+                className={`text-xs sm:text-sm ${selectedFilter === type.key ? 'bg-brand-primary' : 'border-zinc-700 text-gray-300 hover:bg-zinc-800'}`}
               >
                 {type.label}
               </Button>
@@ -153,7 +152,7 @@ const Agenda = () => {
         {/* Events Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {filteredEvents.map((event) => (
-            <Card key={event.id} className="hover:shadow-lg transition-shadow duration-300">
+            <Card key={event.id} className="hover:border-brand-primary transition-all duration-300">
               <CardHeader className="pb-3">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
                   <Badge className={getEventTypeColor(event.type)}>
@@ -163,29 +162,29 @@ const Agenda = () => {
                     {getStatusText(event.status)}
                   </Badge>
                 </div>
-                <CardTitle className="text-lg sm:text-xl leading-tight">
+                <CardTitle className="text-lg sm:text-xl leading-tight text-white">
                   {event.title}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <p className="text-gray-600 text-sm sm:text-base">
+                <p className="text-gray-400 text-sm sm:text-base">
                   {event.description}
                 </p>
                 
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Calendar className="w-4 h-4 text-brand-primary flex-shrink-0" />
                     <span>{event.date}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Clock className="w-4 h-4 text-brand-primary flex-shrink-0" />
                     <span>{event.time}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
                     <MapPin className="w-4 h-4 text-brand-primary flex-shrink-0" />
                     <span>{event.location}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Users className="w-4 h-4 text-brand-primary flex-shrink-0" />
                     <span>{event.participants}/{event.maxParticipants} participantes</span>
                   </div>
@@ -193,7 +192,7 @@ const Agenda = () => {
 
                 <div className="pt-3">
                   <Button 
-                    className="w-full sm:w-auto"
+                    className={`w-full sm:w-auto ${event.status === 'lotado' ? 'bg-zinc-700' : 'bg-brand-primary hover:bg-brand-dark'}`}
                     disabled={event.status === 'lotado'}
                   >
                     {event.status === 'lotado' ? 'Evento Lotado' : 'Inscrever-se'}
@@ -215,10 +214,10 @@ const Agenda = () => {
 
         {/* CTA Section */}
         <div className="mt-16 text-center bg-brand-yellow rounded-xl p-8">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-zinc-900">
             Não Perca Nenhum Evento!
           </h2>
-          <p className="text-lg sm:text-xl mb-6 text-gray-800">
+          <p className="text-lg sm:text-xl mb-6 text-zinc-700">
             Cadastre-se em nossa newsletter e receba notificações sobre novos eventos.
           </p>
           <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-dark">

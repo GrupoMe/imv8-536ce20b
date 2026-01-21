@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -58,7 +57,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-primary flex items-center justify-center px-4">
+    <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <img 
@@ -69,17 +68,17 @@ const Login = () => {
           <h1 className="text-3xl font-bold text-white mb-2">
             Bem-vinda de volta!
           </h1>
-          <p className="text-gray-100">
+          <p className="text-gray-400">
             Acesse sua conta e continue acelerando sua carreira.
           </p>
-          <div className="mt-4 p-4 bg-white/10 rounded-lg">
-            <p className="text-sm text-white/90 mb-2">Dados para teste:</p>
-            <p className="text-xs text-white/80">Email: admin@mulheresv8.com</p>
-            <p className="text-xs text-white/80">Senha: admin123</p>
+          <div className="mt-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+            <p className="text-sm text-gray-300 mb-2">Dados para teste:</p>
+            <p className="text-xs text-gray-500">Email: admin@mulheresv8.com</p>
+            <p className="text-xs text-gray-500">Senha: admin123</p>
           </div>
         </div>
 
-        <Card className="shadow-2xl border-0">
+        <Card className="border-zinc-800">
           <CardHeader className="text-center pb-4">
             <CardTitle className="text-2xl text-brand-primary">
               Fazer Login
@@ -88,40 +87,40 @@ const Login = () => {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   E-mail
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
                   <Input
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="seu@email.com"
-                    className="pl-10"
+                    className="pl-10 bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Senha
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
                   <Input
                     type={showPassword ? "text" : "password"}
                     value={formData.password}
                     onChange={(e) => handleInputChange('password', e.target.value)}
                     placeholder="Sua senha"
-                    className="pl-10 pr-10"
+                    className="pl-10 pr-10 bg-zinc-800 border-zinc-700 text-white placeholder:text-gray-500"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-300"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
