@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-accent text-white py-20 px-4 overflow-hidden">
+      <section className="bg-brand-primary text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Da formação à <span className="text-brand-yellow">liderança</span>
@@ -61,7 +61,7 @@ const Home = () => {
       </section>
 
       {/* Números de Impacto */}
-      <section className="py-16 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
+      <section className="py-16 px-4 bg-brand-secondary text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -133,7 +133,7 @@ const Home = () => {
       </section>
 
       {/* Próximo Evento */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light relative">
+      <section className="py-16 px-4 bg-brand-light relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -146,7 +146,7 @@ const Home = () => {
           
           <Card className="max-w-4xl mx-auto overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: '0.2s'}}>
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="bg-gradient-to-br from-brand-primary to-brand-secondary p-8 text-white">
+              <div className="bg-brand-primary p-8 text-white">
                 <Badge className="bg-brand-yellow text-brand-accent mb-4">
                   Destaque
                 </Badge>
@@ -170,7 +170,7 @@ const Home = () => {
                   alt="Workshop Liderança"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/10"></div>
               </div>
             </div>
           </Card>
@@ -213,7 +213,7 @@ const Home = () => {
       </section>
 
       {/* Bio Eva */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in">
@@ -277,7 +277,7 @@ const Home = () => {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">

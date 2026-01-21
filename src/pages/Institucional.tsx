@@ -77,7 +77,7 @@ const Institucional = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-purple to-brand-secondary py-20 px-4">
+      <section className="relative bg-brand-primary py-20 px-4">
         <div className="max-w-7xl mx-auto text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Quem Somos
@@ -131,7 +131,7 @@ const Institucional = () => {
       </section>
 
       {/* Bio da Eva */}
-      <section className="py-16 px-4 bg-gradient-to-b from-pink-50 to-white">
+      <section className="py-16 px-4 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
@@ -190,7 +190,7 @@ const Institucional = () => {
       </section>
 
       {/* Como Fazemos */}
-      <section className="py-16 px-4 bg-gradient-to-b from-pink-50 to-white">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -218,7 +218,7 @@ const Institucional = () => {
       </section>
 
       {/* Nossos Valores */}
-      <section className="py-16 px-4 bg-gradient-to-br from-brand-primary to-brand-purple">
+      <section className="py-16 px-4 bg-brand-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

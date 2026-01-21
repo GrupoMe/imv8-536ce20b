@@ -93,7 +93,7 @@ const Beneficios = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-purple to-brand-secondary py-20 px-4">
+      <section className="relative bg-brand-primary py-20 px-4">
         <div className="max-w-7xl mx-auto text-center text-white">
           <Badge className="bg-white/20 text-white mb-4">Programa de Benefícios</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -129,7 +129,7 @@ const Beneficios = () => {
               </p>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-brand-light to-pink-100 rounded-2xl p-8">
+              <div className="bg-brand-light rounded-2xl p-8">
                 <Crown className="w-16 h-16 text-brand-primary mb-6" />
                 <h3 className="text-2xl font-bold text-brand-primary mb-4">
                   Por que ser membro?
@@ -159,7 +159,7 @@ const Beneficios = () => {
       </section>
 
       {/* Benefícios */}
-      <section className="py-16 px-4 bg-gradient-to-b from-pink-50 to-white">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -245,7 +245,7 @@ const Beneficios = () => {
       </section>
 
       {/* FAQ ou CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-brand-primary to-brand-purple text-white">
+      <section className="py-16 px-4 bg-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ainda tem dúvidas?

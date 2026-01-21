@@ -93,15 +93,15 @@
 }
 
 @layer components {
-  .hero-gradient {
-    background: linear-gradient(135deg, #FF0068 0%, #ff4d8f 50%, #FF0068 100%);
+  .hero-solid {
+    background: #FF0068;
   }
   
-  .section-gradient {
-    background: linear-gradient(180deg, #fff0f6 0%, #ffe9f3 100%);
+  .section-solid {
+    background: #fff0f6;
   }
 
-  .v8-gradient {
-    background: linear-gradient(135deg, #5E17EB 0%, #FF0068 50%, #FFC907 100%);
+  .v8-solid {
+    background: #5E17EB;
   }
 }
