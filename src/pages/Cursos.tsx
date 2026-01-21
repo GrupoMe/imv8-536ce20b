@@ -5,13 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
-const Formacoes = () => {
+const Cursos = () => {
   const [selectedCategory, setSelectedCategory] = useState('todos');
 
   const categories = [
-    { key: 'todos', label: 'Todas' },
+    { key: 'todos', label: 'Todos' },
     { key: 'curso', label: 'Cursos' },
-    { key: 'mentoria', label: 'Mentorias' },
     { key: 'programa', label: 'Programas' }
   ];
 
@@ -30,15 +29,15 @@ const Formacoes = () => {
     },
     {
       id: 2,
-      title: "Mentoria Individual com Eva Paiva",
-      category: "mentoria",
-      duration: "3 meses",
-      participants: 25,
-      rating: 5.0,
-      price: "R$ 2.997",
-      description: "Mentoria personalizada com a fundadora do Instituto para acelerar sua carreira e definir estratégias de crescimento.",
-      modules: ["Diagnóstico de Carreira", "Plano de Desenvolvimento", "Acompanhamento Semanal", "Networking Exclusivo"],
-      checkoutLink: "#checkout-formacoes"
+      title: "Curso de Negociação para Mulheres",
+      category: "curso",
+      duration: "4 semanas",
+      participants: 200,
+      rating: 4.7,
+      price: "R$ 497",
+      description: "Aprenda técnicas de negociação e como se posicionar com confiança em conversas de carreira e salário.",
+      modules: ["Preparação para Negociação", "Técnicas Avançadas", "Linguagem Corporal", "Casos Práticos"],
+      checkoutLink: "#checkout-cursos"
     },
     {
       id: 3,
@@ -50,34 +49,22 @@ const Formacoes = () => {
       price: "R$ 4.997",
       description: "Programa completo de formação de líderes com módulos práticos, mentoria em grupo e projeto final.",
       modules: ["Autoconhecimento", "Liderança Situacional", "Gestão de Conflitos", "Projeto Aplicado"],
-      checkoutLink: "#checkout-formacoes"
+      checkoutLink: "#checkout-cursos"
     },
     {
       id: 4,
-      title: "Curso de Negociação para Mulheres",
+      title: "Gestão Financeira para Mulheres Empreendedoras",
       category: "curso",
-      duration: "4 semanas",
-      participants: 200,
-      rating: 4.7,
-      price: "R$ 497",
-      description: "Aprenda técnicas de negociação e como se posicionar com confiança em conversas de carreira e salário.",
-      modules: ["Preparação para Negociação", "Técnicas Avançadas", "Linguagem Corporal", "Casos Práticos"],
-      checkoutLink: "#checkout-formacoes"
+      duration: "6 semanas",
+      participants: 120,
+      rating: 4.9,
+      price: "R$ 697",
+      description: "Domine as finanças do seu negócio com técnicas práticas de organização financeira e contabilidade.",
+      modules: ["Fluxo de Caixa", "Precificação", "Investimentos", "Planejamento Tributário"],
+      checkoutLink: "#checkout-cursos"
     },
     {
       id: 5,
-      title: "Mentoria em Grupo - Carreira Internacional",
-      category: "mentoria",
-      duration: "2 meses",
-      participants: 15,
-      rating: 4.9,
-      price: "R$ 1.497",
-      description: "Mentoria em grupo focada em preparar você para oportunidades de carreira internacional no setor automotivo.",
-      modules: ["Preparação de CV Internacional", "Entrevistas em Inglês", "Cultura Corporativa Global", "Networking Internacional"],
-      checkoutLink: "#checkout-formacoes"
-    },
-    {
-      id: 6,
       title: "Programa de Aceleração de Carreira",
       category: "programa",
       duration: "4 meses",
@@ -86,7 +73,19 @@ const Formacoes = () => {
       price: "R$ 3.497",
       description: "Programa intensivo para profissionais que desejam dar um salto na carreira em curto prazo.",
       modules: ["Análise de Perfil", "Estratégia de Carreira", "Personal Branding", "Execução do Plano"],
-      checkoutLink: "#checkout-formacoes"
+      checkoutLink: "#checkout-cursos"
+    },
+    {
+      id: 6,
+      title: "Marketing Digital para o Setor Automotivo",
+      category: "curso",
+      duration: "5 semanas",
+      participants: 80,
+      rating: 4.7,
+      price: "R$ 597",
+      description: "Aprenda estratégias de marketing digital específicas para empresas do setor automotivo.",
+      modules: ["Redes Sociais", "Google Ads", "Conteúdo Estratégico", "Métricas e Análise"],
+      checkoutLink: "#checkout-cursos"
     }
   ];
 
@@ -117,7 +116,6 @@ const Formacoes = () => {
   const getCategoryColor = (category: string) => {
     const colors = {
       curso: 'bg-blue-100 text-blue-800',
-      mentoria: 'bg-purple-100 text-purple-800',
       programa: 'bg-green-100 text-green-800'
     };
     return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800';
@@ -132,13 +130,13 @@ const Formacoes = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand-primary via-brand-purple to-brand-secondary py-20 px-4">
         <div className="max-w-7xl mx-auto text-center text-white">
-          <Badge className="bg-white/20 text-white mb-4">Formações & Desenvolvimento</Badge>
+          <Badge className="bg-white/20 text-white mb-4">Cursos & Programas</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Invista no seu <br />Desenvolvimento Profissional
           </h1>
           <p className="text-xl md:text-2xl text-pink-100 max-w-3xl mx-auto">
-            Cursos, mentorias e programas de formação criados por especialistas 
-            para acelerar sua carreira.
+            Cursos e programas de formação criados por especialistas 
+            para acelerar sua carreira no setor automotivo.
           </p>
         </div>
       </section>
@@ -291,10 +289,10 @@ const Formacoes = () => {
             Pronta para dar o próximo passo?
           </h2>
           <p className="text-xl text-pink-100 mb-8">
-            Escolha a formação ideal para você e comece sua transformação hoje mesmo.
+            Escolha o curso ideal para você e comece sua transformação hoje mesmo.
           </p>
-          <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100">
-            Ver Todas as Formações
+          <Button size="lg" className="bg-brand-yellow text-brand-accent hover:bg-yellow-400 font-bold">
+            Ver Todos os Cursos
           </Button>
         </div>
       </section>
@@ -302,4 +300,4 @@ const Formacoes = () => {
   );
 };
 
-export default Formacoes;
+export default Cursos;
