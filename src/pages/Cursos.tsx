@@ -128,7 +128,7 @@ const Cursos = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-primary via-brand-purple to-brand-secondary py-20 px-4">
+      <section className="relative bg-brand-primary py-20 px-4">
         <div className="max-w-7xl mx-auto text-center text-white">
           <Badge className="bg-white/20 text-white mb-4">Cursos & Programas</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -261,7 +261,7 @@ const Cursos = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-gradient-to-br from-pink-50 to-white">
+              <Card key={index} className="bg-brand-light">
                 <CardContent className="p-6">
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -282,7 +282,7 @@ const Cursos = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-brand-primary to-brand-purple text-white">
+      <section className="py-16 px-4 bg-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center">
           <GraduationCap className="w-16 h-16 mx-auto mb-6 text-pink-200" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

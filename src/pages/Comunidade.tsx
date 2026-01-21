@@ -47,7 +47,7 @@ const Comunidade = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-secondary via-brand-primary to-brand-accent text-white py-20 px-4 overflow-hidden">
+      <section className="bg-brand-primary text-white py-20 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Uma <span className="text-brand-yellow">Comunidade</span>
@@ -118,7 +118,7 @@ const Comunidade = () => {
       </section>
 
       {/* O que é a Comunidade */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -177,7 +177,7 @@ const Comunidade = () => {
       </section>
 
       {/* O que acontece dentro */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
@@ -247,7 +247,7 @@ const Comunidade = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white">
+      <section className="py-20 px-4 bg-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Pronta para Evoluir com Clareza, Apoio e Conexão?

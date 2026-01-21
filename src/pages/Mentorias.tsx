@@ -50,7 +50,7 @@ const Mentorias = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-secondary via-brand-primary to-brand-accent py-20 px-4">
+      <section className="relative bg-brand-primary py-20 px-4">
         <div className="max-w-7xl mx-auto text-center text-white">
           <Badge className="bg-white/20 text-white mb-4">Mentorias & Acompanhamento</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -165,7 +165,7 @@ const Mentorias = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-brand-secondary to-brand-primary text-white">
+      <section className="py-16 px-4 bg-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center">
           <MessageCircle className="w-16 h-16 mx-auto mb-6 text-pink-200" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
