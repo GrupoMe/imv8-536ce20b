@@ -147,7 +147,7 @@ const Home = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Pilares de Formação</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Pilares de Formação</h2>
             <p className="text-xl text-primary-700 max-w-3xl mx-auto">
               Uma formação completa, construída sobre pilares que sustentam mulheres no setor automotivo.
             </p>
@@ -177,7 +177,7 @@ const Home = () => {
       <section className="py-16 px-4 bg-primary-100 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Próximo Evento</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Próximo Evento</h2>
             <p className="text-xl text-primary-700">Não perca nossa próxima oportunidade de crescimento</p>
           </div>
 
@@ -219,7 +219,7 @@ const Home = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Marcas que Aceleram com a Gente</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Marcas que Aceleram com a Gente</h2>
             <p className="text-xl text-primary-700">Parceiros que acreditam no potencial feminino no setor automotivo</p>
           </div>
 

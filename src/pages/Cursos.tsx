@@ -252,7 +252,7 @@ const Cursos = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              O que nossas alunas dizem
+              O que Nossas Alunas Dizem
             </h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto">
               Histórias reais de mulheres que transformaram suas carreiras.
