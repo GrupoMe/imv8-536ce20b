@@ -130,8 +130,7 @@ const Home = () => {
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Pilares de Formação</h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Nossa metodologia integra quatro pilares fundamentais para o desenvolvimento completo da mulher no setor
-              automotivo.
+              Uma formação completa, construída sobre pilares que sustentam mulheres no setor automotivo.
             </p>
           </div>
 
