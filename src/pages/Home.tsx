@@ -158,26 +158,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Marcas Parceiras */}
-      <section className="py-16 px-4 bg-zinc-950">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Marcas que Aceleram com a Gente</h2>
-            <p className="text-xl text-gray-400">Parceiros que acreditam no potencial feminino no setor automotivo</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div
-                key={i}
-                className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors"
-              >
-                Logo {i}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* Próximo Evento */}
       <section className="py-16 px-4 bg-zinc-900 relative">
         <div className="max-w-7xl mx-auto">
@@ -219,79 +199,23 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Vídeo de Boas-vindas da Eva */}
+      {/* Marcas Parceiras */}
       <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Mensagem da Nossa Fundadora</h2>
-              <p className="text-lg text-gray-400 mb-6">
-                Conheça Eva Paiva e sua jornada inspiradora de transformação pessoal e profissional. Descubra como o
-                Instituto Mulheres V8 nasceu do desejo de empoderar e conectar mulheres.
-              </p>
-              <Button className="bg-brand-primary hover:bg-brand-dark text-white font-medium hover:scale-105 transition-all duration-300">
-                <Play className="w-4 h-4 mr-2" />
-                Assistir Vídeo Completo
-              </Button>
-            </div>
-            <div
-              className="relative group animate-fade-in transition-all duration-300"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <div className="bg-zinc-900 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <img
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=400&fit=crop"
-                  alt="Eva Paiva - Fundadora"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Button
-                    size="lg"
-                    className="bg-white/20 hover:bg-white/30 text-white border-2 border-white hover:scale-110 transition-all duration-300"
-                  >
-                    <Play className="w-8 h-8" />
-                  </Button>
-                </div>
-              </div>
-            </div>
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Marcas que Aceleram com a Gente</h2>
+            <p className="text-xl text-gray-400">Parceiros que acreditam no potencial feminino no setor automotivo</p>
           </div>
-        </div>
-      </section>
 
-      {/* Bio Eva */}
-      <section className="py-16 px-4 bg-zinc-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative animate-fade-in">
-              <img
-                src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
-                alt="Eva Paiva"
-                className="w-full rounded-xl hover:scale-105 transition-all duration-500"
-              />
-              <div className="absolute -bottom-4 -right-4 bg-brand-primary text-white p-4 rounded-xl">
-                <Star className="w-8 h-8" />
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div
+                key={i}
+                className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors"
+              >
+                Logo {i}
               </div>
-            </div>
-            <div className="animate-fade-in transition-all duration-300" style={{ animationDelay: "0.2s" }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Eva Paiva</h2>
-              <h3 className="text-xl text-brand-yellow mb-4 font-semibold">Fundadora & CEO do Instituto Mulheres V8</h3>
-              <p className="text-gray-400 mb-4">
-                Eva Paiva é fundadora do Instituto Mulheres V8, palestrante e mentora especializada no desenvolvimento
-                de mulheres líderes e empreendedoras. Filha de mecânico, construiu sua trajetória profissional
-                conectando a vivência prática do setor automotivo à formação acadêmica e à visão estratégica de
-                negócios.
-              </p>
-              <p className="text-gray-400 mb-6">
-                Formada em Contabilidade, com especializações em Finanças, Controladoria, Neurociência e Planejamento
-                Estratégico. Autora do livro "99 Cartas" e idealizadora do podcast MulherPod.
-              </p>
-              <Link to="/institucional">
-                <Button className="bg-brand-secondary hover:bg-purple-700 text-white font-medium hover:scale-105 transition-all duration-300">
-                  Conhecer Trajetória
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
