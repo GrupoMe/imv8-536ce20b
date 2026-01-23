@@ -61,7 +61,7 @@ const Home = () => {
             Educação que forma mulheres para liderar e transformar o setor automotivo.
           </p>
           <p
-            className="text-lg md:text-xl mb-8 text-gray-200 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
+            className="text-sm md:text-base mb-8 text-gray-200 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
             style={{ animationDelay: "0.3s" }}
           >
             O Instituto Mulheres V8 criou uma comunidade exclusiva no WhatsApp para mulheres que movem o mercado por
