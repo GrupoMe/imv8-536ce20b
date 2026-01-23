@@ -61,7 +61,7 @@ const Home = () => {
             Educação que forma mulheres para liderar e transformar o setor automotivo.
           </p>
           <p
-            className="text-sm md:text-base mb-8 text-gray-200 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
+            className="text-lg md:text-xl mb-8 text-gray-200 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
             style={{ animationDelay: "0.3s" }}
           >
             O Instituto Mulheres V8 criou uma comunidade exclusiva no WhatsApp para mulheres que movem o mercado por
@@ -158,6 +158,26 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Marcas Parceiras */}
+      <section className="py-16 px-4 bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Marcas que Aceleram com a Gente</h2>
+            <p className="text-xl text-gray-400">Parceiros que acreditam no potencial feminino no setor automotivo</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div
+                key={i}
+                className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors"
+              >
+                Logo {i}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Próximo Evento */}
       <section className="py-16 px-4 bg-zinc-900 relative">
         <div className="max-w-7xl mx-auto">
@@ -200,7 +220,7 @@ const Home = () => {
       </section>
 
       {/* Vídeo de Boas-vindas da Eva */}
-      {/* <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -236,10 +256,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Bio Eva */}
-      {/*<section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in">
@@ -272,27 +292,6 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Marcas Parceiras */}
-      <section className="py-16 px-4 bg-zinc-950">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Marcas que Aceleram com a Gente</h2>
-            <p className="text-xl text-gray-400">Parceiros que acreditam no potencial feminino no setor automotivo</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div
-                key={i}
-                className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors"
-              >
-                Logo {i}
-              </div>
-            ))}
           </div>
         </div>
       </section>
