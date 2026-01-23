@@ -29,13 +29,13 @@ const Navbar = () => {
   return (
     <nav className="bg-zinc-950/95 backdrop-blur-sm shadow-lg fixed w-full z-50 border-b border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-24">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
               <img 
                 src="/lovable-uploads/abec6e81-764b-405a-8047-9926aaef0f4e.png" 
                 alt="Instituto Mulheres V8"
-                className="h-10 w-auto"
+                className="h-20 w-auto"
               />
             </Link>
           </div>
