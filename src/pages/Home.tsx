@@ -61,8 +61,8 @@ const Home = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Overlay rosa */}
-        <div className="absolute inset-0 bg-primary/70"></div>
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Hero Content - Centralizado */}
         <div className="relative z-10 max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
