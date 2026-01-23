@@ -111,7 +111,7 @@ const Beneficios = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
                 O que é o Programa de Benefícios?
               </h2>
               <p className="text-gray-600 text-lg mb-4">
@@ -131,7 +131,7 @@ const Beneficios = () => {
             <div className="relative">
               <div className="bg-brand-light rounded-2xl p-8">
                 <Crown className="w-16 h-16 text-brand-primary mb-6" />
-                <h3 className="text-2xl font-bold text-brand-primary mb-4">
+                <h3 className="text-2xl font-bold text-primary mb-4">
                   Por que ser membro?
                 </h3>
                 <ul className="space-y-3">
@@ -162,7 +162,7 @@ const Beneficios = () => {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Seus Benefícios
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -177,7 +177,7 @@ const Beneficios = () => {
                   <div className="w-14 h-14 bg-brand-light rounded-xl flex items-center justify-center mb-4">
                     <benefit.icon className="w-7 h-7 text-brand-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-brand-primary mb-2">{benefit.title}</h3>
+                  <h3 className="text-xl font-bold text-primary mb-2">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
                 </CardContent>
               </Card>
@@ -190,7 +190,7 @@ const Beneficios = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Escolha seu Plano
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -212,10 +212,10 @@ const Beneficios = () => {
                   </div>
                 )}
                 <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl text-brand-primary">{plan.name}</CardTitle>
+                  <CardTitle className="text-2xl text-primary">{plan.name}</CardTitle>
                   <p className="text-gray-500">{plan.description}</p>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-brand-primary">{plan.price}</span>
+                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
                     <span className="text-gray-500">{plan.period}</span>
                   </div>
                 </CardHeader>

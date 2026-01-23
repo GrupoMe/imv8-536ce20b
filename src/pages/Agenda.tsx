@@ -119,7 +119,7 @@ const Agenda = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 pt-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
             Agenda de Eventos
           </h1>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
