@@ -35,7 +35,7 @@ const Home = () => {
     <div className="min-h-screen bg-zinc-950">
       {/* Hero Section com Imagem de Fundo */}
       <section 
-        className="relative min-h-[90vh] flex items-center justify-center text-white py-16 px-4 overflow-hidden"
+        className="relative min-h-[90vh] flex flex-col justify-between text-white py-16 px-4 overflow-hidden"
         style={{
           backgroundImage: `url(${heroEventBg})`,
           backgroundSize: 'cover',
@@ -43,10 +43,10 @@ const Home = () => {
         }}
       >
         {/* Overlay escuro */}
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
         
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Hero Content - Texto diretamente sobre a imagem */}
+        {/* Hero Content - Centralizado */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in drop-shadow-lg">
             Da formação à <span className="text-brand-yellow">liderança</span>
           </h1>
@@ -68,29 +68,31 @@ const Home = () => {
               </Button>
             </Link>
           </div>
+        </div>
 
-          {/* Números de Impacto - Quadros compactos */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-zinc-950/80 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.1s'}}>
-              <Users className="w-10 h-10 mx-auto text-brand-yellow mb-3" />
-              <div className="text-3xl font-bold mb-1">
+        {/* Números de Impacto - Posicionados na parte inferior */}
+        <div className="relative z-10 max-w-4xl mx-auto w-full mt-8">
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-zinc-950/70 backdrop-blur-sm rounded-xl p-4 border border-zinc-800/50 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.5s'}}>
+              <Users className="w-6 h-6 mx-auto text-brand-yellow mb-2" />
+              <div className="text-xl md:text-2xl font-bold">
                 +<AnimatedCounter end={15} duration={2000} /> mil
               </div>
-              <p className="text-gray-400 text-sm">Mulheres Impactadas</p>
+              <p className="text-gray-400 text-xs">Mulheres Impactadas</p>
             </div>
-            <div className="bg-zinc-950/80 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.2s'}}>
-              <Calendar className="w-10 h-10 mx-auto text-brand-yellow mb-3" />
-              <div className="text-3xl font-bold mb-1">
+            <div className="bg-zinc-950/70 backdrop-blur-sm rounded-xl p-4 border border-zinc-800/50 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.6s'}}>
+              <Calendar className="w-6 h-6 mx-auto text-brand-yellow mb-2" />
+              <div className="text-xl md:text-2xl font-bold">
                 +<AnimatedCounter end={500} duration={2000} />
               </div>
-              <p className="text-gray-400 text-sm">Eventos Realizados</p>
+              <p className="text-gray-400 text-xs">Eventos Realizados</p>
             </div>
-            <div className="bg-zinc-950/80 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.3s'}}>
-              <MapPin className="w-10 h-10 mx-auto text-brand-yellow mb-3" />
-              <div className="text-3xl font-bold mb-1">
+            <div className="bg-zinc-950/70 backdrop-blur-sm rounded-xl p-4 border border-zinc-800/50 text-center animate-fade-in hover:scale-105 transition-all duration-300" style={{animationDelay: '0.7s'}}>
+              <MapPin className="w-6 h-6 mx-auto text-brand-yellow mb-2" />
+              <div className="text-xl md:text-2xl font-bold">
                 <AnimatedCounter end={18} duration={2000} />
               </div>
-              <p className="text-gray-400 text-sm">Estados do Brasil</p>
+              <p className="text-gray-400 text-xs">Estados do Brasil</p>
             </div>
           </div>
         </div>
