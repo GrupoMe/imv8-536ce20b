@@ -45,30 +45,28 @@ const Home = () => {
         {/* Overlay escuro */}
         <div className="absolute inset-0 bg-black/70"></div>
         
-        <div className="relative z-10 max-w-6xl mx-auto">
-          {/* Hero Content - Quadro compacto */}
-          <div className="text-center mb-12 bg-zinc-950/80 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-zinc-800">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
-              Da formação à <span className="text-brand-yellow">liderança</span>
-            </h1>
-            <p className="text-lg md:text-xl mb-3 text-gray-300 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
-              Educação que forma mulheres para liderar e transformar o setor automotivo.
-            </p>
-            <p className="text-base md:text-lg mb-6 text-gray-400 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.3s'}}>
-              Comunidade exclusiva no WhatsApp para mulheres que movem o mercado automotivo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <Link to="/comunidade">
-                <Button size="lg" className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
-                  Fazer Parte da Comunidade
-                </Button>
-              </Link>
-              <Link to="/agenda">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300">
-                  Conhecer Eventos
-                </Button>
-              </Link>
-            </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          {/* Hero Content - Texto diretamente sobre a imagem */}
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in drop-shadow-lg">
+            Da formação à <span className="text-brand-yellow">liderança</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-4 text-white max-w-3xl mx-auto animate-fade-in drop-shadow-md" style={{animationDelay: '0.2s'}}>
+            Educação que forma mulheres para liderar e transformar o setor automotivo.
+          </p>
+          <p className="text-lg md:text-xl mb-8 text-gray-200 max-w-2xl mx-auto animate-fade-in drop-shadow-md" style={{animationDelay: '0.3s'}}>
+            Comunidade exclusiva no WhatsApp para mulheres que movem o mercado automotivo.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <Link to="/comunidade">
+              <Button size="lg" className="bg-brand-yellow text-zinc-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 shadow-lg">
+                Fazer Parte da Comunidade
+              </Button>
+            </Link>
+            <Link to="/agenda">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300 shadow-lg">
+                Conhecer Eventos
+              </Button>
+            </Link>
           </div>
 
           {/* Números de Impacto - Quadros compactos */}
