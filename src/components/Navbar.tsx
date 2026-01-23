@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-zinc-950/95 backdrop-blur-sm shadow-lg fixed w-full z-50 border-b border-zinc-800">
+    <nav className="bg-primary backdrop-blur-sm shadow-lg fixed w-full z-50 border-b border-primary-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24">
           <div className="flex items-center">
@@ -48,8 +48,8 @@ const Navbar = () => {
                 to={item.href}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActivePath(item.href)
-                    ? 'text-brand-primary border-b-2 border-brand-primary'
-                    : 'text-gray-300 hover:text-brand-primary'
+                    ? 'text-brand-yellow border-b-2 border-brand-yellow'
+                    : 'text-white/90 hover:text-brand-yellow'
                 }`}
               >
                 {item.name}
@@ -63,7 +63,7 @@ const Navbar = () => {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 hover:text-brand-primary transition-colors duration-200"
+                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/90 hover:text-brand-yellow transition-colors duration-200"
               >
                 <item.icon className="w-4 h-4" />
                 {item.name}
@@ -71,7 +71,7 @@ const Navbar = () => {
               </a>
             ))}
 
-            <Button asChild className="bg-brand-primary hover:bg-brand-dark ml-2">
+            <Button asChild className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 ml-2 font-semibold">
               <Link to="/login">Login</Link>
             </Button>
           </div>
@@ -91,15 +91,15 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="xl:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-zinc-950 border-t border-zinc-800 max-h-[80vh] overflow-y-auto">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-primary border-t border-primary-700 max-h-[80vh] overflow-y-auto">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
                   isActivePath(item.href)
-                    ? 'text-brand-primary bg-zinc-900'
-                    : 'text-gray-300 hover:text-brand-primary hover:bg-zinc-900'
+                    ? 'text-brand-yellow bg-primary-700'
+                    : 'text-white/90 hover:text-brand-yellow hover:bg-primary-700'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -107,14 +107,14 @@ const Navbar = () => {
               </Link>
             ))}
             
-            <div className="border-t border-zinc-800 my-2 pt-2">
+            <div className="border-t border-primary-700 my-2 pt-2">
               {externalLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-base font-medium text-gray-300 hover:text-brand-primary hover:bg-zinc-900"
+                  className="flex items-center gap-2 px-3 py-2 text-base font-medium text-white/90 hover:text-brand-yellow hover:bg-primary-700"
                   onClick={() => setIsOpen(false)}
                 >
                   <item.icon className="w-4 h-4" />
@@ -126,7 +126,7 @@ const Navbar = () => {
 
             <Link
               to="/login"
-              className="block px-3 py-2 text-base font-medium text-white bg-brand-primary hover:bg-brand-dark rounded-md mx-3 mt-4 text-center"
+              className="block px-3 py-2 text-base font-medium text-primary-900 bg-brand-yellow hover:bg-yellow-400 rounded-md mx-3 mt-4 text-center font-semibold"
               onClick={() => setIsOpen(false)}
             >
               Login
