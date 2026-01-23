@@ -3,9 +3,24 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Play, Star, Users, MapPin, ArrowRight, Wrench, Brain, TrendingUp, Sparkles } from "lucide-react";
+import { Calendar, Star, Users, MapPin, ArrowRight, Wrench, Brain, TrendingUp, Sparkles } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import heroEventBg from "@/assets/hero-event-bg.jpg";
+import mteThomson from "@/assets/partners/mte-thomson.jpg";
+import delphi from "@/assets/partners/delphi.png";
+import fortbras from "@/assets/partners/fortbras.png";
+import kolbenschmidt from "@/assets/partners/kolbenschmidt.jpg";
+import sabo from "@/assets/partners/sabo.jpg";
+import mahovi from "@/assets/partners/mahovi.jpg";
+
+const parceiros = [
+  { name: "MTE-Thomson", logo: mteThomson },
+  { name: "Delphi", logo: delphi },
+  { name: "Fortbras", logo: fortbras },
+  { name: "Kolbenschmidt", logo: kolbenschmidt },
+  { name: "Sabo", logo: sabo },
+  { name: "Mahovi", logo: mahovi },
+];
 
 const Home = () => {
   const pilares = [
@@ -209,12 +224,16 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {parceiros.map((parceiro, index) => (
               <div
-                key={i}
-                className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors"
+                key={index}
+                className="w-40 h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300"
               >
-                Logo {i}
+                <img
+                  src={parceiro.logo}
+                  alt={parceiro.name}
+                  className="max-w-full max-h-full object-contain"
+                />
               </div>
             ))}
           </div>
