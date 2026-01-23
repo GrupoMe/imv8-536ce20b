@@ -93,7 +93,9 @@ const Institucional = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Quem Somos</h1>
           <p className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto">
             O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e
-            transformar mulheres no setor automotivo e na vida.
+            transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais —
+            educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma
+            estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
           </p>
         </div>
       </section>
@@ -105,10 +107,9 @@ const Institucional = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">Nossa História</h2>
               <p className="text-gray-400 text-lg mb-4">
-                O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e
-                transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais —
-                educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma
-                estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
+                O Instituto Mulheres V8 nasceu há quatro anos a partir da visão de Eva Paiva, filha de mecânico, que, ao
+                vivenciar o setor automotivo desde cedo, passou a questionar a ausência e a realidade das mulheres nesse
+                mercado: onde estavam, como se sentiam e de que forma se capacitavam para crescer profissionalmente.
               </p>
               <p className="text-gray-400 text-lg mb-4">
                 A partir dessa inquietação, foi criado um grupo de WhatsApp com 14 mulheres, dando início a um movimento
