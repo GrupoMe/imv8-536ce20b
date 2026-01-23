@@ -89,7 +89,7 @@ const Home = () => {
             <Link to="/comunidade">
               <Button
                 size="lg"
-                className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 shadow-lg"
+                className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 shadow-lg"
               >
                 Fazer Parte da Comunidade
               </Button>
@@ -187,7 +187,7 @@ const Home = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="bg-brand-primary p-8 text-white">
-                <Badge className="bg-brand-yellow text-primary-900 mb-4">Destaque</Badge>
+                <Badge className="bg-brand-yellow text-black mb-4">Destaque</Badge>
                 <h3 className="text-2xl font-bold mb-4">Workshop: Liderança Feminina no Século XXI</h3>
                 <div className="flex items-center mb-4 text-brand-yellow">
                   <Calendar className="w-5 h-5 mr-2" />
@@ -197,7 +197,7 @@ const Home = () => {
                   Descubra estratégias práticas para desenvolver sua liderança e influenciar positivamente sua equipe e
                   organização.
                 </p>
-                <Button className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+                <Button className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
                   Garantir Minha Vaga
                 </Button>
               </div>
@@ -339,8 +339,8 @@ const Home = () => {
       {/* CTA Final */}
       <section className="py-20 px-4 bg-brand-yellow">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">Pronta para Acelerar sua Carreira?</h2>
-          <p className="text-xl text-primary-800 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Pronta para Acelerar sua Carreira?</h2>
+          <p className="text-xl text-black/80 mb-8">
             Junte-se a milhares de mulheres que estão transformando o setor automotivo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -357,7 +357,7 @@ const Home = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white hover:scale-105 transition-all duration-300"
+                className="border-black text-black hover:bg-black hover:text-white hover:scale-105 transition-all duration-300"
               >
                 Conhecer Cursos
               </Button>

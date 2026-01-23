@@ -58,7 +58,7 @@ const Comunidade = () => {
             Um espaço exclusivo no WhatsApp para mulheres que desejam crescer juntas, 
             trocar experiências reais e evoluir com direção no setor automotivo.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
+          <Button size="lg" className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 animate-fade-in" style={{animationDelay: '0.4s'}}>
             Fazer Parte da Comunidade
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
@@ -143,7 +143,7 @@ const Comunidade = () => {
                 alt="Mulheres em reunião"
                 className="w-full rounded-xl hover:scale-105 transition-all duration-500"
               />
-              <div className="absolute -bottom-4 -right-4 bg-brand-yellow text-primary-900 p-4 rounded-xl">
+              <div className="absolute -bottom-4 -right-4 bg-brand-yellow text-black p-4 rounded-xl">
                 <MessageCircle className="w-8 h-8" />
               </div>
             </div>
@@ -256,7 +256,7 @@ const Comunidade = () => {
             Se você sente que é hora de evoluir com mais clareza, apoio e conexão, essa comunidade é para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+            <Button size="lg" className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
               Entrar na Comunidade WhatsApp
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
