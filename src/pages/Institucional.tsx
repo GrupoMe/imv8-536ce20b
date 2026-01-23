@@ -105,7 +105,7 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Nossa História</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-6">Nossa História</h2>
               <p className="text-primary-700 text-lg mb-4">
                 O Instituto Mulheres V8 nasceu há quatro anos a partir da visão de Eva Paiva, filha de mecânico, que, ao
                 vivenciar o setor automotivo desde cedo, passou a questionar a ausência e a realidade das mulheres nesse
@@ -152,7 +152,7 @@ const Institucional = () => {
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Nossa Fundadora</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-6">Nossa Fundadora</h2>
               <p className="text-primary-700 text-lg mb-4">
                 Eva Paiva é fundadora do Instituto Mulheres V8, palestrante e mentora especializada no desenvolvimento
                 de mulheres líderes e empreendedoras. Filha de mecânico, construiu sua trajetória profissional
@@ -182,7 +182,7 @@ const Institucional = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">O que Fazemos</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">O que Fazemos</h2>
             <p className="text-xl text-primary-700 max-w-3xl mx-auto">
               Atuamos em 4 pilares para promover o desenvolvimento e crescimento profissional de mulheres.
             </p>
@@ -256,7 +256,7 @@ const Institucional = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-l-4 border-l-brand-primary bg-primary-50">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-4">Nossa Missão</h3>
+                <h3 className="text-2xl font-bold text-brand-secondary mb-4">Nossa Missão</h3>
                 <p className="text-primary-700 text-lg">
                   Capacitar e desenvolver mulheres para que liderem suas próprias histórias com protagonismo, visão
                   estratégica, propósito e impacto no setor automotivo e na vida.
