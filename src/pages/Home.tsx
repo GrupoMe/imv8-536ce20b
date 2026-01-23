@@ -12,22 +12,22 @@ const Home = () => {
     {
       icon: Wrench,
       title: "Técnica",
-      description: "Desenvolvimento de conhecimento técnico aplicado à realidade das oficinas e do mercado automotivo.",
+      description: "Desenvolvimento de conhecimento técnico aplicado à realidade das oficinas e do mercado automotivo, em parceria com a indústria, promovendo capacitação prática, atualização constante e domínio de sistemas, processos e tecnologias do setor.",
     },
     {
       icon: Brain,
       title: "Desenvolvimento Humano",
-      description: "Desenvolvimento de habilidades comportamentais, inteligência emocional e autoconhecimento.",
+      description: "Desenvolvimento de habilidades comportamentais, inteligência emocional e fortalecimento da identidade profissional, preparando mulheres para assumir posições com confiança, clareza e presença.",
     },
     {
       icon: TrendingUp,
       title: "Gestão de Negócios",
-      description: "Contabilidade, organização financeira, marketing estratégico e gestão empresarial.",
+      description: "Abrange tudo que é fundamental para acelerar seu negócio, desde contabilidade, organização financeira, marketing estratégico e liderança de equipes, capacitação mulheres para administrar, estrutura de negócios com visão, controle e tomada de decisão consciente.",
     },
     {
       icon: Sparkles,
       title: "Espiritual",
-      description: "Valores e propósito, equilíbrio, consciência e clareza nas tomadas de decisão.",
+      description: "Fundamentada em valores e propósito, conduzimos mulheres a compreenderem sua jornada profissional e pessoal, promovendo equilíbrio, consciência e clareza nas tomadas de decisão.",
     },
   ];
 
