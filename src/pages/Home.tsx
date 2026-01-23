@@ -12,22 +12,26 @@ const Home = () => {
     {
       icon: Wrench,
       title: "Técnica",
-      description: "Desenvolvimento de conhecimento técnico aplicado à realidade das oficinas e do mercado automotivo, em parceria com a indústria, promovendo capacitação prática, atualização constante e domínio de sistemas, processos e tecnologias do setor.",
+      description:
+        "Desenvolvimento de conhecimento técnico aplicado à realidade das oficinas e do mercado automotivo, em parceria com a indústria, promovendo capacitação prática, atualização constante e domínio de sistemas, processos e tecnologias do setor.",
     },
     {
       icon: Brain,
       title: "Desenvolvimento Humano",
-      description: "Desenvolvimento de habilidades comportamentais, inteligência emocional e fortalecimento da identidade profissional, preparando mulheres para assumir posições com confiança, clareza e presença.",
+      description:
+        "Desenvolvimento de habilidades comportamentais, inteligência emocional e fortalecimento da identidade profissional, preparando mulheres para assumir posições com confiança, clareza e presença.",
     },
     {
       icon: TrendingUp,
       title: "Gestão de Negócios",
-      description: "Abrange tudo que é fundamental para acelerar seu negócio, desde contabilidade, organização financeira, marketing estratégico e liderança de equipes, capacitação mulheres para administrar, estrutura de negócios com visão, controle e tomada de decisão consciente.",
+      description:
+        "Abrange tudo que é fundamental para acelerar seu negócio, desde contabilidade, organização financeira, marketing estratégico e liderança de equipes, capacitação mulheres para administrar, estrutura de negócios com visão, controle e tomada de decisão consciente.",
     },
     {
       icon: Sparkles,
       title: "Espiritual",
-      description: "Fundamentada em valores e propósito, conduzimos mulheres a compreenderem sua jornada profissional e pessoal, promovendo equilíbrio, consciência e clareza nas tomadas de decisão.",
+      description:
+        "Fundamentada em valores e propósito, conduzimos mulheres a compreenderem sua jornada profissional e pessoal, promovendo equilíbrio, consciência e clareza nas tomadas de decisão.",
     },
   ];
 
@@ -196,7 +200,7 @@ const Home = () => {
       </section>
 
       {/* Vídeo de Boas-vindas da Eva */}
-      <section className="py-16 px-4 bg-zinc-950">
+      {/* <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -232,10 +236,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Bio Eva */}
-      <section className="py-16 px-4 bg-zinc-900">
+      {/*<section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-fade-in">
@@ -270,7 +274,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Marcas Parceiras */}
       <section className="py-16 px-4 bg-zinc-950">
