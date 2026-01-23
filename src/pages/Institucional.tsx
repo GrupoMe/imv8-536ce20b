@@ -43,22 +43,22 @@ const Institucional = () => {
     {
       step: "01",
       title: "Diagnóstico e Consciência",
-      description: "Identificamos o ponto de partida de cada mulher e suas necessidades reais de desenvolvimento.",
+      description: "Iniciamos pela escuta ativa e análise da realidade profissional e pessoal de cada mulher, promovendo clareza sobre identidade, contexto e objetivos.",
     },
     {
       step: "02",
       title: "Capacitação Estruturada",
-      description: "Oferecemos formações práticas com foco em habilidades técnicas e de gestão.",
+      description: "Entregamos formação técnica e estratégica, aliando conhecimento prático, gestão de negócios e visão de mercado para gerar base sólida de atuação.",
     },
     {
       step: "03",
       title: "Desenvolvimento e Direcionamento",
-      description: "Acompanhamento personalizado com mentorias e trilhas de crescimento.",
+      description: "Trabalhamos mentalidade, autoliderança e tomada de decisão, integrando desenvolvimento humano e espiritualidade para fortalecer escolhas com propósito.",
     },
     {
       step: "04",
       title: "Posicionamento e Expansão",
-      description: "Apoio na construção de autoridade e visibilidade no mercado.",
+      description: "Conduzimos mulheres ao posicionamento profissional e à expansão de carreira e negócios, gerando impacto sustentável, autonomia e protagonismo no setor automotivo.",
     },
   ];
 
@@ -66,22 +66,22 @@ const Institucional = () => {
     {
       icon: Heart,
       name: "Autenticidade",
-      description: "Honramos a identidade e a história de cada mulher, valorizando sua singularidade.",
+      description: "Honramos a identidade e a história de cada mulher, promovendo um posicionamento verdadeiro, coerente e alinhado ao seu propósito.",
     },
     {
       icon: Target,
       name: "Lealdade",
-      description: "Agimos com ética, verdade e compromisso absoluto com nossas parceiras.",
+      description: "Agimos com ética, verdade e compromisso absoluto com nossa missão, relações e entregas.",
     },
     {
       icon: Zap,
       name: "Proatividade",
-      description: "Estimulamos a autoliderança, a iniciativa e a ação consciente.",
+      description: "Estimulamos a autoliderança, a iniciativa e a criação de soluções que geram impacto real e sustentável.",
     },
     {
       icon: TrendingUp,
       name: "Crescimento",
-      description: "Cultivamos a evolução contínua em todas as dimensões da vida.",
+      description: "Cultivamos a evolução contínua por meio do aprendizado, da consciência e da expansão pessoal e profissional.",
     },
   ];
 
@@ -119,48 +119,61 @@ const Institucional = () => {
               <p className="text-gray-400 text-lg">
                 Com o crescimento orgânico da iniciativa e o reconhecimento das indústrias e empresas do setor
                 automotivo, o movimento ganhou dimensão nacional, evoluindo para o{" "}
-                <strong className="text-white">Instituto Mulheres V8</strong>, uma organização focada em formar,
-                desenvolver e posicionar mulheres como protagonistas de suas histórias profissionais.
+                <strong className="text-white">Instituto Mulheres V8</strong>. Hoje, o MV8 é um ecossistema estruturado
+                de desenvolvimento feminino que integra educação técnica, gestão de negócios, desenvolvimento humano e
+                espiritualidade, mantendo sua essência de origem enquanto atua de forma estratégica para ampliar a
+                representatividade, a capacitação e o protagonismo das mulheres em toda a cadeia automotiva.
               </p>
             </div>
             <div className="relative">
               <img
                 src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
-                alt="Eva Paiva - Fundadora"
+                alt="Mulheres V8 - Nossa História"
                 className="rounded-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 bg-brand-yellow p-4 rounded-xl shadow-lg">
-                <p className="text-zinc-900 font-bold text-lg">Eva Paiva</p>
-                <p className="text-zinc-700 text-sm">Fundadora & CEO</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bio da Eva */}
+      {/* Nossa Fundadora */}
       <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">Eva Paiva</h2>
-            <p className="text-xl text-brand-yellow mb-6 font-semibold">
-              Fundadora do Instituto Mulheres V8, Palestrante e Mentora
-            </p>
-            <p className="text-gray-400 text-lg mb-4">
-              Eva Paiva é fundadora do Instituto Mulheres V8, palestrante e mentora especializada no desenvolvimento de
-              mulheres líderes e empreendedoras. Filha de mecânico, construiu sua trajetória profissional conectando a
-              vivência prática do setor automotivo à formação acadêmica e à visão estratégica de negócios.
-            </p>
-            <p className="text-gray-400 text-lg mb-4">
-              Formada em Contabilidade, com especializações em Finanças, Controladoria, Neurociência e Planejamento
-              Estratégico, Eva alia conhecimento técnico à sensibilidade humana para desenvolver mulheres que desejam
-              crescer com propósito e direção.
-            </p>
-            <p className="text-gray-400 text-lg">
-              Autora do livro <strong className="text-white">"99 Cartas"</strong> e idealizadora do podcast{" "}
-              <strong className="text-white">MulherPod</strong>, Eva é reconhecida por sua capacidade de inspirar,
-              conectar e transformar a vida de milhares de mulheres no Brasil.
-            </p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative order-2 md:order-1">
+              <img
+                src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
+                alt="Eva Paiva - Fundadora"
+                className="rounded-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-brand-yellow p-4 rounded-xl shadow-lg">
+                <p className="text-zinc-900 font-bold text-lg">Eva Paiva</p>
+                <p className="text-zinc-700 text-sm">Fundadora & CEO</p>
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">Nossa Fundadora</h2>
+              <p className="text-gray-400 text-lg mb-4">
+                Eva Paiva é fundadora do Instituto Mulheres V8, palestrante e mentora especializada no desenvolvimento
+                de mulheres líderes e empreendedoras. Filha de mecânico, construiu sua trajetória profissional
+                conectando a vivência prática do setor automotivo à formação acadêmica e à visão estratégica de
+                negócios, tornando-se uma das principais vozes na promoção do protagonismo feminino nesse mercado.
+              </p>
+              <p className="text-gray-400 text-lg mb-4">
+                Formada em Contabilidade, com especializações em Finanças, Controladoria, Neurociência e Planejamento
+                Estratégico, Eva une conhecimento técnico e sensibilidade humana para transformar trajetórias
+                profissionais de forma consistente e sustentável.
+              </p>
+              <p className="text-gray-400 text-lg mb-4">
+                É autora do livro <strong className="text-white">"99 Cartas"</strong> e idealizadora do podcast{" "}
+                <strong className="text-white">MulherPod</strong>, onde compartilha reflexões, estratégias e
+                ferramentas práticas para impulsionar mulheres na vida e nos negócios.
+              </p>
+              <p className="text-gray-400 text-lg">
+                Sua missão é conduzir mulheres a assumirem o papel de protagonistas de suas histórias, com visão
+                estratégica, autoconfiança e clareza para liderarem seus empreendimentos com propósito e consistência.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -171,8 +184,7 @@ const Institucional = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">O que Fazemos</h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Atuamos a partir de quatro pilares fundamentais, integrados de forma estratégica para promover o
-              desenvolvimento completo da mulher.
+              Atuamos em 4 pilares para promover o desenvolvimento e crescimento profissional de mulheres.
             </p>
           </div>
 
@@ -200,10 +212,6 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Como Fazemos</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Nossa metodologia é baseada em um processo estruturado que garante resultados reais para nossas
-              participantes.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -226,9 +234,6 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Nossos Valores</h2>
-            <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-              Os princípios que guiam todas as nossas ações e decisões.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
