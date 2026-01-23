@@ -122,7 +122,7 @@ const Agenda = () => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-secondary mb-4">
             Agenda de Eventos
           </h1>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-brand-secondary max-w-3xl mx-auto">
             Confira a programação mensal do Mulheres V8 com eventos, aulas, mentorias e encontros 
             que fortalecem negócios, carreiras e identidade feminina no setor automotivo.
           </p>

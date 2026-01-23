@@ -99,7 +99,7 @@ const Mentorias = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
               Nossas Mentorias
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-brand-secondary max-w-2xl mx-auto">
               Escolha a mentoria ideal para o seu momento de carreira.
             </p>
           </div>

@@ -72,7 +72,7 @@ const Comunidade = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
               Nossa Comunidade em Números
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-brand-secondary">
               Juntas, somos mais fortes e chegamos mais longe
             </p>
           </div>
@@ -158,7 +158,7 @@ const Comunidade = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
               Para Quem é essa Comunidade?
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-secondary max-w-3xl mx-auto">
               Mulheres que...
             </p>
           </div>
@@ -211,7 +211,7 @@ const Comunidade = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
               Histórias de Sucesso
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-brand-secondary">
               Veja como nossa comunidade está transformando carreiras
             </p>
           </div>

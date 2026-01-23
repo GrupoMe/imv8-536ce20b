@@ -183,7 +183,7 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">O que Fazemos</h2>
-            <p className="text-xl text-primary-700 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-secondary max-w-3xl mx-auto">
               Atuamos em 4 pilares para promover o desenvolvimento e crescimento profissional de mulheres.
             </p>
           </div>
