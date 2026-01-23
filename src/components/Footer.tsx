@@ -22,22 +22,22 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-primary-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo e Descrição */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 text-brand-primary">
+            <h3 className="text-2xl font-bold mb-4 text-brand-yellow">
               Instituto Mulheres V8
             </h3>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="text-white/80 mb-6 max-w-md">
               A potência que acelera o setor automotivo.
             </p>
             <div className="flex space-x-4 mb-6">
-              <a href="https://linkedin.com/company/institutomulheresv8" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://linkedin.com/company/institutomulheresv8" className="text-white/80 hover:text-brand-yellow transition-colors">
                 <Linkedin size={24} />
               </a>
-              <a href="https://instagram.com/institutomulheresv8" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://instagram.com/institutomulheresv8" className="text-white/80 hover:text-brand-yellow transition-colors">
                 <Instagram size={24} />
               </a>
             </div>
@@ -48,7 +48,7 @@ const Footer = () => {
                 href="https://mulheresv8.lojavirtualnuvem.com.br/password/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors text-sm"
+                className="flex items-center gap-2 text-white/80 hover:text-brand-yellow transition-colors text-sm"
               >
                 <ShoppingBag size={16} />
                 E-commerce
@@ -59,40 +59,40 @@ const Footer = () => {
 
           {/* Links Rápidos */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="text-lg font-semibold mb-4 text-brand-yellow">Links Rápidos</h4>
             <div className="space-y-2">
-              <Link to="/" className="block text-gray-300 hover:text-brand-primary transition-colors">Home</Link>
-              <Link to="/institucional" className="block text-gray-300 hover:text-brand-primary transition-colors">Institucional</Link>
-              <Link to="/cursos" className="block text-gray-300 hover:text-brand-primary transition-colors">Cursos</Link>
-              <Link to="/mentorias" className="block text-gray-300 hover:text-brand-primary transition-colors">Mentorias</Link>
-              <Link to="/agenda" className="block text-gray-300 hover:text-brand-primary transition-colors">Agenda</Link>
-              <Link to="/comunidade" className="block text-gray-300 hover:text-brand-primary transition-colors">Comunidade</Link>
-              <Link to="/galeria" className="block text-gray-300 hover:text-brand-primary transition-colors">Galeria</Link>
+              <Link to="/" className="block text-white/80 hover:text-brand-yellow transition-colors">Home</Link>
+              <Link to="/institucional" className="block text-white/80 hover:text-brand-yellow transition-colors">Institucional</Link>
+              <Link to="/cursos" className="block text-white/80 hover:text-brand-yellow transition-colors">Cursos</Link>
+              <Link to="/mentorias" className="block text-white/80 hover:text-brand-yellow transition-colors">Mentorias</Link>
+              <Link to="/agenda" className="block text-white/80 hover:text-brand-yellow transition-colors">Agenda</Link>
+              <Link to="/comunidade" className="block text-white/80 hover:text-brand-yellow transition-colors">Comunidade</Link>
+              <Link to="/galeria" className="block text-white/80 hover:text-brand-yellow transition-colors">Galeria</Link>
             </div>
           </div>
 
           {/* Contato */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
+            <h4 className="text-lg font-semibold mb-4 text-brand-yellow">Contato</h4>
             <div className="space-y-3">
               <div className="flex items-center">
-                <Phone size={18} className="mr-3 text-gray-300" />
-                <span className="text-gray-300">(51) 98157-8944</span>
+                <Phone size={18} className="mr-3 text-white/80" />
+                <span className="text-white/80">(51) 98157-8944</span>
               </div>
               <div className="flex items-center">
-                <Mail size={18} className="mr-3 text-gray-300" />
-                <span className="text-gray-300">contato@institutomulheresv8.com.br</span>
+                <Mail size={18} className="mr-3 text-white/80" />
+                <span className="text-white/80">contato@institutomulheresv8.com.br</span>
               </div>
               <div className="flex items-center">
-                <MapPin size={18} className="mr-3 text-gray-300" />
-                <span className="text-gray-300">Av. Ipiranga 7454, sala 415<br />Jardim Botânico, Porto Alegre - RS</span>
+                <MapPin size={18} className="mr-3 text-white/80" />
+                <span className="text-white/80">Av. Ipiranga 7454, sala 415<br />Jardim Botânico, Porto Alegre - RS</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-600 mt-8 pt-8 text-center">
-          <p className="text-gray-300">
+        <div className="border-t border-primary-700 mt-8 pt-8 text-center">
+          <p className="text-white/80">
             {getFooterText()}
           </p>
         </div>

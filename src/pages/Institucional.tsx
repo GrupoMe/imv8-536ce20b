@@ -86,12 +86,12 @@ const Institucional = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
-      <section className="relative bg-zinc-950 py-20 px-4 border-b border-zinc-800">
+      <section className="relative bg-primary py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Quem Somos</h1>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto">
             O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e
             transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais —
             educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma
@@ -101,25 +101,25 @@ const Institucional = () => {
       </section>
 
       {/* Nossa História */}
-      <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">Nossa História</h2>
-              <p className="text-gray-400 text-lg mb-4">
+              <p className="text-primary-700 text-lg mb-4">
                 O Instituto Mulheres V8 nasceu há quatro anos a partir da visão de Eva Paiva, filha de mecânico, que, ao
                 vivenciar o setor automotivo desde cedo, passou a questionar a ausência e a realidade das mulheres nesse
                 mercado: onde estavam, como se sentiam e de que forma se capacitavam para crescer profissionalmente.
               </p>
-              <p className="text-gray-400 text-lg mb-4">
+              <p className="text-primary-700 text-lg mb-4">
                 A partir dessa inquietação, foi criado um grupo de WhatsApp com 14 mulheres, dando início a um movimento
                 de escuta, troca e fortalecimento feminino no sul do país, inicialmente conhecido como
-                <strong className="text-white"> Gaúchas Car</strong>.
+                <strong className="text-primary-900"> Gaúchas Car</strong>.
               </p>
-              <p className="text-gray-400 text-lg">
+              <p className="text-primary-700 text-lg">
                 Com o crescimento orgânico da iniciativa e o reconhecimento das indústrias e empresas do setor
                 automotivo, o movimento ganhou dimensão nacional, evoluindo para o{" "}
-                <strong className="text-white">Instituto Mulheres V8</strong>. Hoje, o MV8 é um ecossistema estruturado
+                <strong className="text-primary-900">Instituto Mulheres V8</strong>. Hoje, o MV8 é um ecossistema estruturado
                 de desenvolvimento feminino que integra educação técnica, gestão de negócios, desenvolvimento humano e
                 espiritualidade, mantendo sua essência de origem enquanto atua de forma estratégica para ampliar a
                 representatividade, a capacitação e o protagonismo das mulheres em toda a cadeia automotiva.
@@ -137,7 +137,7 @@ const Institucional = () => {
       </section>
 
       {/* Nossa Fundadora */}
-      <section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-primary-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 md:order-1">
@@ -147,29 +147,29 @@ const Institucional = () => {
                 className="rounded-2xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-brand-yellow p-4 rounded-xl shadow-lg">
-                <p className="text-zinc-900 font-bold text-lg">Eva Paiva</p>
-                <p className="text-zinc-700 text-sm">Fundadora & CEO</p>
+                <p className="text-primary-900 font-bold text-lg">Eva Paiva</p>
+                <p className="text-primary-700 text-sm">Fundadora & CEO</p>
               </div>
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-6">Nossa Fundadora</h2>
-              <p className="text-gray-400 text-lg mb-4">
+              <p className="text-primary-700 text-lg mb-4">
                 Eva Paiva é fundadora do Instituto Mulheres V8, palestrante e mentora especializada no desenvolvimento
                 de mulheres líderes e empreendedoras. Filha de mecânico, construiu sua trajetória profissional
                 conectando a vivência prática do setor automotivo à formação acadêmica e à visão estratégica de
                 negócios, tornando-se uma das principais vozes na promoção do protagonismo feminino nesse mercado.
               </p>
-              <p className="text-gray-400 text-lg mb-4">
+              <p className="text-primary-700 text-lg mb-4">
                 Formada em Contabilidade, com especializações em Finanças, Controladoria, Neurociência e Planejamento
                 Estratégico, Eva une conhecimento técnico e sensibilidade humana para transformar trajetórias
                 profissionais de forma consistente e sustentável.
               </p>
-              <p className="text-gray-400 text-lg mb-4">
-                É autora do livro <strong className="text-white">"99 Cartas"</strong> e idealizadora do podcast{" "}
-                <strong className="text-white">MulherPod</strong>, onde compartilha reflexões, estratégias e
+              <p className="text-primary-700 text-lg mb-4">
+                É autora do livro <strong className="text-primary-900">"99 Cartas"</strong> e idealizadora do podcast{" "}
+                <strong className="text-primary-900">MulherPod</strong>, onde compartilha reflexões, estratégias e
                 ferramentas práticas para impulsionar mulheres na vida e nos negócios.
               </p>
-              <p className="text-gray-400 text-lg">
+              <p className="text-primary-700 text-lg">
                 Sua missão é conduzir mulheres a assumirem o papel de protagonistas de suas histórias, com visão
                 estratégica, autoconfiança e clareza para liderarem seus empreendimentos com propósito e consistência.
               </p>
@@ -179,11 +179,11 @@ const Institucional = () => {
       </section>
 
       {/* O que Fazemos - 4 Pilares */}
-      <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">O que Fazemos</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">O que Fazemos</h2>
+            <p className="text-xl text-primary-700 max-w-3xl mx-auto">
               Atuamos em 4 pilares para promover o desenvolvimento e crescimento profissional de mulheres.
             </p>
           </div>
@@ -192,14 +192,14 @@ const Institucional = () => {
             {whatWeDo.map((item, index) => (
               <Card
                 key={index}
-                className="hover:border-brand-primary transition-all duration-300 border-t-4 border-t-brand-primary"
+                className="hover:border-brand-primary transition-all duration-300 border-t-4 border-t-brand-primary bg-primary-50"
               >
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-8 h-8 text-brand-primary" />
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                  <p className="text-gray-400">{item.description}</p>
+                  <h3 className="text-xl font-bold text-primary-900 mb-3">{item.title}</h3>
+                  <p className="text-primary-700">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -208,7 +208,7 @@ const Institucional = () => {
       </section>
 
       {/* Como Fazemos */}
-      <section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-primary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Como Fazemos</h2>
@@ -217,11 +217,11 @@ const Institucional = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {howWeDo.map((item, index) => (
               <div key={index} className="relative">
-                <div className="text-6xl font-bold text-brand-primary/30 mb-4">{item.step}</div>
+                <div className="text-6xl font-bold text-white/30 mb-4">{item.step}</div>
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <p className="text-white/80">{item.description}</p>
                 {index < howWeDo.length - 1 && (
-                  <ArrowRight className="hidden lg:block absolute top-8 -right-4 w-8 h-8 text-brand-primary" />
+                  <ArrowRight className="hidden lg:block absolute top-8 -right-4 w-8 h-8 text-brand-yellow" />
                 )}
               </div>
             ))}
@@ -251,22 +251,22 @@ const Institucional = () => {
       </section>
 
       {/* Missão e Visão */}
-      <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-l-4 border-l-brand-primary">
+            <Card className="border-l-4 border-l-brand-primary bg-primary-50">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-brand-primary mb-4">Nossa Missão</h3>
-                <p className="text-gray-400 text-lg">
+                <p className="text-primary-700 text-lg">
                   Capacitar e desenvolver mulheres para que liderem suas próprias histórias com protagonismo, visão
                   estratégica, propósito e impacto no setor automotivo e na vida.
                 </p>
               </CardContent>
             </Card>
-            <Card className="border-l-4 border-l-brand-yellow">
+            <Card className="border-l-4 border-l-brand-yellow bg-primary-50">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-brand-yellow mb-4">Nossa Visão</h3>
-                <p className="text-gray-400 text-lg">
+                <p className="text-primary-700 text-lg">
                   Ser o principal instituto educacional de desenvolvimento feminino do Brasil no setor automotivo,
                   integrando formação técnica, gestão, desenvolvimento humano e propósito para gerar transformação
                   sustentável e representatividade.
@@ -280,8 +280,8 @@ const Institucional = () => {
       {/* CTA */}
       <section className="py-16 px-4 bg-brand-yellow">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">Faça Parte desta História</h2>
-          <p className="text-xl text-zinc-700 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Faça Parte desta História</h2>
+          <p className="text-xl text-primary-800 mb-8">
             Junte-se a milhares de mulheres que já estão acelerando suas carreiras conosco.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -292,7 +292,7 @@ const Institucional = () => {
               asChild
               size="lg"
               variant="outline"
-              className="border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white"
+              className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
             >
               <Link to="/cursos">Ver Cursos</Link>
             </Button>
