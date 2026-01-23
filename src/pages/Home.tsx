@@ -7,6 +7,14 @@ import { Calendar, Play, Star, Users, MapPin, ArrowRight, Wrench, Brain, Trendin
 import AnimatedCounter from "@/components/AnimatedCounter";
 import heroEventBg from "@/assets/hero-event-bg.jpg";
 
+// Partner logos
+import logoMteThomson from "@/assets/partners/mte-thomson.jpg";
+import logoDelphi from "@/assets/partners/delphi.png";
+import logoFortbras from "@/assets/partners/fortbras.png";
+import logoKolbenschmidt from "@/assets/partners/kolbenschmidt.jpg";
+import logoSabo from "@/assets/partners/sabo.jpg";
+import logoMahovi from "@/assets/partners/mahovi.jpg";
+
 const Home = () => {
   const pilares = [
     {
@@ -207,13 +215,24 @@ const Home = () => {
             <p className="text-xl text-gray-400">Parceiros que acreditam no potencial feminino no setor automotivo</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
+            {[
+              { src: logoMteThomson, alt: "MTE-Thomson" },
+              { src: logoDelphi, alt: "Delphi" },
+              { src: logoFortbras, alt: "Fortbras" },
+              { src: logoKolbenschmidt, alt: "Kolbenschmidt" },
+              { src: logoSabo, alt: "Sabo" },
+              { src: logoMahovi, alt: "Mahovi" },
+            ].map((partner, i) => (
               <div
                 key={i}
-                className="w-32 h-20 bg-zinc-800 rounded-xl flex items-center justify-center text-gray-500 hover:bg-zinc-700 transition-colors"
+                className="w-40 h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-transform duration-300"
               >
-                Logo {i}
+                <img
+                  src={partner.src}
+                  alt={partner.alt}
+                  className="max-w-full max-h-full object-contain"
+                />
               </div>
             ))}
           </div>
