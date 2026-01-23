@@ -148,7 +148,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">Pilares de Formação</h2>
-            <p className="text-xl text-primary-700 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-secondary max-w-3xl mx-auto">
               Uma formação completa, construída sobre pilares que sustentam mulheres no setor automotivo.
             </p>
           </div>
@@ -178,7 +178,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">Próximo Evento</h2>
-            <p className="text-xl text-primary-700">Não perca nossa próxima oportunidade de crescimento</p>
+            <p className="text-xl text-brand-secondary">Não perca nossa próxima oportunidade de crescimento</p>
           </div>
 
           <Card
@@ -220,7 +220,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">Marcas que Aceleram com a Gente</h2>
-            <p className="text-xl text-primary-700">Parceiros que acreditam no potencial feminino no setor automotivo</p>
+            <p className="text-xl text-brand-secondary">Parceiros que acreditam no potencial feminino no setor automotivo</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">

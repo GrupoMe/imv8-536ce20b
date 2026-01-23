@@ -165,7 +165,7 @@ const Beneficios = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
               Seus Benefícios
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-brand-secondary max-w-2xl mx-auto">
               Conheça tudo o que você terá acesso como membro do nosso programa.
             </p>
           </div>
@@ -193,7 +193,7 @@ const Beneficios = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
               Escolha seu Plano
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-brand-secondary max-w-2xl mx-auto">
               Selecione o plano que melhor atende às suas necessidades e comece hoje mesmo.
             </p>
           </div>
