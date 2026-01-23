@@ -147,8 +147,8 @@ const Institucional = () => {
                 className="rounded-2xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-brand-yellow p-4 rounded-xl shadow-lg">
-                <p className="text-primary-900 font-bold text-lg">Eva Paiva</p>
-                <p className="text-primary-700 text-sm">Fundadora & CEO</p>
+                <p className="text-black font-bold text-lg">Eva Paiva</p>
+                <p className="text-black/70 text-sm">Fundadora & CEO</p>
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -280,8 +280,8 @@ const Institucional = () => {
       {/* CTA */}
       <section className="py-16 px-4 bg-brand-yellow">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Faça Parte desta História</h2>
-          <p className="text-xl text-primary-800 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Faça Parte desta História</h2>
+          <p className="text-xl text-black/80 mb-8">
             Junte-se a milhares de mulheres que já estão acelerando suas carreiras conosco.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

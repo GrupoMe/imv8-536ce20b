@@ -71,7 +71,7 @@ const Navbar = () => {
               </a>
             ))}
 
-            <Button asChild className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 ml-2 font-semibold">
+            <Button asChild className="bg-brand-yellow text-black hover:bg-yellow-400 ml-2 font-semibold">
               <Link to="/login">Login</Link>
             </Button>
           </div>
@@ -126,7 +126,7 @@ const Navbar = () => {
 
             <Link
               to="/login"
-              className="block px-3 py-2 text-base font-medium text-primary-900 bg-brand-yellow hover:bg-yellow-400 rounded-md mx-3 mt-4 text-center font-semibold"
+              className="block px-3 py-2 text-base font-medium text-black bg-brand-yellow hover:bg-yellow-400 rounded-md mx-3 mt-4 text-center font-semibold"
               onClick={() => setIsOpen(false)}
             >
               Login

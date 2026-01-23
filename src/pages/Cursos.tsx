@@ -291,7 +291,7 @@ const Cursos = () => {
           <p className="text-xl text-gray-200 mb-8">
             Escolha o curso ideal para você e comece sua transformação hoje mesmo.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-primary-900 hover:bg-yellow-400 font-bold">
+          <Button size="lg" className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold">
             Ver Todos os Cursos
           </Button>
         </div>
