@@ -54,7 +54,7 @@ const Home = () => {
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section com Imagem de Fundo */}
       <section
-        className="relative min-h-[90vh] flex flex-col justify-between text-white py-16 px-4 overflow-hidden"
+        className="relative min-h-[70vh] flex flex-col justify-center text-white py-16 px-4 overflow-hidden"
         style={{
           backgroundImage: `url(${heroEventBg})`,
           backgroundSize: "cover",
@@ -104,33 +104,27 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Números de Impacto - Posicionados na parte inferior */}
-        <div className="relative z-10 max-w-4xl mx-auto w-full mt-8">
+      </section>
+
+      {/* Números de Impacto */}
+      <section className="py-10 px-4 bg-primary">
+        <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-3">
-            <div
-              className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center animate-fade-in hover:scale-105 transition-all duration-300"
-              style={{ animationDelay: "0.5s" }}
-            >
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center hover:scale-105 transition-all duration-300">
               <Users className="w-6 h-6 mx-auto text-brand-yellow mb-2" />
               <div className="text-xl md:text-2xl font-bold text-white">
                 <span className="text-brand-yellow">+</span><AnimatedCounter end={15} duration={2000} /> mil
               </div>
               <p className="text-white/80 text-xs">Mulheres Impactadas</p>
             </div>
-            <div
-              className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center animate-fade-in hover:scale-105 transition-all duration-300"
-              style={{ animationDelay: "0.6s" }}
-            >
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center hover:scale-105 transition-all duration-300">
               <Calendar className="w-6 h-6 mx-auto text-brand-yellow mb-2" />
               <div className="text-xl md:text-2xl font-bold text-white">
                 <span className="text-brand-yellow">+</span><AnimatedCounter end={500} duration={2000} />
               </div>
               <p className="text-white/80 text-xs">Eventos Realizados</p>
             </div>
-            <div
-              className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center animate-fade-in hover:scale-105 transition-all duration-300"
-              style={{ animationDelay: "0.7s" }}
-            >
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center hover:scale-105 transition-all duration-300">
               <MapPin className="w-6 h-6 mx-auto text-brand-yellow mb-2" />
               <div className="text-xl md:text-2xl font-bold text-white">
                 <AnimatedCounter end={18} duration={2000} />
