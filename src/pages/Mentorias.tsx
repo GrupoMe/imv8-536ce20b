@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 const Mentorias = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const mentorias = [
     {
       id: 1,
@@ -174,10 +177,12 @@ const Mentorias = () => {
           <p className="text-xl text-gray-200 mb-8">
             Agende uma conversa para descobrir qual mentoria é ideal para você.
           </p>
-          <Button size="lg" className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold">
-            Agendar Conversa
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold">
+              Agendar Conversa
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </a>
         </div>
       </section>
     </div>
