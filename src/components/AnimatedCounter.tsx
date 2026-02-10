@@ -56,7 +56,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '', prefix = '' }: Ani
   }, [isVisible, end, duration]);
 
   return (
-    <span ref={counterRef} className="font-bold text-4xl md:text-5xl animate-count-up">
+    <span ref={counterRef} className="font-bold text-4xl md:text-5xl text-brand-primary animate-count-up">
       {prefix}{count.toLocaleString()}{suffix}
     </span>
   );
