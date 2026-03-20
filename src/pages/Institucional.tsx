@@ -74,7 +74,7 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Quem Somos</h1>
           <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-8">
-            O Instituto Mulheres V8 é um <strong>ecossistema na indústria automotiva</strong> para capacitar, fortalecer e transformar a vida de milhares de mulheres. Nascemos a partir da <strong>vivência real de mulheres</strong> que construíram carreiras e empresas em ambientes tradicionalmente masculinos, enfrentando desafios invisíveis: sobrecarga, solidão na liderança, conflitos de identidade e a sensação de precisar "endurecer" para pertencer e a grande falta de conhecimento técnico e mão de obra escassa do setor. Por este motivo o MV8 é <strong>pioneiro e o único HUB de inovação completo</strong> que atua a partir de quatro pilares fundamentais — técnica, negócios, desenvolvimento humano e espiritual — integrados de forma estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito, gerando mão de obra feminina qualificada para a indústria, impactando diretamente você mulher e nosso setor, transformando números em um avanço real e revolucionário.
+            O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais — educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
           </p>
 
           {/* 4 Pilares em destaque vertical */}
@@ -98,21 +98,15 @@ const Institucional = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Nossa História</h2>
               <p className="text-primary-700 text-lg mb-4">
-                O Instituto Mulheres V8 nasceu há quatro anos a partir da visão e da vivência de <strong className="text-primary-900">Eva Paiva</strong>, filha de mecânico, criada entre oficinas, peças, conversas técnicas e os bastidores de um setor historicamente masculino. Ao vivenciar essa realidade desde cedo, Eva passou a questionar a ausência e a realidade das mulheres nesse mercado: onde estavam, como se sentiam e de que forma se capacitavam para crescer profissionalmente.
-              </p>
-              <p className="text-primary-700 text-lg mb-4">
-                A partir dessa inquietação, foi criado um grupo de WhatsApp com 14 mulheres, dando início a um movimento de escuta, troca e <strong className="text-primary-900">fortalecimento feminino</strong> no sul do país, inicialmente conhecido como <strong className="text-primary-900">Gaúchas Car</strong>.
-              </p>
-              <p className="text-primary-700 text-lg mb-4">
-                Com o crescimento orgânico da iniciativa e o reconhecimento das <strong className="text-primary-900">indústrias e empresas do setor automotivo</strong>, o movimento ganhou dimensão nacional, evoluindo para o <strong className="text-primary-900">Instituto Mulheres V8</strong>.
+                O Instituto Mulheres V8 nasceu há quatro anos a partir da visão de Eva Paiva, filha de mecânico, que, ao vivenciar o setor automotivo desde cedo, passou a questionar a ausência e a realidade das mulheres nesse mercado: onde estavam, como se sentiam e de que forma se capacitavam para crescer profissionalmente. A partir dessa inquietação, foi criado um grupo de WhatsApp com 14 mulheres, dando início a um movimento de escuta, troca e fortalecimento feminino no sul do país, inicialmente conhecido como Gaúchas Car.
               </p>
               <p className="text-primary-700 text-lg">
-                Hoje, o MV8 é um <strong className="text-primary-900">ecossistema estruturado de desenvolvimento feminino</strong> que integra educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade, mantendo sua essência de origem enquanto atua de forma estratégica para ampliar a representatividade, a <strong className="text-primary-900">capacitação e o protagonismo das mulheres</strong> em toda a cadeia automotiva.
+                Com o crescimento orgânico da iniciativa e o reconhecimento das indústrias e empresas do setor automotivo, o movimento ganhou dimensão nacional, evoluindo para o Instituto Mulheres V8. Hoje, o MV8 é um ecossistema estruturado de desenvolvimento feminino que integra educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade, mantendo sua essência de origem enquanto atua de forma estratégica para ampliar a representatividade, a capacitação e o protagonismo das mulheres em toda a cadeia automotiva.
               </p>
             </div>
             <div className="relative">
               <img
-                src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
+                src="https://drive.google.com/uc?export=view&id=1XsSPyGULixymQtJXjOBd0zvCH6G88z2T"
                 alt="Mulheres V8 - Nossa História"
                 className="rounded-2xl"
               />
