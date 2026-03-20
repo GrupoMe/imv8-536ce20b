@@ -37,6 +37,29 @@ const Institucional = () => {
     },
   ];
 
+  const howWeDo = [
+    {
+      title: "Diagnóstico e Consciência",
+      description:
+        "Iniciamos pela escuta ativa e análise da realidade profissional e pessoal de cada mulher, promovendo clareza sobre identidade, contexto e objetivos.",
+    },
+    {
+      title: "Capacitação Estruturada",
+      description:
+        "Entregamos formação técnica e estratégica, aliando conhecimento prático, gestão de negócios e visão de mercado para gerar base sólida de atuação.",
+    },
+    {
+      title: "Desenvolvimento e Direcionamento",
+      description:
+        "Trabalhamos mentalidade, autoliderança e tomada de decisão, integrando desenvolvimento humano e espiritualidade para fortalecer escolhas com propósito.",
+    },
+    {
+      title: "Posicionamento e Expansão",
+      description:
+        "Conduzimos mulheres ao posicionamento profissional e à expansão de carreira e negócios, gerando impacto sustentável, autonomia e protagonismo no setor automotivo.",
+    },
+  ];
+
   const values = [
     {
       icon: Heart,
@@ -179,6 +202,29 @@ const Institucional = () => {
         </div>
       </section>
 
+      {/* Como Fazemos */}
+      <section className="py-16 px-4 bg-primary-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Como fazemos</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {howWeDo.map((item, index) => (
+              <Card
+                key={index}
+                className="hover:border-brand-primary transition-all duration-300 border-t-4 border-t-brand-primary bg-white"
+              >
+                <CardContent className="p-6 text-center">
+                  <h3 className="text-xl font-bold text-primary-900 mb-3">{item.title}</h3>
+                  <p className="text-primary-700">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Nossos Valores */}
       <section className="py-16 px-4 bg-brand-secondary">
         <div className="max-w-7xl mx-auto">
@@ -227,7 +273,7 @@ const Institucional = () => {
       {/* CTA */}
       <section className="py-16 px-4 bg-brand-yellow">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Faça Parte desta História</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Faça parte da principal comunidade de mulheres do setor automotivo.</h2>
           <p className="text-xl text-black/80 mb-8">
             Junte-se a milhares de mulheres que já estão acelerando suas carreiras conosco.
           </p>

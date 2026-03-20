@@ -139,7 +139,7 @@ const Comunidade = () => {
             </div>
             <div className="relative animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
               <img 
-                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=400&fit=crop"
+                src="https://i.ibb.co/Nd2DRVWq/C-pia-de-97-D37-B3-C-A5-F2-48-E4-A996-12-C6-AB53-EB8-E-L0-001-19-04-2024-09-03-35.jpg"
                 alt="Mulheres em reunião"
                 className="w-full rounded-xl hover:scale-105 transition-all duration-500"
               />
