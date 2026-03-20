@@ -66,20 +66,19 @@ const Home = () => {
 
         {/* Hero Content - Centralizado */}
         <div className="relative z-10 max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-bold mb-24 md:mb-36 animate-fade-in drop-shadow-lg">
             <span className="text-brand-yellow">FORMAR</span>, <span className="text-brand-yellow">DESENVOLVER</span>, <span className="text-brand-yellow">TRANSFORMAR</span>
           </h1>
           <p
             className="text-xl md:text-2xl mb-4 text-white max-w-3xl mx-auto animate-fade-in drop-shadow-md font-semibold"
             style={{ animationDelay: "0.2s" }}
           >
-            O Instituto Mulheres V8 — a Potência que Transforma o Setor Automotivo.
+            O Instituto Mulheres V8 criou uma comunidade exclusiva no WhatsApp para mulheres que movem o mercado por meio da educação, conteúdos estratégicos e conexão entre as mulheres. 
           </p>
           <p
             className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
             style={{ animationDelay: "0.3s" }}
           >
-            No MV8 você encontra tudo o que precisa para uma vida profissional alinhada à sua essência e vida pessoal. Faça parte da nossa comunidade e viva experiências que transformam por meio das nossas agendas, encontros e formações.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in"
@@ -219,7 +218,7 @@ const Home = () => {
             {parceiros.map((parceiro, index) => (
               <div
                 key={index}
-                className="w-40 h-24 bg-primary-50 rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 border border-primary-200"
+                className="w-40 h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 border border-primary-200"
               >
                 <img
                   src={parceiro.logo}
