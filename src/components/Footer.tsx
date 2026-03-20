@@ -8,9 +8,9 @@ const Footer = () => {
   
   const getFooterText = () => {
     const footerTexts = [
-      "© 2025 Instituto Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.",
-      "© 2025 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ e paixão por motores.",
-      "© 2025 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ por mulheres que aceleram."
+      "© 2026 Instituto Mulheres V8. Feito com ❤️ para acelerar talentos femininos. Todos os direitos reservados.",
+      "© 2026 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ e paixão por motores.",
+      "© 2026 Instituto Mulheres V8. Todos os direitos reservados. Feito com ♥ por mulheres que aceleram."
     ];
     
     const pathHash = location.pathname.split('').reduce((a, b) => {
