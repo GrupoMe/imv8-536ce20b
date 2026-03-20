@@ -77,7 +77,7 @@ const Institucional = () => {
             O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais — educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
           </p>
 
-          {/* 4 Pilares em destaque vertical */}
+          {/* 4 Pilares em destaque vertical 
           <div className="flex flex-col items-center gap-3 max-w-md mx-auto">
             {pilares.map((pilar, index) => (
               <div
@@ -87,7 +87,7 @@ const Institucional = () => {
                 {pilar.name}
               </div>
             ))}
-          </div>
+          </div>*/}
         </div>
       </section>
 
@@ -106,7 +106,7 @@ const Institucional = () => {
             </div>
             <div className="relative">
               <img
-                src="https://drive.google.com/uc?export=view&id=1XsSPyGULixymQtJXjOBd0zvCH6G88z2T"
+                src="https://i.ibb.co/fVQt7vbZ/nv-formt-MV8-4.png"
                 alt="Mulheres V8 - Nossa História"
                 className="rounded-2xl"
               />
