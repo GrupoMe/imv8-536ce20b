@@ -3,6 +3,7 @@ import { BookOpen, Clock, Users, Star, ArrowRight, GraduationCap, Award, Target 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import cursosHeroBg from '@/assets/cursos-hero.jpg';
 
 const Cursos = () => {
   const [selectedCategory, setSelectedCategory] = useState('todos');
@@ -127,8 +128,16 @@ const Cursos = () => {
   return (
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
-      <section className="relative bg-primary py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center text-white">
+      <section
+        className="relative min-h-[70vh] flex flex-col justify-center text-white py-20 px-4 overflow-hidden"
+        style={{
+          backgroundImage: `url(${cursosHeroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center text-white">
           <Badge className="bg-white/20 text-white mb-4">Cursos & Programas</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Invista no seu <br />Desenvolvimento Profissional
