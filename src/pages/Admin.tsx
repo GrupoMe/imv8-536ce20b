@@ -1,20 +1,44 @@
-
-import React from 'react';
+﻿import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, Image, Settings, LogOut } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import { loadAgendaEvents } from '@/lib/agenda-data';
 
 const Admin = () => {
   const { isAuthenticated, isAdmin, user, logout } = useAuth();
   const navigate = useNavigate();
+  const [agendaCount, setAgendaCount] = React.useState(0);
+  const [galleryCount, setGalleryCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!isAuthenticated || !isAdmin) {
       navigate('/login');
     }
   }, [isAuthenticated, isAdmin, navigate]);
+
+  React.useEffect(() => {
+    const loadCounts = () => {
+      const agendaEvents = loadAgendaEvents();
+      setAgendaCount(agendaEvents.length);
+
+      const savedGalleryEvents = localStorage.getItem('gallery_events');
+      if (!savedGalleryEvents) {
+        setGalleryCount(6);
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(savedGalleryEvents);
+        setGalleryCount(Array.isArray(parsed) ? parsed.length : 6);
+      } catch {
+        setGalleryCount(6);
+      }
+    };
+
+    loadCounts();
+  }, []);
 
   if (!isAuthenticated || !isAdmin) {
     return null;
@@ -68,7 +92,7 @@ const Admin = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Eventos da Agenda</p>
-                  <p className="text-2xl font-bold text-brand-primary">8</p>
+                  <p className="text-2xl font-bold text-brand-primary">{agendaCount}</p>
                 </div>
                 <Calendar className="w-8 h-8 text-brand-primary" />
               </div>
@@ -79,7 +103,7 @@ const Admin = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Eventos na Galeria</p>
-                  <p className="text-2xl font-bold text-brand-primary">6</p>
+                  <p className="text-2xl font-bold text-brand-primary">{galleryCount}</p>
                 </div>
                 <Image className="w-8 h-8 text-brand-primary" />
               </div>

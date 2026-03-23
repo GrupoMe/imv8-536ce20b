@@ -150,7 +150,7 @@ const Institucional = () => {
               />
               <div className="absolute -bottom-6 -right-6 bg-brand-yellow p-4 rounded-xl shadow-lg">
                 <p className="text-primary font-bold text-lg">Eva Paiva</p>
-                <p className="text-brand-secondary text-sm font-medium">Fundadora & CEO</p>
+                <p className="text-black text-sm font-medium">Fundadora & CEO</p>
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -178,7 +178,7 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">O que Fazemos</h2>
-            <p className="text-xl text-brand-secondary max-w-4xl mx-auto">
+            <p className="text-xl text-black max-w-4xl mx-auto">
               Tudo o que fazemos é desenvolvido sob o olhar em quatro pilares fundamentais para o avanço, inclusão e melhor performance da mulher no mercado de trabalho automotivo: a técnica, negócios, desenvolvimento humano e espiritual.
             </p>
           </div>
@@ -191,7 +191,7 @@ const Institucional = () => {
               >
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 bg-brand-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-8 h-8 text-brand-secondary" />
+                    <item.icon className="w-8 h-8 text-black" />
                   </div>
                   <h3 className="text-xl font-bold text-primary-900 mb-3">{item.title}</h3>
                   <p className="text-primary-700">{item.description}</p>

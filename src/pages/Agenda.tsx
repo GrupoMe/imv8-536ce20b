@@ -1,86 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, Clock, MapPin, Users, Filter, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { AgendaEvent, loadAgendaEvents } from '@/lib/agenda-data';
 
 const Agenda = () => {
   const [selectedFilter, setSelectedFilter] = useState('todos');
+  const [events, setEvents] = useState<AgendaEvent[]>([]);
 
-  const events = [
-    {
-      id: 1,
-      title: "Workshop: Liderança Feminina no Setor Automotivo",
-      type: "workshop",
-      date: "15 de Fevereiro, 2025",
-      time: "14:00 - 17:00",
-      location: "São Paulo - SP",
-      participants: 25,
-      maxParticipants: 30,
-      description: "Desenvolva suas habilidades de liderança e aprenda estratégias específicas para mulheres no setor automotivo.",
-      status: "inscrições-abertas"
-    },
-    {
-      id: 2,
-      title: "Palestra: Inovação e Tecnologia Automotiva",
-      type: "palestra",
-      date: "22 de Fevereiro, 2025",
-      time: "19:00 - 21:00",
-      location: "Online",
-      participants: 150,
-      maxParticipants: 200,
-      description: "Conheça as últimas tendências em tecnologia automotiva e como elas impactam o futuro da indústria.",
-      status: "inscrições-abertas"
-    },
-    {
-      id: 3,
-      title: "Masterclass: Gestão de Equipes de Alta Performance",
-      type: "masterclass",
-      date: "28 de Fevereiro, 2025",
-      time: "09:00 - 12:00",
-      location: "Rio de Janeiro - RJ",
-      participants: 15,
-      maxParticipants: 20,
-      description: "Aprenda técnicas avançadas de gestão e como formar equipes de alta performance no ambiente corporativo.",
-      status: "inscrições-abertas"
-    },
-    {
-      id: 4,
-      title: "Webinar: Carreira Internacional no Setor Automotivo",
-      type: "webinar",
-      date: "05 de Março, 2025",
-      time: "20:00 - 21:30",
-      location: "Online",
-      participants: 80,
-      maxParticipants: 100,
-      description: "Descubra oportunidades de carreira internacional e como se preparar para trabalhar em empresas globais.",
-      status: "inscrições-abertas"
-    },
-    {
-      id: 5,
-      title: "Workshop: Networking Estratégico para Mulheres",
-      type: "workshop",
-      date: "10 de Março, 2025",
-      time: "15:00 - 18:00",
-      location: "Belo Horizonte - MG",
-      participants: 20,
-      maxParticipants: 25,
-      description: "Aprenda técnicas de networking eficazes e construa uma rede de contatos sólida.",
-      status: "inscrições-abertas"
-    },
-    {
-      id: 6,
-      title: "Masterclass: Transformação Digital na Indústria",
-      type: "masterclass",
-      date: "12 de Março, 2025",
-      time: "10:00 - 13:00",
-      location: "Online",
-      participants: 12,
-      maxParticipants: 15,
-      description: "Entenda como liderar processos de transformação digital em empresas do setor automotivo.",
-      status: "lotado"
-    }
-  ];
+  useEffect(() => {
+    const syncEvents = () => setEvents(loadAgendaEvents());
+
+    syncEvents();
+    window.addEventListener('storage', syncEvents);
+
+    return () => {
+      window.removeEventListener('storage', syncEvents);
+    };
+  }, []);
 
   const eventTypes = [
     { key: 'todos', label: 'Todos os Eventos' },
@@ -92,7 +30,7 @@ const Agenda = () => {
 
   const getEventTypeColor = (type: string) => {
     const colors = {
-      workshop: 'bg-blue-500/20 text-blue-400',
+      workshop: 'bg-blue-500/20 text-white',
       palestra: 'bg-green-500/20 text-green-400',
       masterclass: 'bg-purple-500/20 text-purple-400',
       webinar: 'bg-orange-500/20 text-orange-400'
@@ -101,8 +39,8 @@ const Agenda = () => {
   };
 
   const getStatusColor = (status: string) => {
-    return status === 'lotado' 
-      ? 'bg-red-500/20 text-red-400' 
+    return status === 'lotado'
+      ? 'bg-red-500/20 text-red-400'
       : 'bg-green-500/20 text-green-400';
   };
 
@@ -110,8 +48,8 @@ const Agenda = () => {
     return status === 'lotado' ? 'Lotado' : 'Inscrições Abertas';
   };
 
-  const filteredEvents = selectedFilter === 'todos' 
-    ? events 
+  const filteredEvents = selectedFilter === 'todos'
+    ? events
     : events.filter(event => event.type === selectedFilter);
 
   return (
@@ -122,8 +60,8 @@ const Agenda = () => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
             Agenda de Eventos
           </h1>
-          <p className="text-lg sm:text-xl text-brand-secondary max-w-3xl mx-auto">
-            Confira a programação mensal do Mulheres V8 com eventos, aulas, mentorias e encontros 
+          <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto">
+            Confira a programação mensal do Mulheres V8 com eventos, aulas, mentorias e encontros
             que fortalecem negócios, carreiras e identidade feminina no setor automotivo.
           </p>
         </div>
@@ -138,7 +76,7 @@ const Agenda = () => {
             {eventTypes.map((type) => (
               <Button
                 key={type.key}
-                variant={selectedFilter === type.key ? "default" : "outline"}
+                variant={selectedFilter === type.key ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setSelectedFilter(type.key)}
                 className={`text-xs sm:text-sm ${selectedFilter === type.key ? 'bg-brand-primary' : 'border-zinc-700 text-gray-300 hover:bg-zinc-800'}`}
@@ -170,7 +108,7 @@ const Agenda = () => {
                 <p className="text-gray-400 text-sm sm:text-base">
                   {event.description}
                 </p>
-                
+
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Calendar className="w-4 h-4 text-brand-primary flex-shrink-0" />
@@ -191,7 +129,7 @@ const Agenda = () => {
                 </div>
 
                 <div className="pt-3">
-                  <Button 
+                  <Button
                     className={`w-full sm:w-auto ${event.status === 'lotado' ? 'bg-zinc-700' : 'bg-brand-primary hover:bg-brand-dark'}`}
                     disabled={event.status === 'lotado'}
                   >
