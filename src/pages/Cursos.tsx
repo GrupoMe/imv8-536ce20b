@@ -1,93 +1,32 @@
-import React, { useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { BookOpen, Clock, Users, Star, ArrowRight, GraduationCap, Award, Target } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import cursosHeroBg from '@/assets/cursos-hero.jpg';
+import { CursoFormation, loadCourseFormations } from '@/lib/cursos-data';
 
 const Cursos = () => {
   const [selectedCategory, setSelectedCategory] = useState('todos');
+  const [formations, setFormations] = useState<CursoFormation[]>([]);
 
   const categories = [
     { key: 'todos', label: 'Todos' },
     { key: 'curso', label: 'Cursos' },
     { key: 'programa', label: 'Programas' }
   ];
+  useEffect(() => {
+    const syncFormations = () => {
+      setFormations(loadCourseFormations());
+    };
 
-  const formations = [
-    {
-      id: 1,
-      title: "Liderança Feminina no Setor Automotivo",
-      category: "curso",
-      duration: "8 semanas",
-      participants: 150,
-      rating: 4.9,
-      price: "R$ 997",
-      description: "Desenvolva habilidades de liderança específicas para o setor automotivo e aprenda a navegar em ambientes corporativos.",
-      modules: ["Fundamentos da Liderança", "Comunicação Assertiva", "Gestão de Equipes", "Negociação"],
-      checkoutLink: "#checkout-formacoes"
-    },
-    {
-      id: 2,
-      title: "Curso de Negociação para Mulheres",
-      category: "curso",
-      duration: "4 semanas",
-      participants: 200,
-      rating: 4.7,
-      price: "R$ 497",
-      description: "Aprenda técnicas de negociação e como se posicionar com confiança em conversas de carreira e salário.",
-      modules: ["Preparação para Negociação", "Técnicas Avançadas", "Linguagem Corporal", "Casos Práticos"],
-      checkoutLink: "#checkout-cursos"
-    },
-    {
-      id: 3,
-      title: "Programa de Desenvolvimento de Líderes",
-      category: "programa",
-      duration: "6 meses",
-      participants: 50,
-      rating: 4.8,
-      price: "R$ 4.997",
-      description: "Programa completo de formação de líderes com módulos práticos, mentoria em grupo e projeto final.",
-      modules: ["Autoconhecimento", "Liderança Situacional", "Gestão de Conflitos", "Projeto Aplicado"],
-      checkoutLink: "#checkout-cursos"
-    },
-    {
-      id: 4,
-      title: "Gestão Financeira para Mulheres Empreendedoras",
-      category: "curso",
-      duration: "6 semanas",
-      participants: 120,
-      rating: 4.9,
-      price: "R$ 697",
-      description: "Domine as finanças do seu negócio com técnicas práticas de organização financeira e contabilidade.",
-      modules: ["Fluxo de Caixa", "Precificação", "Investimentos", "Planejamento Tributário"],
-      checkoutLink: "#checkout-cursos"
-    },
-    {
-      id: 5,
-      title: "Programa de Aceleração de Carreira",
-      category: "programa",
-      duration: "4 meses",
-      participants: 30,
-      rating: 4.8,
-      price: "R$ 3.497",
-      description: "Programa intensivo para profissionais que desejam dar um salto na carreira em curto prazo.",
-      modules: ["Análise de Perfil", "Estratégia de Carreira", "Personal Branding", "Execução do Plano"],
-      checkoutLink: "#checkout-cursos"
-    },
-    {
-      id: 6,
-      title: "Marketing Digital para o Setor Automotivo",
-      category: "curso",
-      duration: "5 semanas",
-      participants: 80,
-      rating: 4.7,
-      price: "R$ 597",
-      description: "Aprenda estratégias de marketing digital específicas para empresas do setor automotivo.",
-      modules: ["Redes Sociais", "Google Ads", "Conteúdo Estratégico", "Métricas e Análise"],
-      checkoutLink: "#checkout-cursos"
-    }
-  ];
+    syncFormations();
+    window.addEventListener('storage', syncFormations);
+
+    return () => {
+      window.removeEventListener('storage', syncFormations);
+    };
+  }, []);
 
   const testimonials = [
     {
@@ -124,6 +63,10 @@ const Cursos = () => {
   const filteredFormations = selectedCategory === 'todos' 
     ? formations 
     : formations.filter(f => f.category === selectedCategory);
+  const totalParticipants = formations.reduce((total, formation) => total + formation.participants, 0);
+  const averageRating = formations.length > 0
+    ? (formations.reduce((total, formation) => total + formation.rating, 0) / formations.length).toFixed(1)
+    : '0.0';
 
   return (
     <div className="min-h-screen bg-primary-50">
@@ -154,15 +97,15 @@ const Cursos = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-brand-primary">500+</div>
+              <div className="text-4xl font-bold text-brand-primary">{totalParticipants}+</div>
               <p className="text-primary-700">Alunas Formadas</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-brand-primary">15+</div>
+              <div className="text-4xl font-bold text-brand-primary">{formations.length}</div>
               <p className="text-primary-700">Cursos Disponíveis</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-brand-primary">4.9</div>
+              <div className="text-4xl font-bold text-brand-primary">{averageRating}</div>
               <p className="text-primary-700">Avaliação Média</p>
             </div>
             <div>
@@ -310,3 +253,4 @@ const Cursos = () => {
 };
 
 export default Cursos;
+

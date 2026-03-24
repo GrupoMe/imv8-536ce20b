@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Institucional from "./pages/Institucional";
 import Cursos from "./pages/Cursos";
@@ -17,6 +18,7 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import AdminAgenda from "./pages/AdminAgenda";
 import AdminGaleria from "./pages/AdminGaleria";
+import AdminCursos from "./pages/AdminCursos";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/*" element={
@@ -43,6 +46,7 @@ const App = () => (
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/admin/agenda" element={<AdminAgenda />} />
                   <Route path="/admin/galeria" element={<AdminGaleria />} />
+                  <Route path="/admin/cursos" element={<AdminCursos />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>

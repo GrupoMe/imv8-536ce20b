@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,9 +15,15 @@ const Login = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   
-  const { login } = useAuth();
+  const { login, isAuthenticated, isAdmin } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (isAuthenticated && isAdmin) {
+      navigate('/admin');
+    }
+  }, [isAuthenticated, isAdmin, navigate]);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -37,7 +43,6 @@ const Login = () => {
           title: "Login realizado com sucesso!",
           description: "Bem-vinda de volta!",
         });
-        navigate('/admin');
       } else {
         toast({
           title: "Erro no login",

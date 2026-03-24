@@ -1,16 +1,18 @@
 ﻿import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, Image, Settings, LogOut } from 'lucide-react';
+import { Calendar, Image, Settings, LogOut, BookOpen } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { loadAgendaEvents } from '@/lib/agenda-data';
+import { loadCourseFormations } from '@/lib/cursos-data';
 
 const Admin = () => {
   const { isAuthenticated, isAdmin, user, logout } = useAuth();
   const navigate = useNavigate();
   const [agendaCount, setAgendaCount] = React.useState(0);
   const [galleryCount, setGalleryCount] = React.useState(0);
+  const [coursesCount, setCoursesCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!isAuthenticated || !isAdmin) {
@@ -22,6 +24,7 @@ const Admin = () => {
     const loadCounts = () => {
       const agendaEvents = loadAgendaEvents();
       setAgendaCount(agendaEvents.length);
+      setCoursesCount(loadCourseFormations().length);
 
       const savedGalleryEvents = localStorage.getItem('gallery_events');
       if (!savedGalleryEvents) {
@@ -58,11 +61,18 @@ const Admin = () => {
       icon: Image,
       link: '/admin/galeria',
       color: 'bg-pink-50 border-pink-200'
+    },
+    {
+      title: 'Gerenciar Cursos',
+      description: 'Cadastrar, editar e excluir conteúdos de cursos',
+      icon: BookOpen,
+      link: '/admin/cursos',
+      color: 'bg-pink-50 border-pink-200'
     }
   ];
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 [&_button]:text-black [&_a]:text-black">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
@@ -86,7 +96,7 @@ const Admin = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
@@ -109,6 +119,17 @@ const Admin = () => {
               </div>
             </CardContent>
           </Card>
+          <Card>
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-gray-600">Conteúdos de Cursos</p>
+                  <p className="text-2xl font-bold text-brand-primary">{coursesCount}</p>
+                </div>
+                <BookOpen className="w-8 h-8 text-brand-primary" />
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Admin Sections */}
@@ -118,7 +139,7 @@ const Admin = () => {
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
                   <section.icon className="w-8 h-8 text-brand-primary" />
-                  <CardTitle className="text-lg">{section.title}</CardTitle>
+                  <CardTitle className="text-lg text-black">{section.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -148,6 +169,9 @@ const Admin = () => {
               </Button>
               <Button variant="outline" asChild>
                 <Link to="/admin/galeria">Gerenciar Galeria</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link to="/admin/cursos">Gerenciar Cursos</Link>
               </Button>
             </div>
           </CardContent>

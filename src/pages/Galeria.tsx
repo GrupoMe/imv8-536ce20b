@@ -216,7 +216,7 @@ const Galeria = () => {
           {filteredImages.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                Nenhuma foto encontrada para a categoria selecionada.
+                 CONSTRUINDO BOAS IMAGENS!
               </p>
             </div>
           )}

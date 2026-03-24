@@ -38,7 +38,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (email: string, password: string): Promise<boolean> => {
     // Simulação de login; em produção deve ser uma chamada para API.
-    if (email === 'admin@mulheresv8.com' && password === 'admin123') {
+    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedPassword = password.trim();
+
+    if (normalizedEmail === 'admin@mulheresv8.com' && normalizedPassword === 'admin123') {
       const userData = {
         id: '1',
         email: 'admin@mulheresv8.com',

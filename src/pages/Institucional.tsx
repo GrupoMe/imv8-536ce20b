@@ -93,10 +93,10 @@ const Institucional = () => {
   return (
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section - Quem Somos */}
-      <section className="relative bg-primary py-20 px-4">
+      <section className="relative bg-brand-yellow py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Quem Somos</h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">Quem Somos</h1>
+          <p className="text-lg md:text-xl text-black/90 max-w-4xl mx-auto mb-8">
             O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais — educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
           </p>
 
@@ -144,7 +144,7 @@ const Institucional = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 md:order-1">
               <img
-                src="/lovable-uploads/f83eb134-f974-429e-bfd3-fce71697b5e7.png"
+                src="https://i.ibb.co/j9m0BGkB/DSC-5009-1-JPG.jpg"
                 alt="Eva Paiva - Fundadora"
                 className="rounded-2xl"
               />
