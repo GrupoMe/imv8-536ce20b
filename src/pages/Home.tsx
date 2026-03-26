@@ -2,12 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Calendar, Star, Users, MapPin, ArrowRight, Wrench, Brain, TrendingUp, Sparkles } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import heroEventBg from "@/assets/hero-event-bg.jpg";
 import mteThomson from "@/assets/partners/mte-thomson.jpg";
-import delphi from "@/assets/partners/delphi.png";
 import fortbras from "@/assets/partners/fortbras.png";
 import kolbenschmidt from "@/assets/partners/kolbenschmidt.jpg";
 import sabo from "@/assets/partners/sabo.jpg";
@@ -15,7 +13,6 @@ import mahovi from "@/assets/partners/mahovi.jpg";
 
 const parceiros = [
   { name: "MTE-Thomson", logo: mteThomson },
-  { name: "Delphi", logo: delphi },
   { name: "Fortbras", logo: fortbras },
   { name: "Kolbenschmidt", logo: kolbenschmidt },
   { name: "Sabo", logo: sabo },
@@ -164,48 +161,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Próximo Evento */}
-      <section className="py-16 px-4 bg-primary-100 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Próximo Evento</h2>
-            <p className="text-xl text-brand-secondary">Não perca nossa próxima oportunidade de crescimento</p>
-          </div>
-
-          <Card
-            className="max-w-4xl mx-auto overflow-hidden hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in bg-white"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="bg-brand-primary p-8 text-white">
-                <Badge className="bg-brand-yellow text-black mb-4">Destaque</Badge>
-                <h3 className="text-2xl font-bold mb-4">Workshop: Liderança Feminina no Século XXI</h3>
-                <div className="flex items-center mb-4 text-brand-yellow">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  <span>15 de Janeiro de 2025 • 19h30</span>
-                </div>
-                <p className="mb-6 text-white/90">
-                  Descubra estratégias práticas para desenvolver sua liderança e influenciar positivamente sua equipe e
-                  organização.
-                </p>
-                <Button className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
-                  Garantir Minha Vaga
-                </Button>
-              </div>
-              <div className="relative overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&h=400&fit=crop"
-                  alt="Workshop Liderança"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-primary/10"></div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-
       {/* Marcas Parceiras */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -214,11 +169,11 @@ const Home = () => {
             <p className="text-xl text-brand-secondary">Parceiros que acreditam no potencial feminino no setor automotivo</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
             {parceiros.map((parceiro, index) => (
               <div
                 key={index}
-                className="w-40 h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 border border-primary-200"
+                className="h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 border border-primary-200"
               >
                 <img
                   src={parceiro.logo}
@@ -239,7 +194,7 @@ const Home = () => {
             <p className="text-xl text-white/80">Veja como nossa comunidade está mudando vidas</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card
               className="hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 animate-fade-in bg-white"
               style={{ animationDelay: "0.1s" }}
@@ -251,8 +206,10 @@ const Home = () => {
                   ))}
                 </div>
                 <p className="text-primary-700 mb-4">
-                  "O Instituto Mulheres V8 transformou minha perspectiva sobre liderança. Hoje ocupo um cargo executivo
-                  que sempre sonhei."
+                  "Faço de suas as minhas palavras 🙏🙏
+É muito importante este encontro de mulheres que trabalham em um ramo ainda considerado para o público masculino. Sofremos muito preconceito, nos aborrecemos... são vários desafios. Esta rede de apoio é fortalecedora e transformadora.
+Também amei participar do 1º congresso 🦁❤️
+Sinto ainda não participar este ano. Mas é por uma nobre causa 🙏✨🦁"
                 </p>
                 <div className="flex items-center">
                   <img
@@ -261,8 +218,8 @@ const Home = () => {
                     className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                   />
                   <div>
-                    <h4 className="font-semibold text-primary-900">Marina Silva</h4>
-                    <p className="text-sm text-primary-600">Diretora de Marketing</p>
+                    <h4 className="font-semibold text-primary-900">Andreia Hinichinck</h4>
+                    <p className="text-sm text-primary-600"></p>
                   </div>
                 </div>
               </CardContent>
@@ -279,50 +236,24 @@ const Home = () => {
                   ))}
                 </div>
                 <p className="text-primary-700 mb-4">
-                  "A rede de networking que construí aqui foi fundamental para o crescimento da minha startup. Gratidão
-                  eterna!"
+                  "Eu amei esse dia e queria que ele não tivesse fim! Superou todas as minhas expectativas... Saí do curso renovada e com muita vontade de fazer acontecer e "meter" o loco! Hahahaha
+Vcs todas são maravilhosas, lindas e fantásticas! @Eva Paiva - Instituto Mulheres V8 sem palavras para te agradecer! Juntas somos mais fortes e vamos vencer esse ramo tão desafiador.
+Obrigadaaaaaaaaa"
                 </p>
                 <div className="flex items-center">
                   <img
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face"
+                    src=""
                     alt="Testimonial"
                     className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                   />
                   <div>
-                    <h4 className="font-semibold text-primary-900">Ana Costa</h4>
-                    <p className="text-sm text-primary-600">CEO & Fundadora</p>
+                    <h4 className="font-semibold text-primary-900"></h4>
+                    <p className="text-sm text-primary-600"></p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card
-              className="hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 animate-fade-in bg-white"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-brand-yellow fill-current" />
-                  ))}
-                </div>
-                <p className="text-primary-700 mb-4">
-                  "Os workshops e mentorias me deram a confiança que precisava para empreender. Hoje minha empresa
-                  fatura 7 dígitos!"
-                </p>
-                <div className="flex items-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
-                    alt="Testimonial"
-                    className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-primary-900">Carla Santos</h4>
-                    <p className="text-sm text-primary-600">Empresária</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>

@@ -31,7 +31,7 @@ const Footer = () => {
               Instituto Mulheres V8
             </h3>
             <p className="text-white/80 mb-6 max-w-md">
-              A potência que acelera o setor automotivo.
+              A potência que transforma o setor automotivo.
             </p>
             <div className="flex space-x-4 mb-6">
               <a href="https://linkedin.com/company/institutomulheresv8" className="text-white/80 hover:text-brand-yellow transition-colors">
@@ -64,7 +64,6 @@ const Footer = () => {
               <Link to="/" className="block text-white/80 hover:text-brand-yellow transition-colors">Home</Link>
               <Link to="/institucional" className="block text-white/80 hover:text-brand-yellow transition-colors">Institucional</Link>
               <Link to="/cursos" className="block text-white/80 hover:text-brand-yellow transition-colors">Cursos</Link>
-              <Link to="/mentorias" className="block text-white/80 hover:text-brand-yellow transition-colors">Mentorias</Link>
               <Link to="/agenda" className="block text-white/80 hover:text-brand-yellow transition-colors">Agenda</Link>
               <Link to="/comunidade" className="block text-white/80 hover:text-brand-yellow transition-colors">Comunidade</Link>
               <Link to="/galeria" className="block text-white/80 hover:text-brand-yellow transition-colors">Galeria</Link>
