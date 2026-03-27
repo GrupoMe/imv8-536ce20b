@@ -125,7 +125,8 @@ const Cursos = () => {
             {filteredFormations.map((formation) => (
               <Card
                 key={formation.id}
-                className="hover:border-brand-primary transition-all duration-300 overflow-hidden bg-primary-50"
+                className="hover:border-brand-primary transition-all duration-300 overflow-hidden bg-primary-50 cursor-pointer"
+                onClick={() => setSelectedCurso(formation)}
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-2">
