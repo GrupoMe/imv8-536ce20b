@@ -23,6 +23,7 @@ interface CursoFormation {
 const Cursos = () => {
   const [selectedCategory, setSelectedCategory] = useState("todos");
   const [formations, setFormations] = useState<CursoFormation[]>([]);
+  const [selectedCurso, setSelectedCurso] = useState<CursoFormation | null>(null);
 
   const categories = [
     { key: "todos", label: "Todos" },
