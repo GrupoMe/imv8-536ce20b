@@ -1,45 +1,33 @@
-﻿import React from 'react';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, Image, Settings, LogOut, BookOpen } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
-import { loadAgendaEvents } from '@/lib/agenda-data';
-import { loadCourseFormations } from '@/lib/cursos-data';
+import { supabase } from '@/integrations/supabase/client';
 
 const Admin = () => {
-  const { isAuthenticated, isAdmin, user, logout } = useAuth();
+  const { isAuthenticated, isAdmin, user, logout, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
   const [agendaCount, setAgendaCount] = React.useState(0);
   const [galleryCount, setGalleryCount] = React.useState(0);
   const [coursesCount, setCoursesCount] = React.useState(0);
 
   React.useEffect(() => {
-    if (!isAuthenticated || !isAdmin) {
+    if (!authLoading && (!isAuthenticated || !isAdmin)) {
       navigate('/login');
     }
-  }, [isAuthenticated, isAdmin, navigate]);
+  }, [isAuthenticated, isAdmin, authLoading, navigate]);
 
   React.useEffect(() => {
-    const loadCounts = () => {
-      const agendaEvents = loadAgendaEvents();
-      setAgendaCount(agendaEvents.length);
-      setCoursesCount(loadCourseFormations().length);
-
-      const savedGalleryEvents = localStorage.getItem('gallery_events');
-      if (!savedGalleryEvents) {
-        setGalleryCount(6);
-        return;
-      }
-
-      try {
-        const parsed = JSON.parse(savedGalleryEvents);
-        setGalleryCount(Array.isArray(parsed) ? parsed.length : 6);
-      } catch {
-        setGalleryCount(6);
-      }
+    const loadCounts = async () => {
+      const { count: ac } = await supabase.from('agenda_events').select('*', { count: 'exact', head: true });
+      const { count: gc } = await supabase.from('gallery_events').select('*', { count: 'exact', head: true });
+      const { count: cc } = await supabase.from('cursos_formations').select('*', { count: 'exact', head: true });
+      setAgendaCount(ac ?? 0);
+      setGalleryCount(gc ?? 0);
+      setCoursesCount(cc ?? 0);
     };
-
     loadCounts();
   }, []);
 
