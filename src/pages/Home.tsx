@@ -89,7 +89,7 @@ const Home = () => {
                 Fazer Parte da Comunidade
               </Button>
             </Link>
-            <Link to="/agenda">
+            <Link to="/cursos">
               <Button
                 size="lg"
                 className="bg-primary text-white hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg font-bold"
