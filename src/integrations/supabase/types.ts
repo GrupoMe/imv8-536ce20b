@@ -14,16 +14,153 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      agenda_events: {
+        Row: {
+          created_at: string
+          date: string
+          description: string
+          id: number
+          location: string
+          max_participants: number
+          participants: number
+          status: string
+          time: string
+          title: string
+          type: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          description?: string
+          id?: never
+          location?: string
+          max_participants?: number
+          participants?: number
+          status?: string
+          time: string
+          title: string
+          type?: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          description?: string
+          id?: never
+          location?: string
+          max_participants?: number
+          participants?: number
+          status?: string
+          time?: string
+          title?: string
+          type?: string
+        }
+        Relationships: []
+      }
+      cursos_formations: {
+        Row: {
+          category: string
+          checkout_link: string
+          created_at: string
+          description: string
+          duration: string
+          id: number
+          modules: string[]
+          participants: number
+          price: string
+          rating: number
+          title: string
+        }
+        Insert: {
+          category?: string
+          checkout_link?: string
+          created_at?: string
+          description?: string
+          duration?: string
+          id?: never
+          modules?: string[]
+          participants?: number
+          price?: string
+          rating?: number
+          title: string
+        }
+        Update: {
+          category?: string
+          checkout_link?: string
+          created_at?: string
+          description?: string
+          duration?: string
+          id?: never
+          modules?: string[]
+          participants?: number
+          price?: string
+          rating?: number
+          title?: string
+        }
+        Relationships: []
+      }
+      gallery_events: {
+        Row: {
+          category: string
+          created_at: string
+          date: string
+          id: number
+          images: string[]
+          location: string
+          title: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          date: string
+          id?: never
+          images?: string[]
+          location?: string
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          date?: string
+          id?: never
+          images?: string[]
+          location?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +287,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
