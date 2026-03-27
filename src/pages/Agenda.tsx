@@ -3,21 +3,34 @@ import { Calendar, Clock, MapPin, Users, Filter, ChevronRight } from 'lucide-rea
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { AgendaEvent, loadAgendaEvents } from '@/lib/agenda-data';
+import { supabase } from '@/integrations/supabase/client';
+
+interface AgendaEvent {
+  id: number;
+  title: string;
+  type: string;
+  date: string;
+  time: string;
+  location: string;
+  participants: number;
+  max_participants: number;
+  description: string;
+  status: string;
+}
 
 const Agenda = () => {
   const [selectedFilter, setSelectedFilter] = useState('todos');
   const [events, setEvents] = useState<AgendaEvent[]>([]);
 
   useEffect(() => {
-    const syncEvents = () => setEvents(loadAgendaEvents());
-
-    syncEvents();
-    window.addEventListener('storage', syncEvents);
-
-    return () => {
-      window.removeEventListener('storage', syncEvents);
+    const fetchEvents = async () => {
+      const { data } = await supabase
+        .from('agenda_events')
+        .select('*')
+        .order('id');
+      if (data) setEvents(data);
     };
+    fetchEvents();
   }, []);
 
   const eventTypes = [
@@ -29,13 +42,13 @@ const Agenda = () => {
   ];
 
   const getEventTypeColor = (type: string) => {
-    const colors = {
+    const colors: Record<string, string> = {
       workshop: 'bg-blue-500/20 text-white',
       palestra: 'bg-green-500/20 text-green-400',
       masterclass: 'bg-purple-500/20 text-purple-400',
       webinar: 'bg-orange-500/20 text-orange-400'
     };
-    return colors[type as keyof typeof colors] || 'bg-gray-500/20 text-gray-400';
+    return colors[type] || 'bg-gray-500/20 text-gray-400';
   };
 
   const getStatusColor = (status: string) => {
@@ -55,7 +68,6 @@ const Agenda = () => {
   return (
     <div className="min-h-screen bg-zinc-950 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-12 pt-8">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
             Agenda de Eventos
@@ -66,7 +78,6 @@ const Agenda = () => {
           </p>
         </div>
 
-        {/* Filters */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <Filter className="w-5 h-5 text-brand-primary" />
@@ -87,7 +98,6 @@ const Agenda = () => {
           </div>
         </div>
 
-        {/* Events Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {filteredEvents.map((event) => (
             <Card key={event.id} className="hover:border-brand-primary transition-all duration-300">
@@ -108,7 +118,6 @@ const Agenda = () => {
                 <p className="text-gray-400 text-sm sm:text-base">
                   {event.description}
                 </p>
-
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Calendar className="w-4 h-4 text-brand-primary flex-shrink-0" />
@@ -124,10 +133,9 @@ const Agenda = () => {
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Users className="w-4 h-4 text-brand-primary flex-shrink-0" />
-                    <span>{event.participants}/{event.maxParticipants} participantes</span>
+                    <span>{event.participants}/{event.max_participants} participantes</span>
                   </div>
                 </div>
-
                 <div className="pt-3">
                   <Button
                     className={`w-full sm:w-auto ${event.status === 'lotado' ? 'bg-zinc-700' : 'bg-brand-primary hover:bg-brand-dark'}`}
@@ -150,7 +158,6 @@ const Agenda = () => {
           </div>
         )}
 
-        {/* CTA Section */}
         <div className="mt-16 text-center bg-brand-yellow rounded-xl p-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-black">
             Não Perca Nenhum Evento!

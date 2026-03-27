@@ -8,13 +8,23 @@ import { Calendar, Clock, MapPin, Users, Plus, Edit, Trash2, Save } from 'lucide
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
-import {
-  AgendaEvent,
-  AgendaEventStatus,
-  AgendaEventType,
-  loadAgendaEvents,
-  persistAgendaEvents,
-} from '@/lib/agenda-data';
+import { supabase } from '@/integrations/supabase/client';
+
+type AgendaEventType = 'workshop' | 'palestra' | 'masterclass' | 'webinar';
+type AgendaEventStatus = 'inscricoes-abertas' | 'lotado';
+
+interface AgendaEvent {
+  id: number;
+  title: string;
+  type: string;
+  date: string;
+  time: string;
+  location: string;
+  participants: number;
+  max_participants: number;
+  description: string;
+  status: string;
+}
 
 type AgendaFormData = {
   title: string;
@@ -39,7 +49,7 @@ const initialFormData: AgendaFormData = {
 };
 
 const AdminAgenda = () => {
-  const { isAuthenticated, isAdmin, logout } = useAuth();
+  const { isAuthenticated, isAdmin, logout, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -48,164 +58,137 @@ const AdminAgenda = () => {
   const [formData, setFormData] = useState<AgendaFormData>(initialFormData);
 
   useEffect(() => {
-    if (!isAuthenticated || !isAdmin) {
+    if (!authLoading && (!isAuthenticated || !isAdmin)) {
       navigate('/login');
     }
-  }, [isAuthenticated, isAdmin, navigate]);
+  }, [isAuthenticated, isAdmin, authLoading, navigate]);
 
   useEffect(() => {
-    setEvents(loadAgendaEvents());
+    fetchEvents();
   }, []);
 
-  if (!isAuthenticated || !isAdmin) {
+  const fetchEvents = async () => {
+    const { data } = await supabase.from('agenda_events').select('*').order('id');
+    if (data) setEvents(data);
+  };
+
+  if (authLoading || !isAuthenticated || !isAdmin) {
     return null;
   }
-
-  const saveEvents = (nextEvents: AgendaEvent[]) => {
-    setEvents(nextEvents);
-    persistAgendaEvents(nextEvents);
-  };
 
   const resetForm = () => {
     setFormData(initialFormData);
     setEditingEventId(null);
   };
 
-  const handleSaveEvent = () => {
+  const handleSaveEvent = async () => {
     if (!formData.title || !formData.date || !formData.time) {
-      toast({
-        title: 'Campos obrigatórios',
-        description: 'Preencha pelo menos título, data e horário.',
-        variant: 'destructive',
-      });
+      toast({ title: 'Campos obrigatórios', description: 'Preencha pelo menos título, data e horário.', variant: 'destructive' });
       return;
     }
-
     if (formData.maxParticipants <= 0) {
-      toast({
-        title: 'Capacidade inválida',
-        description: 'Informe um máximo de participantes maior que zero.',
-        variant: 'destructive',
-      });
+      toast({ title: 'Capacidade inválida', description: 'Informe um máximo de participantes maior que zero.', variant: 'destructive' });
       return;
     }
 
     if (editingEventId !== null) {
-      const updatedEvents = events.map((event) =>
-        event.id === editingEventId
-          ? {
-              ...event,
-              title: formData.title,
-              type: formData.type,
-              date: formData.date,
-              time: formData.time,
-              location: formData.location,
-              maxParticipants: formData.maxParticipants,
-              description: formData.description,
-              status: formData.status,
-            }
-          : event
-      );
+      const { error } = await supabase.from('agenda_events').update({
+        title: formData.title,
+        type: formData.type,
+        date: formData.date,
+        time: formData.time,
+        location: formData.location,
+        max_participants: formData.maxParticipants,
+        description: formData.description,
+        status: formData.status,
+      }).eq('id', editingEventId);
 
-      saveEvents(updatedEvents);
-      toast({
-        title: 'Evento atualizado!',
-        description: 'As alterações foram salvas com sucesso.',
+      if (error) {
+        toast({ title: 'Erro', description: 'Não foi possível atualizar o evento.', variant: 'destructive' });
+        return;
+      }
+      toast({ title: 'Evento atualizado!', description: 'As alterações foram salvas com sucesso.' });
+    } else {
+      const { error } = await supabase.from('agenda_events').insert({
+        title: formData.title,
+        type: formData.type,
+        date: formData.date,
+        time: formData.time,
+        location: formData.location,
+        max_participants: formData.maxParticipants,
+        description: formData.description,
+        status: formData.status,
       });
 
-      resetForm();
-      return;
+      if (error) {
+        toast({ title: 'Erro', description: 'Não foi possível criar o evento.', variant: 'destructive' });
+        return;
+      }
+      toast({ title: 'Evento criado!', description: 'O evento foi adicionado com sucesso.' });
     }
-
-    const newEvent: AgendaEvent = {
-      id: Math.max(0, ...events.map((event) => event.id)) + 1,
-      title: formData.title,
-      type: formData.type,
-      date: formData.date,
-      time: formData.time,
-      location: formData.location,
-      participants: 0,
-      maxParticipants: formData.maxParticipants,
-      description: formData.description,
-      status: formData.status,
-    };
-
-    saveEvents([...events, newEvent]);
-    toast({
-      title: 'Evento criado!',
-      description: 'O evento foi adicionado com sucesso.',
-    });
 
     resetForm();
+    fetchEvents();
   };
 
-  const handleDeleteEvent = (id: number) => {
-    saveEvents(events.filter((event) => event.id !== id));
-    if (editingEventId === id) {
-      resetForm();
+  const handleDeleteEvent = async (id: number) => {
+    const { error } = await supabase.from('agenda_events').delete().eq('id', id);
+    if (error) {
+      toast({ title: 'Erro', description: 'Não foi possível remover o evento.', variant: 'destructive' });
+      return;
     }
-
-    toast({
-      title: 'Evento removido!',
-      description: 'O evento foi removido com sucesso.',
-    });
+    if (editingEventId === id) resetForm();
+    toast({ title: 'Evento removido!', description: 'O evento foi removido com sucesso.' });
+    fetchEvents();
   };
 
   const handleEditEvent = (event: AgendaEvent) => {
     setEditingEventId(event.id);
     setFormData({
       title: event.title,
-      type: event.type,
+      type: event.type as AgendaEventType,
       date: event.date,
       time: event.time,
       location: event.location,
-      maxParticipants: event.maxParticipants,
+      maxParticipants: event.max_participants,
       description: event.description,
-      status: event.status,
+      status: event.status as AgendaEventStatus,
     });
-
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const getEventTypeColor = (type: AgendaEventType) => {
-    const colors = {
+  const getEventTypeColor = (type: string) => {
+    const colors: Record<string, string> = {
       workshop: 'bg-blue-100 text-blue-800',
       palestra: 'bg-green-100 text-green-800',
       masterclass: 'bg-purple-100 text-purple-800',
       webinar: 'bg-orange-100 text-orange-800',
     };
-
     return colors[type] ?? 'bg-gray-100 text-gray-800';
   };
 
-  const getStatusColor = (status: AgendaEventStatus) => {
+  const getStatusColor = (status: string) => {
     return status === 'lotado' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800';
   };
 
-  const getStatusLabel = (status: AgendaEventStatus) => {
+  const getStatusLabel = (status: string) => {
     return status === 'lotado' ? 'Lotado' : 'Inscrições Abertas';
   };
 
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 [&_button]:text-black [&_a]:text-black">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-brand-primary">Administração - Agenda</h1>
             <p className="text-gray-600 mt-2">Gerencie os eventos da agenda</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" onClick={() => navigate('/admin')}>
-              Voltar ao Admin
-            </Button>
-            <Button variant="outline" onClick={logout}>
-              Sair
-            </Button>
+            <Button variant="outline" onClick={() => navigate('/admin')}>Voltar ao Admin</Button>
+            <Button variant="outline" onClick={logout}>Sair</Button>
           </div>
         </div>
 
-        {/* Formulário */}
         <Card className="mb-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -217,21 +200,11 @@ const AdminAgenda = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm font-medium">Título</label>
-                <Input
-                  value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="Título do evento"
-                />
+                <Input value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} placeholder="Título do evento" />
               </div>
               <div>
                 <label className="text-sm font-medium">Tipo</label>
-                <select
-                  className="w-full p-2 border rounded-md"
-                  value={formData.type}
-                  onChange={(e) =>
-                    setFormData({ ...formData, type: e.target.value as AgendaEventType })
-                  }
-                >
+                <select className="w-full p-2 border rounded-md" value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value as AgendaEventType })}>
                   <option value="workshop">Workshop</option>
                   <option value="palestra">Palestra</option>
                   <option value="masterclass">Masterclass</option>
@@ -240,53 +213,23 @@ const AdminAgenda = () => {
               </div>
               <div>
                 <label className="text-sm font-medium">Data</label>
-                <Input
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  placeholder="Ex: 15 de Março, 2025"
-                />
+                <Input value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} placeholder="Ex: 15 de Março, 2025" />
               </div>
               <div>
                 <label className="text-sm font-medium">Horário</label>
-                <Input
-                  value={formData.time}
-                  onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                  placeholder="Ex: 14:00 - 17:00"
-                />
+                <Input value={formData.time} onChange={(e) => setFormData({ ...formData, time: e.target.value })} placeholder="Ex: 14:00 - 17:00" />
               </div>
               <div>
                 <label className="text-sm font-medium">Local</label>
-                <Input
-                  value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                  placeholder="Ex: São Paulo - SP"
-                />
+                <Input value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} placeholder="Ex: São Paulo - SP" />
               </div>
               <div>
                 <label className="text-sm font-medium">Máximo de Participantes</label>
-                <Input
-                  type="number"
-                  min={1}
-                  value={formData.maxParticipants}
-                  onChange={(e) => {
-                    const parsed = Number.parseInt(e.target.value, 10);
-                    setFormData({
-                      ...formData,
-                      maxParticipants: Number.isNaN(parsed) ? 0 : parsed,
-                    });
-                  }}
-                  placeholder="Ex: 30"
-                />
+                <Input type="number" min={1} value={formData.maxParticipants} onChange={(e) => { const parsed = Number.parseInt(e.target.value, 10); setFormData({ ...formData, maxParticipants: Number.isNaN(parsed) ? 0 : parsed }); }} placeholder="Ex: 30" />
               </div>
               <div>
                 <label className="text-sm font-medium">Status</label>
-                <select
-                  className="w-full p-2 border rounded-md"
-                  value={formData.status}
-                  onChange={(e) =>
-                    setFormData({ ...formData, status: e.target.value as AgendaEventStatus })
-                  }
-                >
+                <select className="w-full p-2 border rounded-md" value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value as AgendaEventStatus })}>
                   <option value="inscricoes-abertas">Inscrições Abertas</option>
                   <option value="lotado">Lotado</option>
                 </select>
@@ -294,37 +237,19 @@ const AdminAgenda = () => {
             </div>
             <div>
               <label className="text-sm font-medium">Descrição</label>
-              <Textarea
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                placeholder="Descrição do evento"
-                rows={3}
-              />
+              <Textarea value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} placeholder="Descrição do evento" rows={3} />
             </div>
             <div className="flex flex-wrap gap-3">
               <Button onClick={handleSaveEvent} className="w-full md:w-auto">
-                {editingEventId === null ? (
-                  <>
-                    <Plus className="w-4 h-4 mr-2" />
-                    Criar Evento
-                  </>
-                ) : (
-                  <>
-                    <Save className="w-4 h-4 mr-2" />
-                    Salvar Alterações
-                  </>
-                )}
+                {editingEventId === null ? (<><Plus className="w-4 h-4 mr-2" />Criar Evento</>) : (<><Save className="w-4 h-4 mr-2" />Salvar Alterações</>)}
               </Button>
               {editingEventId !== null && (
-                <Button variant="outline" onClick={resetForm} className="w-full md:w-auto">
-                  Cancelar Edição
-                </Button>
+                <Button variant="outline" onClick={resetForm} className="w-full md:w-auto">Cancelar Edição</Button>
               )}
             </div>
           </CardContent>
         </Card>
 
-        {/* Lista de eventos */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {events.map((event) => (
             <Card key={event.id} className="hover:shadow-lg transition-shadow">
@@ -332,45 +257,24 @@ const AdminAgenda = () => {
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col gap-2">
                     <div className="flex gap-2">
-                      <Badge className={getEventTypeColor(event.type)}>
-                        {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
-                      </Badge>
+                      <Badge className={getEventTypeColor(event.type)}>{event.type.charAt(0).toUpperCase() + event.type.slice(1)}</Badge>
                       <Badge className={getStatusColor(event.status)}>{getStatusLabel(event.status)}</Badge>
                     </div>
                     <CardTitle className="text-lg leading-tight">{event.title}</CardTitle>
                   </div>
                   <div className="flex gap-1">
-                    <Button size="sm" variant="outline" onClick={() => handleEditEvent(event)}>
-                      <Edit className="w-4 h-4" />
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => handleDeleteEvent(event.id)}>
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
+                    <Button size="sm" variant="outline" onClick={() => handleEditEvent(event)}><Edit className="w-4 h-4" /></Button>
+                    <Button size="sm" variant="outline" onClick={() => handleDeleteEvent(event.id)}><Trash2 className="w-4 h-4" /></Button>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-gray-600 text-sm">{event.description}</p>
-
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Calendar className="w-4 h-4 text-brand-primary" />
-                    <span>{event.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Clock className="w-4 h-4 text-brand-primary" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <MapPin className="w-4 h-4 text-brand-primary" />
-                    <span>{event.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Users className="w-4 h-4 text-brand-primary" />
-                    <span>
-                      {event.participants}/{event.maxParticipants} participantes
-                    </span>
-                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><Calendar className="w-4 h-4 text-brand-primary" /><span>{event.date}</span></div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><Clock className="w-4 h-4 text-brand-primary" /><span>{event.time}</span></div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><MapPin className="w-4 h-4 text-brand-primary" /><span>{event.location}</span></div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600"><Users className="w-4 h-4 text-brand-primary" /><span>{event.participants}/{event.max_participants} participantes</span></div>
                 </div>
               </CardContent>
             </Card>
@@ -379,9 +283,7 @@ const AdminAgenda = () => {
 
         {events.length === 0 && (
           <Card className="mt-6">
-            <CardContent className="py-8 text-center text-gray-500">
-              Nenhum evento cadastrado ainda.
-            </CardContent>
+            <CardContent className="py-8 text-center text-gray-500">Nenhum evento cadastrado ainda.</CardContent>
           </Card>
         )}
       </div>
