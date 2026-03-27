@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BookOpen, Clock, Users, Star, ArrowRight, GraduationCap, Award, Target } from "lucide-react";
+import CursoModal from "@/components/CursoModal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +23,7 @@ interface CursoFormation {
 const Cursos = () => {
   const [selectedCategory, setSelectedCategory] = useState("todos");
   const [formations, setFormations] = useState<CursoFormation[]>([]);
+  const [selectedCurso, setSelectedCurso] = useState<CursoFormation | null>(null);
 
   const categories = [
     { key: "todos", label: "Todos" },
@@ -79,6 +81,11 @@ const Cursos = () => {
 
   return (
     <div className="min-h-screen bg-primary-50">
+      <CursoModal
+        curso={selectedCurso}
+        open={!!selectedCurso}
+        onOpenChange={(open) => !open && setSelectedCurso(null)}
+      />
       <section
         className="relative min-h-[70vh] flex flex-col justify-center text-white py-20 px-4 overflow-hidden"
         style={{ backgroundImage: `url(${cursosHeroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
@@ -123,7 +130,8 @@ const Cursos = () => {
             {filteredFormations.map((formation) => (
               <Card
                 key={formation.id}
-                className="hover:border-brand-primary transition-all duration-300 overflow-hidden bg-primary-50"
+                className="hover:border-brand-primary transition-all duration-300 overflow-hidden bg-primary-50 cursor-pointer"
+                onClick={() => setSelectedCurso(formation)}
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-2">
