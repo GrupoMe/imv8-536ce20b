@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BookOpen, Clock, Users, Star, ArrowRight, GraduationCap, Award, Target } from "lucide-react";
+import CursoModal from "@/components/CursoModal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
