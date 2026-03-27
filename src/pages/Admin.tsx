@@ -31,7 +31,7 @@ const Admin = () => {
     loadCounts();
   }, []);
 
-  if (!isAuthenticated || !isAdmin) {
+  if (authLoading || !isAuthenticated || !isAdmin) {
     return null;
   }
 
