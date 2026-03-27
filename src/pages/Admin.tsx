@@ -81,7 +81,7 @@ const Admin = () => {
               Painel Administrativo
             </h1>
             <p className="text-gray-600 mt-2">
-              Bem-vinda, {user?.name}! Gerencie o conteúdo do Instituto Mulheres V8.
+              Bem-vinda! Gerencie o conteúdo do Instituto Mulheres V8.
             </p>
           </div>
           <div className="flex gap-2">
