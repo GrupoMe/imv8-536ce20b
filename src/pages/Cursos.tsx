@@ -81,6 +81,11 @@ const Cursos = () => {
 
   return (
     <div className="min-h-screen bg-primary-50">
+      <CursoModal
+        curso={selectedCurso}
+        open={!!selectedCurso}
+        onOpenChange={(open) => !open && setSelectedCurso(null)}
+      />
       <section
         className="relative min-h-[70vh] flex flex-col justify-center text-white py-20 px-4 overflow-hidden"
         style={{ backgroundImage: `url(${cursosHeroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
