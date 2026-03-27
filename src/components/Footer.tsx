@@ -34,10 +34,10 @@ const Footer = () => {
               A potência que transforma o setor automotivo.
             </p>
             <div className="flex space-x-4 mb-6">
-              <a href="https://linkedin.com/company/institutomulheresv8" className="text-white/80 hover:text-brand-yellow transition-colors">
+              <a href="https://www.linkedin.com/in/instituto-mulheres-v8-992a00349/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-brand-yellow transition-colors">
                 <Linkedin size={24} />
               </a>
-              <a href="https://instagram.com/institutomulheresv8" className="text-white/80 hover:text-brand-yellow transition-colors">
+              <a href="https://www.instagram.com/mulheresv8/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-brand-yellow transition-colors">
                 <Instagram size={24} />
               </a>
             </div>
