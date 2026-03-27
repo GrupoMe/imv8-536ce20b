@@ -1,26 +1,54 @@
 
 
-# Mover Numeros de Impacto para fora do Hero
+# Plano: Migrar para Lovable Cloud (Supabase) como Backend
 
-Vamos tirar os 3 quadros (Mulheres Impactadas, Eventos Realizados, Estados do Brasil) de dentro da secao hero (que tem a imagem de fundo) e coloca-los em uma nova secao independente logo abaixo.
+## Objetivo
+Substituir o localStorage por um banco de dados Supabase via Lovable Cloud, garantindo que quando o admin deletar conteúdo, ele seja removido permanentemente para todos os visitantes do site.
 
 ## O que muda
 
-- Os 3 cards de numeros saem de dentro do `<section>` do hero (linhas 107-141)
-- Uma nova `<section>` e criada entre o hero e a secao de Pilares
-- Fundo da nova secao em cor solida (rosa `bg-primary`) para dar destaque e contraste
-- Os cards mantem o mesmo layout em grid de 3 colunas, com fundo branco semi-transparente e estilo visual similar
+Atualmente, Agenda, Galeria e Cursos usam `localStorage` — os dados só existem no navegador do admin. Com Supabase, os dados ficam em um banco central acessível por todos.
 
-## Resultado visual
+## Etapas
 
-O hero fica mais limpo, mostrando apenas o texto e botoes sobre a foto. Logo abaixo, uma faixa com fundo rosa exibe os 3 numeros de impacto com destaque.
+### 1. Ativar Lovable Cloud
+- Habilitar o Lovable Cloud no projeto (aba Cloud no editor)
+- Isso cria automaticamente a infraestrutura Supabase
 
-## Detalhes tecnicos
+### 2. Criar tabelas no banco de dados
+Três tabelas:
 
-**Arquivo**: `src/pages/Home.tsx`
+- **agenda_events**: id, title, type, date, time, location, participants, max_participants, description, status
+- **gallery_events**: id, title, category, date, location, images (array de URLs)
+- **cursos_formations**: id, title, category, duration, participants, rating, price, description, modules (array), checkout_link
 
-1. Remover o bloco dos numeros de impacto (linhas 107-141) de dentro da secao hero
-2. Reduzir o `min-h-[90vh]` do hero para algo como `min-h-[70vh]` ja que os numeros nao precisam mais caber dentro
-3. Criar uma nova `<section>` com fundo `bg-primary` entre o fechamento do hero e a secao "Pilares de Formacao"
-4. Mover os 3 cards para dentro dessa nova secao, ajustando estilos (texto branco, icones amarelos, fundo semi-transparente)
+Cada tabela será populada com os dados default atuais como seed inicial.
+
+### 3. Configurar autenticação real
+- Substituir o login hardcoded (`admin@mulheresv8.com` / `admin123`) por autenticação Supabase com email/senha
+- Criar o usuário admin no painel Cloud
+- Atualizar `AuthContext.tsx` para usar `supabase.auth`
+
+### 4. Configurar RLS (Row Level Security)
+- **Leitura pública**: qualquer visitante pode ver agenda, galeria e cursos
+- **Escrita apenas admin**: criar tabela `user_roles` com função `has_role()` para proteger INSERT/UPDATE/DELETE
+
+### 5. Atualizar código do frontend
+- Criar cliente Supabase (`src/integrations/supabase/client.ts`)
+- Substituir `loadAgendaEvents()` / `persistAgendaEvents()` por queries Supabase
+- Substituir lógica localStorage em `AdminGaleria.tsx` por queries Supabase
+- Substituir `loadCourseFormations()` / `persistCourseFormations()` por queries Supabase
+- Remover os arquivos `agenda-data.ts` e `cursos-data.ts` (ou simplificar para types apenas)
+
+### 6. Atualizar páginas públicas
+- `Agenda.tsx`, `Galeria.tsx`, `Cursos.tsx` — buscar dados do Supabase ao invés de localStorage
+
+## Detalhes técnicos
+
+- **Arquivos modificados**: `AuthContext.tsx`, `AdminAgenda.tsx`, `AdminGaleria.tsx`, `AdminCursos.tsx`, `Agenda.tsx`, `Galeria.tsx`, `Cursos.tsx`, `agenda-data.ts`, `cursos-data.ts`
+- **Arquivos criados**: migrations SQL, `src/integrations/supabase/client.ts`
+- **Dependência**: `@supabase/supabase-js` (já disponível via Lovable Cloud)
+
+## Pré-requisito
+Antes de implementar, é necessário **ativar o Lovable Cloud** na aba Cloud do editor. Você pode fazer isso agora?
 
