@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import { ArrowLeft, Plus, Pencil, Trash2, Image, Calendar, MapPin } from 'lucide
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 interface GalleryEvent {
   id: number;
@@ -21,75 +21,6 @@ interface GalleryEvent {
   images: string[];
 }
 
-const defaultEvents: GalleryEvent[] = [
-  {
-    id: 1,
-    title: "Workshop Liderança Feminina 2024",
-    category: "workshop",
-    date: "Novembro 2024",
-    location: "São Paulo - SP",
-    images: [
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=600&fit=crop"
-    ]
-  },
-  {
-    id: 2,
-    title: "Palestra Inovação Automotiva",
-    category: "palestra",
-    date: "Outubro 2024",
-    location: "Online",
-    images: [
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop"
-    ]
-  },
-  {
-    id: 3,
-    title: "Encontro de Networking",
-    category: "networking",
-    date: "Setembro 2024",
-    location: "Rio de Janeiro - RJ",
-    images: [
-      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop"
-    ]
-  },
-  {
-    id: 4,
-    title: "Formatura Turma 2024",
-    category: "formatura",
-    date: "Dezembro 2024",
-    location: "São Paulo - SP",
-    images: [
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?w=800&h=600&fit=crop"
-    ]
-  },
-  {
-    id: 5,
-    title: "Masterclass Gestão de Equipes",
-    category: "workshop",
-    date: "Agosto 2024",
-    location: "Belo Horizonte - MG",
-    images: [
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop"
-    ]
-  },
-  {
-    id: 6,
-    title: "Evento Anual V8 Women",
-    category: "networking",
-    date: "Julho 2024",
-    location: "Porto Alegre - RS",
-    images: [
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800&h=600&fit=crop"
-    ]
-  }
-];
-
 const categories = [
   { key: 'workshop', label: 'Workshop' },
   { key: 'palestra', label: 'Palestra' },
@@ -98,7 +29,7 @@ const categories = [
 ];
 
 const AdminGaleria = () => {
-  const { isAuthenticated, isAdmin } = useAuth();
+  const { isAuthenticated, isAdmin, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
   
   const [events, setEvents] = useState<GalleryEvent[]>([]);
@@ -107,33 +38,21 @@ const AdminGaleria = () => {
   const [editingEvent, setEditingEvent] = useState<GalleryEvent | null>(null);
   const [eventToDelete, setEventToDelete] = useState<GalleryEvent | null>(null);
   
-  const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    date: '',
-    location: '',
-    images: ''
-  });
+  const [formData, setFormData] = useState({ title: '', category: '', date: '', location: '', images: '' });
 
   useEffect(() => {
-    if (!isAuthenticated || !isAdmin) {
+    if (!authLoading && (!isAuthenticated || !isAdmin)) {
       navigate('/login');
     }
-  }, [isAuthenticated, isAdmin, navigate]);
+  }, [isAuthenticated, isAdmin, authLoading, navigate]);
 
   useEffect(() => {
-    const saved = localStorage.getItem('gallery_events');
-    if (saved) {
-      setEvents(JSON.parse(saved));
-    } else {
-      setEvents(defaultEvents);
-      localStorage.setItem('gallery_events', JSON.stringify(defaultEvents));
-    }
+    fetchEvents();
   }, []);
 
-  const saveEvents = (newEvents: GalleryEvent[]) => {
-    setEvents(newEvents);
-    localStorage.setItem('gallery_events', JSON.stringify(newEvents));
+  const fetchEvents = async () => {
+    const { data } = await supabase.from('gallery_events').select('*').order('id');
+    if (data) setEvents(data);
   };
 
   const openCreateDialog = () => {
@@ -144,13 +63,7 @@ const AdminGaleria = () => {
 
   const openEditDialog = (event: GalleryEvent) => {
     setEditingEvent(event);
-    setFormData({
-      title: event.title,
-      category: event.category,
-      date: event.date,
-      location: event.location,
-      images: event.images.join('\n')
-    });
+    setFormData({ title: event.title, category: event.category, date: event.date, location: event.location, images: event.images.join('\n') });
     setIsDialogOpen(true);
   };
 
@@ -159,94 +72,66 @@ const AdminGaleria = () => {
     setIsDeleteDialogOpen(true);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.title || !formData.category || !formData.date || !formData.location) {
       toast.error('Preencha todos os campos obrigatórios');
       return;
     }
-
-    const imagesArray = formData.images
-      .split('\n')
-      .map(url => url.trim())
-      .filter(url => url.length > 0);
-
+    const imagesArray = formData.images.split('\n').map(url => url.trim()).filter(url => url.length > 0);
     if (imagesArray.length === 0) {
       toast.error('Adicione pelo menos uma URL de imagem');
       return;
     }
 
     if (editingEvent) {
-      const updated = events.map(e => 
-        e.id === editingEvent.id 
-          ? { ...e, ...formData, images: imagesArray }
-          : e
-      );
-      saveEvents(updated);
+      const { error } = await supabase.from('gallery_events').update({
+        title: formData.title, category: formData.category, date: formData.date, location: formData.location, images: imagesArray
+      }).eq('id', editingEvent.id);
+      if (error) { toast.error('Erro ao atualizar evento'); return; }
       toast.success('Evento atualizado com sucesso!');
     } else {
-      const newEvent: GalleryEvent = {
-        id: Math.max(0, ...events.map(e => e.id)) + 1,
-        title: formData.title,
-        category: formData.category,
-        date: formData.date,
-        location: formData.location,
-        images: imagesArray
-      };
-      saveEvents([...events, newEvent]);
+      const { error } = await supabase.from('gallery_events').insert({
+        title: formData.title, category: formData.category, date: formData.date, location: formData.location, images: imagesArray
+      });
+      if (error) { toast.error('Erro ao criar evento'); return; }
       toast.success('Evento criado com sucesso!');
     }
-
     setIsDialogOpen(false);
+    fetchEvents();
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (eventToDelete) {
-      const updated = events.filter(e => e.id !== eventToDelete.id);
-      saveEvents(updated);
+      const { error } = await supabase.from('gallery_events').delete().eq('id', eventToDelete.id);
+      if (error) { toast.error('Erro ao remover evento'); return; }
       toast.success('Evento removido com sucesso!');
       setIsDeleteDialogOpen(false);
       setEventToDelete(null);
+      fetchEvents();
     }
   };
 
-  if (!isAuthenticated || !isAdmin) {
-    return null;
-  }
+  if (authLoading || !isAuthenticated || !isAdmin) return null;
 
-  const getCategoryLabel = (key: string) => {
-    return categories.find(c => c.key === key)?.label || key;
-  };
+  const getCategoryLabel = (key: string) => categories.find(c => c.key === key)?.label || key;
 
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 [&_button]:text-black [&_a]:text-black">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <div className="flex items-center gap-4">
-            <Button variant="outline" asChild>
-              <Link to="/admin">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Voltar
-              </Link>
-            </Button>
+            <Button variant="outline" asChild><Link to="/admin"><ArrowLeft className="w-4 h-4 mr-2" />Voltar</Link></Button>
             <div>
               <h1 className="text-2xl font-bold text-brand-primary">Gerenciar Galeria</h1>
               <p className="text-gray-600">Adicione, edite ou remova eventos da galeria</p>
             </div>
           </div>
-          <Button onClick={openCreateDialog}>
-            <Plus className="w-4 h-4 mr-2" />
-            Novo Evento
-          </Button>
+          <Button onClick={openCreateDialog}><Plus className="w-4 h-4 mr-2" />Novo Evento</Button>
         </div>
 
-        {/* Events Table */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Image className="w-5 h-5" />
-              Eventos da Galeria ({events.length})
-            </CardTitle>
+            <CardTitle className="flex items-center gap-2"><Image className="w-5 h-5" />Eventos da Galeria ({events.length})</CardTitle>
           </CardHeader>
           <CardContent>
             <Table>
@@ -264,153 +149,71 @@ const AdminGaleria = () => {
                 {events.map((event) => (
                   <TableRow key={event.id}>
                     <TableCell className="font-medium">{event.title}</TableCell>
-                    <TableCell>
-                      <span className="px-2 py-1 bg-brand-yellow/20 text-brand-primary rounded text-sm">
-                        {getCategoryLabel(event.category)}
-                      </span>
-                    </TableCell>
-                    <TableCell>
-                      <span className="flex items-center gap-1 text-gray-600">
-                        <Calendar className="w-4 h-4" />
-                        {event.date}
-                      </span>
-                    </TableCell>
-                    <TableCell>
-                      <span className="flex items-center gap-1 text-gray-600">
-                        <MapPin className="w-4 h-4" />
-                        {event.location}
-                      </span>
-                    </TableCell>
+                    <TableCell><span className="px-2 py-1 bg-brand-yellow/20 text-brand-primary rounded text-sm">{getCategoryLabel(event.category)}</span></TableCell>
+                    <TableCell><span className="flex items-center gap-1 text-gray-600"><Calendar className="w-4 h-4" />{event.date}</span></TableCell>
+                    <TableCell><span className="flex items-center gap-1 text-gray-600"><MapPin className="w-4 h-4" />{event.location}</span></TableCell>
                     <TableCell>{event.images.length} foto(s)</TableCell>
                     <TableCell className="text-right">
                       <div className="flex justify-end gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => openEditDialog(event)}
-                        >
-                          <Pencil className="w-4 h-4" />
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                          onClick={() => openDeleteDialog(event)}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
+                        <Button variant="outline" size="sm" onClick={() => openEditDialog(event)}><Pencil className="w-4 h-4" /></Button>
+                        <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700 hover:bg-red-50" onClick={() => openDeleteDialog(event)}><Trash2 className="w-4 h-4" /></Button>
                       </div>
                     </TableCell>
                   </TableRow>
                 ))}
                 {events.length === 0 && (
-                  <TableRow>
-                    <TableCell colSpan={6} className="text-center py-8 text-gray-500">
-                      Nenhum evento cadastrado. Clique em "Novo Evento" para adicionar.
-                    </TableCell>
-                  </TableRow>
+                  <TableRow><TableCell colSpan={6} className="text-center py-8 text-gray-500">Nenhum evento cadastrado. Clique em "Novo Evento" para adicionar.</TableCell></TableRow>
                 )}
               </TableBody>
             </Table>
           </CardContent>
         </Card>
 
-        {/* Create/Edit Dialog */}
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogContent className="max-w-lg">
-            <DialogHeader>
-              <DialogTitle>
-                {editingEvent ? 'Editar Evento' : 'Novo Evento'}
-              </DialogTitle>
-            </DialogHeader>
+            <DialogHeader><DialogTitle>{editingEvent ? 'Editar Evento' : 'Novo Evento'}</DialogTitle></DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
                 <Label htmlFor="title">Título do Evento *</Label>
-                <Input
-                  id="title"
-                  value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="Ex: Workshop Liderança Feminina"
-                />
+                <Input id="title" value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} placeholder="Ex: Workshop Liderança Feminina" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="category">Categoria *</Label>
-                <Select
-                  value={formData.category}
-                  onValueChange={(value) => setFormData({ ...formData, category: value })}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Selecione uma categoria" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {categories.map((cat) => (
-                      <SelectItem key={cat.key} value={cat.key}>
-                        {cat.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
+                <Select value={formData.category} onValueChange={(value) => setFormData({ ...formData, category: value })}>
+                  <SelectTrigger><SelectValue placeholder="Selecione uma categoria" /></SelectTrigger>
+                  <SelectContent>{categories.map((cat) => (<SelectItem key={cat.key} value={cat.key}>{cat.label}</SelectItem>))}</SelectContent>
                 </Select>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="date">Data *</Label>
-                  <Input
-                    id="date"
-                    value={formData.date}
-                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    placeholder="Ex: Novembro 2024"
-                  />
+                  <Input id="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} placeholder="Ex: Novembro 2024" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="location">Local *</Label>
-                  <Input
-                    id="location"
-                    value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    placeholder="Ex: São Paulo - SP"
-                  />
+                  <Input id="location" value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} placeholder="Ex: São Paulo - SP" />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="images">URLs das Imagens * (uma por linha)</Label>
-                <textarea
-                  id="images"
-                  className="w-full min-h-[120px] px-3 py-2 border rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-primary"
-                  value={formData.images}
-                  onChange={(e) => setFormData({ ...formData, images: e.target.value })}
-                  placeholder="https://exemplo.com/imagem1.jpg&#10;https://exemplo.com/imagem2.jpg"
-                />
+                <textarea id="images" className="w-full min-h-[120px] px-3 py-2 border rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-primary" value={formData.images} onChange={(e) => setFormData({ ...formData, images: e.target.value })} placeholder="https://exemplo.com/imagem1.jpg&#10;https://exemplo.com/imagem2.jpg" />
                 <p className="text-xs text-gray-500">Cole as URLs das imagens, uma por linha</p>
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-                Cancelar
-              </Button>
-              <Button onClick={handleSubmit}>
-                {editingEvent ? 'Salvar Alterações' : 'Criar Evento'}
-              </Button>
+              <Button variant="outline" onClick={() => setIsDialogOpen(false)}>Cancelar</Button>
+              <Button onClick={handleSubmit}>{editingEvent ? 'Salvar Alterações' : 'Criar Evento'}</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
 
-        {/* Delete Confirmation Dialog */}
         <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
           <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Confirmar Exclusão</DialogTitle>
-            </DialogHeader>
-            <p className="py-4">
-              Tem certeza que deseja remover o evento "{eventToDelete?.title}"? 
-              Esta ação não pode ser desfeita.
-            </p>
+            <DialogHeader><DialogTitle>Confirmar Exclusão</DialogTitle></DialogHeader>
+            <p className="py-4">Tem certeza que deseja remover o evento "{eventToDelete?.title}"? Esta ação não pode ser desfeita.</p>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsDeleteDialogOpen(false)}>
-                Cancelar
-              </Button>
-              <Button variant="destructive" onClick={handleDelete}>
-                Remover
-              </Button>
+              <Button variant="outline" onClick={() => setIsDeleteDialogOpen(false)}>Cancelar</Button>
+              <Button variant="destructive" onClick={handleDelete}>Remover</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>

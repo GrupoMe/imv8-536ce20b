@@ -1,18 +1,14 @@
-﻿import React, { createContext, useContext, useEffect, useState } from 'react';
-
-interface User {
-  id: string;
-  email: string;
-  name: string;
-  role: 'admin' | 'user';
-}
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import type { User as SupabaseUser } from '@supabase/supabase-js';
 
 interface AuthContextType {
-  user: User | null;
+  user: SupabaseUser | null;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
   isAuthenticated: boolean;
   isAdmin: boolean;
+  isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -26,38 +22,58 @@ export const useAuth = () => {
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const checkAdminRole = async (userId: string) => {
+    const { data } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', userId)
+      .eq('role', 'admin')
+      .maybeSingle();
+    setIsAdmin(!!data);
+  };
 
   useEffect(() => {
-    // Verificar se há usuário logado no localStorage.
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        const currentUser = session?.user ?? null;
+        setUser(currentUser);
+        if (currentUser) {
+          await checkAdminRole(currentUser.id);
+        } else {
+          setIsAdmin(false);
+        }
+        setIsLoading(false);
+      }
+    );
+
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
+      if (currentUser) {
+        await checkAdminRole(currentUser.id);
+      }
+      setIsLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simulação de login; em produção deve ser uma chamada para API.
-    const normalizedEmail = email.trim().toLowerCase();
-    const normalizedPassword = password.trim();
-
-    if (normalizedEmail === 'admin@mulheresv8.com' && normalizedPassword === 'admin123') {
-      const userData = {
-        id: '1',
-        email: 'admin@mulheresv8.com',
-        name: 'Administrador',
-        role: 'admin' as const,
-      };
-      setUser(userData);
-      localStorage.setItem('user', JSON.stringify(userData));
-      return true;
-    }
-    return false;
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim().toLowerCase(),
+      password: password.trim(),
+    });
+    return !error;
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
-    localStorage.removeItem('user');
+    setIsAdmin(false);
   };
 
   const value = {
@@ -65,7 +81,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     login,
     logout,
     isAuthenticated: !!user,
-    isAdmin: user?.role === 'admin',
+    isAdmin,
+    isLoading,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

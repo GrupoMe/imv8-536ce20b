@@ -15,15 +15,15 @@ const Login = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   
-  const { login, isAuthenticated, isAdmin } = useAuth();
+  const { login, isAuthenticated, isAdmin, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
-    if (isAuthenticated && isAdmin) {
+    if (!authLoading && isAuthenticated && isAdmin) {
       navigate('/admin');
     }
-  }, [isAuthenticated, isAdmin, navigate]);
+  }, [isAuthenticated, isAdmin, authLoading, navigate]);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -76,11 +76,6 @@ const Login = () => {
           <p className="text-gray-400">
             Acesse sua conta e continue acelerando sua carreira.
           </p>
-          <div className="mt-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
-            <p className="text-sm text-gray-300 mb-2">Dados para teste:</p>
-            <p className="text-xs text-gray-500">Email: admin@mulheresv8.com</p>
-            <p className="text-xs text-gray-500">Senha: admin123</p>
-          </div>
         </div>
 
         <Card className="border-zinc-800">
