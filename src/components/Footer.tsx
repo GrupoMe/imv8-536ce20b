@@ -64,6 +64,7 @@ const Footer = () => {
               <Link to="/" className="block text-white/80 hover:text-brand-yellow transition-colors">Home</Link>
               <Link to="/institucional" className="block text-white/80 hover:text-brand-yellow transition-colors">Institucional</Link>
               <Link to="/cursos" className="block text-white/80 hover:text-brand-yellow transition-colors">Cursos</Link>
+              <Link to="/mentorias" className="block text-white/80 hover:text-brand-yellow transition-colors">Mentorias</Link>
               <Link to="/agenda" className="block text-white/80 hover:text-brand-yellow transition-colors">Agenda</Link>
               <Link to="/comunidade" className="block text-white/80 hover:text-brand-yellow transition-colors">Comunidade</Link>
               <Link to="/galeria" className="block text-white/80 hover:text-brand-yellow transition-colors">Galeria</Link>

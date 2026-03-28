@@ -16,6 +16,7 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'Quem somos', href: '/institucional' },
     { name: 'Cursos', href: '/cursos' },
+    { name: 'Mentorias', href: '/mentorias' },
     { name: 'Agenda', href: '/agenda' },
     { name: 'Comunidade', href: '/comunidade' },
     { name: 'Galeria', href: '/galeria' },
