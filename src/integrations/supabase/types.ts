@@ -128,6 +128,48 @@ export type Database = {
         }
         Relationships: []
       }
+      mentorias: {
+        Row: {
+          created_at: string
+          cta_link: string
+          description: string
+          duration: string
+          id: number
+          includes: string[]
+          price: string
+          rating: number
+          sessions: string
+          title: string
+          type: string
+        }
+        Insert: {
+          created_at?: string
+          cta_link?: string
+          description?: string
+          duration?: string
+          id?: number
+          includes?: string[]
+          price?: string
+          rating?: number
+          sessions?: string
+          title: string
+          type?: string
+        }
+        Update: {
+          created_at?: string
+          cta_link?: string
+          description?: string
+          duration?: string
+          id?: number
+          includes?: string[]
+          price?: string
+          rating?: number
+          sessions?: string
+          title?: string
+          type?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string

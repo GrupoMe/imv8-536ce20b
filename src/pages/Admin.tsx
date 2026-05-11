@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, Image, Settings, LogOut, BookOpen } from 'lucide-react';
+import { Calendar, Image, Settings, LogOut, BookOpen, MessageCircle } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -12,6 +12,7 @@ const Admin = () => {
   const [agendaCount, setAgendaCount] = React.useState(0);
   const [galleryCount, setGalleryCount] = React.useState(0);
   const [coursesCount, setCoursesCount] = React.useState(0);
+  const [mentoriasCount, setMentoriasCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!authLoading && (!isAuthenticated || !isAdmin)) {
@@ -24,9 +25,11 @@ const Admin = () => {
       const { count: ac } = await supabase.from('agenda_events').select('*', { count: 'exact', head: true });
       const { count: gc } = await supabase.from('gallery_events').select('*', { count: 'exact', head: true });
       const { count: cc } = await supabase.from('cursos_formations').select('*', { count: 'exact', head: true });
+      const { count: mc } = await supabase.from('mentorias' as any).select('*', { count: 'exact', head: true });
       setAgendaCount(ac ?? 0);
       setGalleryCount(gc ?? 0);
       setCoursesCount(cc ?? 0);
+      setMentoriasCount(mc ?? 0);
     };
     loadCounts();
   }, []);
@@ -56,6 +59,13 @@ const Admin = () => {
       icon: BookOpen,
       link: '/admin/cursos',
       color: 'bg-pink-50 border-pink-200'
+    },
+    {
+      title: 'Gerenciar Mentorias',
+      description: 'Cadastrar, editar e excluir mentorias',
+      icon: MessageCircle,
+      link: '/admin/mentorias',
+      color: 'bg-purple-50 border-purple-200'
     }
   ];
 
@@ -84,7 +94,7 @@ const Admin = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
@@ -115,6 +125,17 @@ const Admin = () => {
                   <p className="text-2xl font-bold text-brand-primary">{coursesCount}</p>
                 </div>
                 <BookOpen className="w-8 h-8 text-brand-primary" />
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-gray-600">Mentorias</p>
+                  <p className="text-2xl font-bold text-brand-primary">{mentoriasCount}</p>
+                </div>
+                <MessageCircle className="w-8 h-8 text-brand-primary" />
               </div>
             </CardContent>
           </Card>
@@ -160,6 +181,9 @@ const Admin = () => {
               </Button>
               <Button variant="outline" asChild>
                 <Link to="/admin/cursos">Gerenciar Cursos</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link to="/admin/mentorias">Gerenciar Mentorias</Link>
               </Button>
             </div>
           </CardContent>

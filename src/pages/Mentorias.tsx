@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Users, Clock, Star, ArrowRight, MessageCircle, Target, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
+
+interface Mentoria {
+  id: number;
+  title: string;
+  type: string;
+  duration: string;
+  sessions: string;
+  rating: number;
+  price: string;
+  description: string;
+  includes: string[];
+  cta_link: string;
+}
 
 const Mentorias = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const mentorias = [];
+  const [mentorias, setMentorias] = useState<Mentoria[]>([]);
+
+  useEffect(() => {
+    const fetchMentorias = async () => {
+      const { data } = await supabase.from('mentorias' as any).select('*').order('id');
+      if (data) setMentorias(data as any);
+    };
+    fetchMentorias();
+  }, []);
 
   const getTypeColor = (type: string) => {
     return type === "individual" ? "bg-purple-500/20 text-purple-400" : "bg-blue-500/20 text-blue-400";
@@ -105,12 +127,12 @@ const Mentorias = () => {
                   <div className="pt-2">
                     <p className="text-sm text-gray-500 mb-2">O que inclui:</p>
                     <div className="flex flex-wrap gap-2">
-                      {mentoria.includes.slice(0, 3).map((item, idx) => (
+                      {(mentoria.includes || []).slice(0, 3).map((item, idx) => (
                         <Badge key={idx} variant="secondary" className="text-xs bg-zinc-800 text-gray-300">
                           {item}
                         </Badge>
                       ))}
-                      {mentoria.includes.length > 3 && (
+                      {(mentoria.includes || []).length > 3 && (
                         <Badge variant="secondary" className="text-xs bg-zinc-800 text-gray-300">
                           +{mentoria.includes.length - 3}
                         </Badge>
@@ -122,14 +144,20 @@ const Mentorias = () => {
                     <div>
                       <span className="text-2xl font-bold text-brand-yellow">{mentoria.price}</span>
                     </div>
-                    <Button className="bg-brand-primary hover:bg-brand-dark">
-                      Quero Saber Mais <ArrowRight className="w-4 h-4 ml-1" />
-                    </Button>
+                    <a href={mentoria.cta_link} target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-brand-primary hover:bg-brand-dark">
+                        Quero Saber Mais <ArrowRight className="w-4 h-4 ml-1" />
+                      </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {mentorias.length === 0 && (
+            <p className="text-center text-gray-400 mt-8">Nenhuma mentoria disponível no momento.</p>
+          )}
         </div>
       </section>
 
