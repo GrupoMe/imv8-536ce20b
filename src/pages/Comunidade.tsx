@@ -154,9 +154,6 @@ const Comunidade = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Para Quem é essa Comunidade?
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
-              MULHERES que...
-            </p>
           </div>
           
           <div className="max-w-3xl mx-auto">
