@@ -23,7 +23,7 @@ const Comunidade = () => {
 
   const paraQuemE = [
     "Desejam ou já atuam no setor, independente da área ou cargo que exercem",
-    "São donas, gestoras e líderes de negócios automotivos.,
+    "São donas, gestoras e líderes de negócios automotivos.",
     "Técnicas, operantes em mecânica e áreas correlatas",
     "Atuam no chão de fábrica, do operacional até a liderança",
     "Buscam desenvolvimento humano e profissional",
