@@ -95,10 +95,7 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">Quem Somos</h1>
           <p className="text-lg md:text-xl text-black/90 max-w-4xl mx-auto mb-8">
-            O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e
-            transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais —
-            educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade — integrados de forma
-            estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
+            O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais: educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade, integrados de forma estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
           </p>
 
           {/* 4 Pilares em destaque vertical 
