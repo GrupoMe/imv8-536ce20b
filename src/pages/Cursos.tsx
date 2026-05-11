@@ -49,8 +49,8 @@ const Cursos = () => {
     },
     {
       name: "Ana Paula Costa",
-      role: "Diretora Comercial",
-      company: "Concessionária XYZ",
+      role: "",
+      company: "",
       quote: "A mentoria com Eva foi divisor de águas na minha carreira. Recomendo para todas as mulheres.",
       rating: 5,
     },
