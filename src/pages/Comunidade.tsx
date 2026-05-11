@@ -1,19 +1,32 @@
-﻿import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Users, Target, Heart, Star, Calendar, MessageCircle, ArrowRight, Sparkles, CheckCircle, Shield, Bell, Handshake } from 'lucide-react';
-import AnimatedCounter from '@/components/AnimatedCounter';
+﻿import React from "react";
+import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Users,
+  Target,
+  Heart,
+  Star,
+  Calendar,
+  MessageCircle,
+  ArrowRight,
+  Sparkles,
+  CheckCircle,
+  Shield,
+  Bell,
+  Handshake,
+} from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const Comunidade = () => {
   const comunidadeWhatsappLink = "https://chat.whatsapp.com/HrE3ZJhwRwJH3zGK1s3PN5";
 
   const paraQuemE = [
     "Desejam ou já atuam no setor, independente da área ou cargo que exercem",
-    "São donas, gestoras e líderes de negócios automotivos.\n\nTecnica as em mecanica e areas corelatas.",
+    "São donas, gestoras e líderes de negócios automotivos, técnicas, operantes em mecânica e áreas correlatas",
     "Atuam no chão de fábrica, do operacional até a liderança",
-    "Jovens, meninas e mulheres em situação de vulnerabilidade que buscam oportunidades de emprego",
-    "Desejam desenvolvimento humano e profissional"
+    "São jovens, meninas e mulheres em situação de vulnerabilidade que buscam oportunidades de emprego",
+    "Buscam desenvolvimento humano e profissional",
   ];
 
   const oQueAcontece = [
@@ -24,7 +37,7 @@ const Comunidade = () => {
     { icon: Target, text: "Anúncio de vagas e oportunidades de emprego" },
     { icon: Star, text: "Benefícios e cupons de desconto pontuais" },
     { icon: Shield, text: "Espaço seguro, respeitoso e sem julgamentos" },
-    { icon: Users, text: "Presença e direcionamento da equipe Mulheres V8" }
+    { icon: Users, text: "Presença e direcionamento da equipe Mulheres V8" },
   ];
 
   const testimonials = [
@@ -32,20 +45,20 @@ const Comunidade = () => {
       name: "Júlia Rodrigues",
       role: "Head de Tecnologia",
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face",
-      text: "A comunidade me deu suporte e conexões que foram fundamentais para minha promoção a Head."
+      text: "A comunidade me deu suporte e conexões que foram fundamentais para minha promoção a Head.",
     },
     {
       name: "Patrícia Lima",
       role: "Consultora Estratégica",
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
-      text: "Aqui encontrei não apenas colegas, mas amigas que torcem pelo meu sucesso."
+      text: "Aqui encontrei não apenas colegas, mas amigas que torcem pelo meu sucesso.",
     },
     {
       name: "Fernanda Castro",
       role: "Diretora Comercial",
       image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face",
-      text: "Os insights e experiências compartilhadas aqui transformaram minha visão de liderança."
-    }
+      text: "Os insights e experiências compartilhadas aqui transformaram minha visão de liderança.",
+    },
   ];
 
   return (
@@ -58,15 +71,18 @@ const Comunidade = () => {
             <br />
             que <span className="text-brand-yellow">Acelera</span> Carreiras
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-400 max-w-3xl mx-auto animate-fade-in transition-all duration-300" style={{animationDelay: '0.2s'}}>
-            Um espaço exclusivo e gratuito no WhatsApp para mulheres que desejam crescer juntas, 
-            trocar experiências reais e evoluir com direção no setor automotivo.
+          <p
+            className="text-xl md:text-2xl mb-8 text-gray-400 max-w-3xl mx-auto animate-fade-in transition-all duration-300"
+            style={{ animationDelay: "0.2s" }}
+          >
+            Um espaço exclusivo e gratuito no WhatsApp para mulheres que desejam crescer juntas, trocar experiências
+            reais e evoluir com direção no setor automotivo.
           </p>
           <Button
             asChild
             size="lg"
             className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300 animate-fade-in"
-            style={{ animationDelay: '0.4s' }}
+            style={{ animationDelay: "0.4s" }}
           >
             <a href={comunidadeWhatsappLink} target="_blank" rel="noopener noreferrer">
               Fazer Parte da Comunidade
@@ -79,12 +95,13 @@ const Comunidade = () => {
       {/* Números da Comunidade */}
       <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
- 
-          </div>
-          
+          <div className="text-center mb-12 animate-fade-in"></div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="text-center p-6 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-primary animate-fade-in" style={{animationDelay: '0.1s'}}>
+            <Card
+              className="text-center p-6 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-primary animate-fade-in"
+              style={{ animationDelay: "0.1s" }}
+            >
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
                   <Users className="w-12 h-12 text-brand-yellow" />
@@ -96,9 +113,10 @@ const Comunidade = () => {
               </CardContent>
             </Card>
 
-
-
-            <Card className="text-center p-6 hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-yellow animate-fade-in" style={{animationDelay: '0.3s'}}>
+            <Card
+              className="text-center p-6 hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-yellow animate-fade-in"
+              style={{ animationDelay: "0.3s" }}
+            >
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
                   <Target className="w-12 h-12 text-brand-yellow" />
@@ -118,23 +136,21 @@ const Comunidade = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-                O que é a Comunidade Mulheres V8?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">O que é a Comunidade Mulheres V8?</h2>
               <p className="text-lg text-gray-400 mb-6">
-                A Comunidade Mulheres V8 é um ambiente fechado e intencional, criado para mulheres que 
-                querem mais do que conteúdo solto nas redes sociais.
+                A Comunidade Mulheres V8 é um ambiente fechado e intencional, criado para mulheres que querem mais do
+                que conteúdo solto nas redes sociais.
               </p>
               <p className="text-lg text-gray-400 mb-6">
                 É onde o aprendizado continua, as conexões se fortalecem e as decisões deixam de ser solitárias.
               </p>
               <p className="text-lg text-gray-400">
-                Aqui, mulheres que empreendem, lideram ou desejam evoluir profissionalmente compartilham 
-                desafios reais, aprendizados práticos e oportunidades de crescimento.
+                Aqui, mulheres que empreendem, lideram ou desejam evoluir profissionalmente compartilham desafios reais,
+                aprendizados práticos e oportunidades de crescimento.
               </p>
             </div>
-            <div className="relative animate-fade-in transition-all duration-300" style={{animationDelay: '0.3s'}}>
-              <img 
+            <div className="relative animate-fade-in transition-all duration-300" style={{ animationDelay: "0.3s" }}>
+              <img
                 src="https://i.ibb.co/Nd2DRVWq/C-pia-de-97-D37-B3-C-A5-F2-48-E4-A996-12-C6-AB53-EB8-E-L0-001-19-04-2024-09-03-35.jpg"
                 alt="Mulheres em reunião"
                 className="w-full rounded-xl hover:scale-105 transition-all duration-500"
@@ -151,15 +167,18 @@ const Comunidade = () => {
       <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Para Quem é essa Comunidade?
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Para Quem é essa Comunidade?</h2>
+            <p className="text-xl text-white max-w-3xl mx-auto"></p>
           </div>
-          
+
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {paraQuemE.map((item, index) => (
-                <div key={index} className="flex items-center gap-4 p-4 bg-zinc-800 rounded-xl animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-zinc-800 rounded-xl animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <CheckCircle className="w-6 h-6 text-brand-primary flex-shrink-0" />
                   <span className="text-lg text-gray-300">{item}</span>
                 </div>
@@ -173,14 +192,16 @@ const Comunidade = () => {
       <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              O que Acontece Dentro da Comunidade?
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">O que Acontece Dentro da Comunidade?</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {oQueAcontece.map((item, index) => (
-              <Card key={index} className="p-6 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+              <Card
+                key={index}
+                className="p-6 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardContent className="p-0">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 p-3 bg-zinc-800 rounded-xl hover:scale-110 transition-transform duration-300">
@@ -201,29 +222,27 @@ const Comunidade = () => {
       <section className="py-16 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Histórias de Sucesso
-            </h2>
-            <p className="text-xl text-brand-secondary">
-              Veja como nossa comunidade está transformando carreiras
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Histórias de Sucesso</h2>
+            <p className="text-xl text-brand-secondary">Veja como nossa comunidade está transformando carreiras</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+              <Card
+                key={index}
+                className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-400 mb-6">
-                    "{testimonial.text}"
-                  </p>
+                  <p className="text-gray-400 mb-6">"{testimonial.text}"</p>
                   <div className="flex items-center">
-                    <img 
-                      src={testimonial.image} 
+                    <img
+                      src={testimonial.image}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                     />
@@ -242,21 +261,27 @@ const Comunidade = () => {
       {/* CTA */}
       <section className="py-20 px-4 bg-brand-secondary text-white">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronta para Evoluir com Clareza, Apoio e Conexão?
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Pronta para Evoluir com Clareza, Apoio e Conexão?</h2>
           <p className="text-xl mb-8 text-gray-200">
             Se você sente que é hora de evoluir com mais clareza, apoio e conexão, essa comunidade é para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300">
+            <Button
+              asChild
+              size="lg"
+              className="bg-brand-yellow text-black hover:bg-yellow-400 font-bold hover:scale-105 transition-all duration-300"
+            >
               <a href={comunidadeWhatsappLink} target="_blank" rel="noopener noreferrer">
                 Entrar na Comunidade WhatsApp
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </Button>
             <Link to="/cursos">
-              <Button size="lg" variant="outline" className="border-white text-black hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-black hover:bg-white hover:text-zinc-900 hover:scale-105 transition-all duration-300"
+              >
                 Conhecer Cursos
               </Button>
             </Link>
