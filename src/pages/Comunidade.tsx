@@ -25,8 +25,8 @@ const Comunidade = () => {
     "Desejam ou já atuam no setor, independente da área ou cargo que exercem",
     "São donas, gestoras e líderes de negócios automotivos, técnicas, operantes em mecânica e áreas correlatas",
     "Atuam no chão de fábrica, do operacional até a liderança",
-    "São jovens, meninas e mulheres em situação de vulnerabilidade que buscam oportunidades de emprego",
     "Buscam desenvolvimento humano e profissional",
+    "São jovens, meninas e mulheres em situação de vulnerabilidade que buscam oportunidades de emprego",
   ];
 
   const oQueAcontece = [
