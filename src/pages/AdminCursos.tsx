@@ -121,7 +121,7 @@ const AdminCursos = () => {
   const getCategoryLabel = (c: string) => c === 'curso' ? 'Curso' : 'Programa';
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 [&_button]:text-black [&_a]:text-black">
+    <div className="admin-page min-h-screen py-8 px-4 sm:px-6 lg:px-8 [&_button]:text-black [&_a]:text-black">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <div className="flex items-center gap-4">

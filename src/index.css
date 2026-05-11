@@ -114,14 +114,20 @@
   }
 }
 
-/* Force black text in admin form fields (inside dialogs) for readability */
+/* Force black text in admin form fields (dialogs + inline admin pages) for readability */
 [role="dialog"] input,
 [role="dialog"] textarea,
 [role="dialog"] select,
-[role="dialog"] [role="combobox"] {
+[role="dialog"] [role="combobox"],
+.admin-page input,
+.admin-page textarea,
+.admin-page select,
+.admin-page [role="combobox"] {
   color: #000 !important;
 }
 [role="dialog"] input::placeholder,
-[role="dialog"] textarea::placeholder {
+[role="dialog"] textarea::placeholder,
+.admin-page input::placeholder,
+.admin-page textarea::placeholder {
   color: #6b7280 !important;
 }
