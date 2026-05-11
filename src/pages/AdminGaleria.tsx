@@ -11,6 +11,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
+import ImageUploader from '@/components/ImageUploader';
 
 interface GalleryEvent {
   id: number;
@@ -37,8 +38,10 @@ const AdminGaleria = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState<GalleryEvent | null>(null);
   const [eventToDelete, setEventToDelete] = useState<GalleryEvent | null>(null);
-  
-  const [formData, setFormData] = useState({ title: '', category: '', date: '', location: '', images: '' });
+
+  const [formData, setFormData] = useState({ title: '', category: '', date: '', location: '' });
+  const [currentImages, setCurrentImages] = useState<string[]>([]);
+  const [currentEventId, setCurrentEventId] = useState<number | null>(null);
 
   useEffect(() => {
     if (!authLoading && (!isAuthenticated || !isAdmin)) {
@@ -57,13 +60,17 @@ const AdminGaleria = () => {
 
   const openCreateDialog = () => {
     setEditingEvent(null);
-    setFormData({ title: '', category: '', date: '', location: '', images: '' });
+    setFormData({ title: '', category: '', date: '', location: '' });
+    setCurrentImages([]);
+    setCurrentEventId(null);
     setIsDialogOpen(true);
   };
 
   const openEditDialog = (event: GalleryEvent) => {
     setEditingEvent(event);
-    setFormData({ title: event.title, category: event.category, date: event.date, location: event.location, images: event.images.join('\n') });
+    setFormData({ title: event.title, category: event.category, date: event.date, location: event.location });
+    setCurrentImages(event.images || []);
+    setCurrentEventId(event.id);
     setIsDialogOpen(true);
   };
 
@@ -72,36 +79,53 @@ const AdminGaleria = () => {
     setIsDeleteDialogOpen(true);
   };
 
-  const handleSubmit = async () => {
+  const handleSaveDetails = async () => {
     if (!formData.title || !formData.category || !formData.date || !formData.location) {
       toast.error('Preencha todos os campos obrigatórios');
       return;
     }
-    const imagesArray = formData.images.split('\n').map(url => url.trim()).filter(url => url.length > 0);
-    if (imagesArray.length === 0) {
-      toast.error('Adicione pelo menos uma URL de imagem');
-      return;
-    }
 
-    if (editingEvent) {
+    if (currentEventId) {
       const { error } = await supabase.from('gallery_events').update({
-        title: formData.title, category: formData.category, date: formData.date, location: formData.location, images: imagesArray
-      }).eq('id', editingEvent.id);
+        title: formData.title, category: formData.category, date: formData.date, location: formData.location, images: currentImages
+      }).eq('id', currentEventId);
       if (error) { toast.error('Erro ao atualizar evento'); return; }
-      toast.success('Evento atualizado com sucesso!');
+      toast.success('Evento atualizado!');
     } else {
-      const { error } = await supabase.from('gallery_events').insert({
-        title: formData.title, category: formData.category, date: formData.date, location: formData.location, images: imagesArray
-      });
-      if (error) { toast.error('Erro ao criar evento'); return; }
-      toast.success('Evento criado com sucesso!');
+      const { data, error } = await supabase.from('gallery_events').insert({
+        title: formData.title, category: formData.category, date: formData.date, location: formData.location, images: []
+      }).select().single();
+      if (error || !data) { toast.error('Erro ao criar evento'); return; }
+      setCurrentEventId(data.id);
+      setEditingEvent(data as GalleryEvent);
+      toast.success('Evento criado! Agora adicione as imagens.');
     }
-    setIsDialogOpen(false);
     fetchEvents();
+  };
+
+  const handleImagesChange = async (images: string[]) => {
+    setCurrentImages(images);
+    if (currentEventId) {
+      await supabase.from('gallery_events').update({ images }).eq('id', currentEventId);
+      fetchEvents();
+    }
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setCurrentEventId(null);
+    setEditingEvent(null);
+    setCurrentImages([]);
   };
 
   const handleDelete = async () => {
     if (eventToDelete) {
+      // Remove storage folder for this event
+      const { data: files } = await supabase.storage.from('gallery').list(String(eventToDelete.id));
+      if (files && files.length > 0) {
+        const paths = files.map(f => `${eventToDelete.id}/${f.name}`);
+        await supabase.storage.from('gallery').remove(paths);
+      }
       const { error } = await supabase.from('gallery_events').delete().eq('id', eventToDelete.id);
       if (error) { toast.error('Erro ao remover evento'); return; }
       toast.success('Evento removido com sucesso!');
@@ -169,9 +193,9 @@ const AdminGaleria = () => {
           </CardContent>
         </Card>
 
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogContent className="max-w-lg">
-            <DialogHeader><DialogTitle>{editingEvent ? 'Editar Evento' : 'Novo Evento'}</DialogTitle></DialogHeader>
+        <Dialog open={isDialogOpen} onOpenChange={(open) => { if (!open) handleCloseDialog(); }}>
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader><DialogTitle>{currentEventId ? 'Editar Evento' : 'Novo Evento'}</DialogTitle></DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
                 <Label htmlFor="title">Título do Evento *</Label>
@@ -195,14 +219,23 @@ const AdminGaleria = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="images">URLs das Imagens * (uma por linha)</Label>
-                <textarea id="images" className="w-full min-h-[120px] px-3 py-2 border rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-brand-primary" value={formData.images} onChange={(e) => setFormData({ ...formData, images: e.target.value })} placeholder="https://exemplo.com/imagem1.jpg&#10;https://exemplo.com/imagem2.jpg" />
-                <p className="text-xs text-gray-500">Cole as URLs das imagens, uma por linha</p>
+                <Label>Imagens do Evento</Label>
+                {currentEventId ? (
+                  <ImageUploader
+                    eventId={currentEventId}
+                    images={currentImages}
+                    onChange={handleImagesChange}
+                  />
+                ) : (
+                  <p className="text-sm text-gray-500 border border-dashed rounded-md p-4 text-center">
+                    Salve os detalhes do evento primeiro para enviar as imagens.
+                  </p>
+                )}
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsDialogOpen(false)}>Cancelar</Button>
-              <Button onClick={handleSubmit}>{editingEvent ? 'Salvar Alterações' : 'Criar Evento'}</Button>
+              <Button variant="outline" onClick={handleCloseDialog}>Fechar</Button>
+              <Button onClick={handleSaveDetails}>{currentEventId ? 'Salvar Alterações' : 'Criar e Adicionar Imagens'}</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
