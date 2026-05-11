@@ -65,10 +65,6 @@ const CursoModal = ({ curso, open, onOpenChange }: CursoModalProps) => {
               <Clock className="w-5 h-5 text-brand-primary" />
               <span>{curso.duration}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5 text-brand-primary" />
-              <span>{curso.participants} alunas</span>
-            </div>
           </div>
 
           <div>

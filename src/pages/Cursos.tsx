@@ -152,10 +152,6 @@ const Cursos = () => {
                       <Clock className="w-4 h-4" />
                       {formation.duration}
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      {formation.participants} alunas
-                    </div>
                   </div>
                   <div className="pt-2">
                     <p className="text-sm text-primary-600 mb-2">Módulos inclusos:</p>
