@@ -70,7 +70,7 @@ const Home = () => {
             className="text-xl md:text-2xl mb-4 text-white max-w-3xl mx-auto animate-fade-in drop-shadow-md font-semibold"
             style={{ animationDelay: "0.2s" }}
           >
-            O primeiro instituto de formação e capacitação para mulheres do setor automotivo, que atua através de cursos, mentorias, treinamentos e palestras, além de uma comunidade de educação, conteúdos e trocas diárias.  
+            Primeiro instituto educacional e de desenvolvimento humano para mulheres do setor automotivo, que atua através de cursos, mentorias, treinamentos e palestras, além de uma comunidade para networking e conteúdos.
           </p>
           <p
             className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
