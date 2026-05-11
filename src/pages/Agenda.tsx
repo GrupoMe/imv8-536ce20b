@@ -158,16 +158,6 @@ const Agenda = () => {
           </div>
         )}
 
-        <div className="mt-16 text-center bg-brand-yellow rounded-xl p-8">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-black">
-            Não Perca Nenhum Evento!
-          </h2>
-          <p className="text-lg sm:text-xl mb-6 text-black/70">
-            Cadastre-se em nossa newsletter e receba notificações sobre novos eventos.
-          </p>
-          <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-dark">
-            Cadastrar Newsletter
-          </Button>
         </div>
       </div>
     </div>
