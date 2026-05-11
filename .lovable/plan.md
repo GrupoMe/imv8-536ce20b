@@ -1,54 +1,86 @@
 
-
-# Plano: Migrar para Lovable Cloud (Supabase) como Backend
+# Plano: Upload e Organização de Imagens da Galeria
 
 ## Objetivo
-Substituir o localStorage por um banco de dados Supabase via Lovable Cloud, garantindo que quando o admin deletar conteúdo, ele seja removido permanentemente para todos os visitantes do site.
+Substituir o campo atual de "URLs das imagens" (textarea) por um sistema profissional de upload de arquivos direto do computador, organizado por evento, com reordenação e gerenciamento individual de cada foto.
 
-## O que muda
+---
 
-Atualmente, Agenda, Galeria e Cursos usam `localStorage` — os dados só existem no navegador do admin. Com Supabase, os dados ficam em um banco central acessível por todos.
+## 1. Storage (Lovable Cloud)
 
-## Etapas
+Criar um **bucket público** chamado `gallery` com a seguinte estrutura:
 
-### 1. Ativar Lovable Cloud
-- Habilitar o Lovable Cloud no projeto (aba Cloud no editor)
-- Isso cria automaticamente a infraestrutura Supabase
+```text
+gallery/
+├── {event_id}/
+│   ├── {timestamp}-{nome-sanitizado}.jpg
+│   ├── {timestamp}-{nome-sanitizado}.webp
+│   └── ...
+└── {outro_event_id}/
+    └── ...
+```
 
-### 2. Criar tabelas no banco de dados
-Três tabelas:
+- **Público para leitura** (galeria pública do site).
+- **Upload/delete restrito a admins** via políticas de acesso.
+- O campo `images` da tabela `gallery_events` continua armazenando um array de URLs públicas — sem mudança de schema.
 
-- **agenda_events**: id, title, type, date, time, location, participants, max_participants, description, status
-- **gallery_events**: id, title, category, date, location, images (array de URLs)
-- **cursos_formations**: id, title, category, duration, participants, rating, price, description, modules (array), checkout_link
+---
 
-Cada tabela será populada com os dados default atuais como seed inicial.
+## 2. Admin da Galeria — Novo fluxo de upload
 
-### 3. Configurar autenticação real
-- Substituir o login hardcoded (`admin@mulheresv8.com` / `admin123`) por autenticação Supabase com email/senha
-- Criar o usuário admin no painel Cloud
-- Atualizar `AuthContext.tsx` para usar `supabase.auth`
+### Criação de um novo evento
+1. Admin preenche título, categoria, data e local.
+2. Ao clicar em **"Criar Evento"**, o registro é salvo primeiro (para obter o `event_id`).
+3. Em seguida, a tela exibe a área de upload de imagens daquele evento.
 
-### 4. Configurar RLS (Row Level Security)
-- **Leitura pública**: qualquer visitante pode ver agenda, galeria e cursos
-- **Escrita apenas admin**: criar tabela `user_roles` com função `has_role()` para proteger INSERT/UPDATE/DELETE
+### Área de upload (dentro do modal de edição)
+- **Drag & drop** de múltiplos arquivos + botão "Selecionar arquivos".
+- Aceita: **JPG, PNG, WEBP**.
+- Limite: **10 MB por imagem**.
+- Validação no client antes de enviar (tipo e tamanho), com mensagem clara se rejeitado.
+- Barra de progresso por arquivo durante o upload.
+- Após upload, miniatura aparece na grade.
 
-### 5. Atualizar código do frontend
-- Criar cliente Supabase (`src/integrations/supabase/client.ts`)
-- Substituir `loadAgendaEvents()` / `persistAgendaEvents()` por queries Supabase
-- Substituir lógica localStorage em `AdminGaleria.tsx` por queries Supabase
-- Substituir `loadCourseFormations()` / `persistCourseFormations()` por queries Supabase
-- Remover os arquivos `agenda-data.ts` e `cursos-data.ts` (ou simplificar para types apenas)
+### Gerenciamento das imagens já enviadas
+Para cada imagem na grade:
+- Botão **↑** mover para cima
+- Botão **↓** mover para baixo
+- Botão **🗑 Remover** (deleta do storage e do array `images`)
+- A **primeira imagem é tratada como capa** (usada no card e na listagem).
 
-### 6. Atualizar páginas públicas
-- `Agenda.tsx`, `Galeria.tsx`, `Cursos.tsx` — buscar dados do Supabase ao invés de localStorage
+### Edição de evento existente
+- Abre o modal já com a grade de imagens atuais.
+- Pode adicionar novas, remover ou reordenar.
+- Salvar persiste o novo array `images` no banco.
+
+---
+
+## 3. Página pública `/galeria`
+Sem mudanças visuais. Continua lendo `events.images[]` como hoje — apenas as URLs agora apontam para o storage da Lovable Cloud em vez de URLs externas.
+
+---
+
+## 4. Migração de dados existentes
+Os eventos atuais que já têm URLs externas (ex: Unsplash) continuam funcionando — o array `images` aceita qualquer URL. Não vamos forçar migração; admin pode editar e reenviar quando quiser.
+
+---
 
 ## Detalhes técnicos
 
-- **Arquivos modificados**: `AuthContext.tsx`, `AdminAgenda.tsx`, `AdminGaleria.tsx`, `AdminCursos.tsx`, `Agenda.tsx`, `Galeria.tsx`, `Cursos.tsx`, `agenda-data.ts`, `cursos-data.ts`
-- **Arquivos criados**: migrations SQL, `src/integrations/supabase/client.ts`
-- **Dependência**: `@supabase/supabase-js` (já disponível via Lovable Cloud)
+**Migration SQL:**
+- Criar bucket `gallery` (público).
+- Política `SELECT`: liberado para todos (`true`).
+- Políticas `INSERT`, `UPDATE`, `DELETE` em `storage.objects` restritas a `has_role(auth.uid(), 'admin')` quando `bucket_id = 'gallery'`.
 
-## Pré-requisito
-Antes de implementar, é necessário **ativar o Lovable Cloud** na aba Cloud do editor. Você pode fazer isso agora?
+**Componentes/arquivos:**
+- Novo: `src/components/ImageUploader.tsx` — componente reutilizável com drag & drop, validação, progresso, grade com reordenar/remover. Recebe `eventId`, `images[]`, `onChange`.
+- Editado: `src/pages/AdminGaleria.tsx` — remover textarea de URLs, integrar `ImageUploader`. Fluxo de criação passa a ser em 2 etapas (criar registro → upload). Ao deletar evento, também remove a pasta do storage.
+- Sanitização de nome de arquivo: lowercase, sem acentos, espaços → `-`, prefixo `Date.now()` para evitar colisões.
+- Upload via `supabase.storage.from('gallery').upload(path, file)` e URL pública via `getPublicUrl`.
 
+**Dependências:** nenhuma nova (drag & drop nativo HTML5).
+
+**Acessibilidade/UX:**
+- Mensagens de erro com `toast`.
+- Estados: idle, uploading (com %), success, error.
+- Confirmação ao remover imagem.
