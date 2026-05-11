@@ -95,7 +95,10 @@ const Institucional = () => {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">Quem Somos</h1>
           <p className="text-lg md:text-xl text-black/90 max-w-4xl mx-auto mb-8">
-            O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais: educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade, integrados de forma estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
+            O Instituto Mulheres V8 é um ecossistema de desenvolvimento feminino criado para capacitar, fortalecer e
+            transformar mulheres no setor automotivo e na vida. Atuamos a partir de quatro pilares fundamentais:
+            educação técnica, gestão de negócios, desenvolvimento humano e espiritualidade, integrados de forma
+            estratégica para conduzir mulheres a uma atuação profissional sólida, consciente e com propósito.
           </p>
 
           {/* 4 Pilares em destaque vertical 
@@ -217,28 +220,6 @@ const Institucional = () => {
           </div>
         </div>
       </section>
-
-      {/* Nossos Valores */}
-      <section className="py-16 px-4 bg-brand-secondary">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Nossos Valores</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-none text-white">
-                <CardContent className="p-6 text-center">
-                  <value.icon className="w-12 h-12 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">{value.name}</h3>
-                  <p className="text-gray-200">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Missão e Visão */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -262,6 +243,26 @@ const Institucional = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+      {/* Nossos Valores */}
+      <section className="py-16 px-4 bg-brand-secondary">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Nossos Valores</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-none text-white">
+                <CardContent className="p-6 text-center">
+                  <value.icon className="w-12 h-12 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold mb-2">{value.name}</h3>
+                  <p className="text-gray-200">{value.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
