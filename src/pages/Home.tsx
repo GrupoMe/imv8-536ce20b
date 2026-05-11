@@ -136,9 +136,11 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Pilares de Formação</h2>
-            <p className="text-xl text-brand-secondary max-w-3xl mx-auto">
-              Uma formação completa, construída sobre pilares que sustentam mulheres no setor automotivo.
-            </p>
+            <div className="text-xl text-brand-secondary max-w-3xl mx-auto space-y-4 whitespace-pre-line">
+              Tudo o que fazemos é pensado, desenvolvido e criado com base em quatro pilares essenciais: técnica, negócios, desenvolvimento humano e espiritualidade.
+              {"\n"}
+              Nossa missão é proporcionar uma formação completa, estratégica e transformadora, promovendo o avanço integral das mulheres no setor automotivo.
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
