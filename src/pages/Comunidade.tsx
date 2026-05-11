@@ -13,7 +13,7 @@ const Comunidade = () => {
     "São donas, gestoras e líderes de negócios automotivos.\n\nTecnica as em mecanica e areas corelatas.",
     "Atuam no chão de fábrica, do operacional até a liderança",
     "Jovens, meninas e mulheres em situação de vulnerabilidade que buscam oportunidades de emprego",
-    "Buscam desenvolvimento humano e profissional"
+    "Desejam desenvolvimento humano e profissional"
   ];
 
   const oQueAcontece = [
