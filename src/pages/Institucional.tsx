@@ -228,8 +228,7 @@ const Institucional = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-primary mb-4">Nossa Missão</h3>
                 <p className="text-primary-700 text-lg">
-                  Capacitar e desenvolver mulheres para que liderem suas próprias histórias com protagonismo, visão
-                  estratégica, propósito e impacto no setor automotivo e na vida.
+                  Capacitar, desenvolver e transformar a vida de mulheres do setor automotivo, para que liderem suas próprias histórias com protagonismo, visão estratégica, propósito e impacto, fortalecendo sua atuação profissional, pessoal e humana.
                 </p>
               </CardContent>
             </Card>
