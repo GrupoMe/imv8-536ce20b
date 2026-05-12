@@ -108,7 +108,7 @@ const Comunidade = () => {
                   <Users className="w-12 h-12 text-brand-yellow" />
                 </div>
                 <div className="text-4xl font-bold text-white mb-2 hover:scale-110 transition-transform duration-300">
-                  +<AnimatedCounter end={15} duration={2000} /> mil
+                  +<AnimatedCounter end={1} duration={2000} /> mil
                 </div>
                 <p className="text-gray-400">Integrantes</p>
               </CardContent>
