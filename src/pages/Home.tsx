@@ -109,7 +109,7 @@ const Home = () => {
             <div className="bg-white rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 shadow-md">
               <Users className="w-6 h-6 mx-auto text-primary mb-2" />
               <div className="text-xl md:text-2xl font-bold text-primary">
-                <span className="text-brand-yellow">+</span><AnimatedCounter end={1} duration={2000} /> mil
+                <span className="text-brand-yellow">+</span><AnimatedCounter end={15} duration={2000} /> mil
               </div>
               <p className="text-primary/70 text-xs">Mulheres Impactadas</p>
             </div>
