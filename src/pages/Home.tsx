@@ -64,19 +64,20 @@ const Home = () => {
         {/* Hero Content - Centralizado */}
         <div className="relative z-10 max-w-4xl mx-auto text-center flex-1 flex flex-col justify-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-24 md:mb-36 animate-fade-in drop-shadow-lg">
-            <span className="text-brand-yellow">FORMAR,</span> <span className="text-brand-yellow">DESENVOLVER,</span> <span className="text-brand-yellow">TRANSFORMAR</span>
+            <span className="text-brand-yellow">FORMAR,</span> <span className="text-brand-yellow">DESENVOLVER,</span>{" "}
+            <span className="text-brand-yellow">TRANSFORMAR</span>
           </h1>
           <p
             className="text-xl md:text-2xl mb-4 text-white max-w-3xl mx-auto animate-fade-in drop-shadow-md font-semibold"
             style={{ animationDelay: "0.2s" }}
           >
-            Primeiro instituto educacional e de desenvolvimento humano para mulheres do setor automotivo, que atua através de cursos, mentorias, treinamentos e palestras, além de uma comunidade para networking e conteúdos.
+            Primeiro instituto educacional e de desenvolvimento humano para mulheres do setor automotivo, que atua
+            através de cursos, mentorias, treinamentos e palestras, além de uma comunidade para networking e conteúdos.
           </p>
           <p
             className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in drop-shadow-md"
             style={{ animationDelay: "0.3s" }}
-          >
-          </p>
+          ></p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in"
             style={{ animationDelay: "0.4s" }}
@@ -99,24 +100,25 @@ const Home = () => {
             </Link>
           </div>
         </div>
-
       </section>
 
       {/* Números de Impacto */}
       <section className="py-10 px-4 bg-primary">
-      <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-white rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 shadow-md">
               <Users className="w-6 h-6 mx-auto text-primary mb-2" />
               <div className="text-xl md:text-2xl font-bold text-primary">
-                <span className="text-brand-yellow">+</span><AnimatedCounter end={1} duration={2000} /> mil
+                <span className="text-brand-yellow">+</span>
+                <AnimatedCounter end={15} duration={2000} /> mil
               </div>
               <p className="text-primary/70 text-xs">Mulheres Impactadas</p>
             </div>
             <div className="bg-white rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 shadow-md">
               <Calendar className="w-6 h-6 mx-auto text-primary mb-2" />
               <div className="text-xl md:text-2xl font-bold text-primary">
-                <span className="text-brand-yellow">+</span><AnimatedCounter end={500} duration={2000} />
+                <span className="text-brand-yellow">+</span>
+                <AnimatedCounter end={500} duration={2000} />
               </div>
               <p className="text-primary/70 text-xs">Eventos Realizados</p>
             </div>
@@ -137,9 +139,11 @@ const Home = () => {
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Pilares de Formação</h2>
             <div className="text-xl text-brand-secondary max-w-3xl mx-auto space-y-4 whitespace-pre-line">
-              Tudo o que fazemos é pensado, desenvolvido e criado com base em quatro pilares essenciais: técnica, negócios, desenvolvimento humano e espiritualidade.
+              Tudo o que fazemos é pensado, desenvolvido e criado com base em quatro pilares essenciais: técnica,
+              negócios, desenvolvimento humano e espiritualidade.
               {"\n"}
-              Nossa missão é proporcionar uma formação completa, estratégica e transformadora, promovendo o avanço integral das mulheres no setor automotivo.
+              Nossa missão é proporcionar uma formação completa, estratégica e transformadora, promovendo o avanço
+              integral das mulheres no setor automotivo.
             </div>
           </div>
 
@@ -168,7 +172,9 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Marcas que Aceleram com a Gente</h2>
-            <p className="text-xl text-brand-secondary">Parceiros que acreditam no potencial feminino no setor automotivo</p>
+            <p className="text-xl text-brand-secondary">
+              Parceiros que acreditam no potencial feminino no setor automotivo
+            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
@@ -177,11 +183,7 @@ const Home = () => {
                 key={index}
                 className="h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 border border-primary-200"
               >
-                <img
-                  src={parceiro.logo}
-                  alt={parceiro.name}
-                  className="max-w-full max-h-full object-contain"
-                />
+                <img src={parceiro.logo} alt={parceiro.name} className="max-w-full max-h-full object-contain" />
               </div>
             ))}
           </div>
@@ -208,10 +210,10 @@ const Home = () => {
                   ))}
                 </div>
                 <p className="text-primary-700 mb-4">
-                  "Faço de suas as minhas palavras 🙏🙏
-É muito importante este encontro de mulheres que trabalham em um ramo ainda considerado para o público masculino. Sofremos muito preconceito, nos aborrecemos... são vários desafios. Esta rede de apoio é fortalecedora e transformadora.
-Também amei participar do 1º congresso 🦁❤️
-Sinto ainda não participar este ano. Mas é por uma nobre causa 🙏✨🦁"
+                  "Faço de suas as minhas palavras 🙏🙏 É muito importante este encontro de mulheres que trabalham em um
+                  ramo ainda considerado para o público masculino. Sofremos muito preconceito, nos aborrecemos... são
+                  vários desafios. Esta rede de apoio é fortalecedora e transformadora. Também amei participar do 1º
+                  congresso 🦁❤️ Sinto ainda não participar este ano. Mas é por uma nobre causa 🙏✨🦁"
                 </p>
                 <div className="flex items-center">
                   <img
@@ -238,9 +240,10 @@ Sinto ainda não participar este ano. Mas é por uma nobre causa 🙏✨🦁"
                   ))}
                 </div>
                 <p className="text-primary-700 mb-4">
-                  "Eu amei esse dia e queria que ele não tivesse fim! Superou todas as minhas expectativas... Saí do curso renovada e com muita vontade de fazer acontecer e "meter" o loco! Hahahaha
-Vcs todas são maravilhosas, lindas e fantásticas! @Eva Paiva - Instituto Mulheres V8 sem palavras para te agradecer! Juntas somos mais fortes e vamos vencer esse ramo tão desafiador.
-Obrigadaaaaaaaaa"
+                  "Eu amei esse dia e queria que ele não tivesse fim! Superou todas as minhas expectativas... Saí do
+                  curso renovada e com muita vontade de fazer acontecer e "meter" o loco! Hahahaha Vcs todas são
+                  maravilhosas, lindas e fantásticas! @Eva Paiva - Instituto Mulheres V8 sem palavras para te agradecer!
+                  Juntas somos mais fortes e vamos vencer esse ramo tão desafiador. Obrigadaaaaaaaaa"
                 </p>
                 <div className="flex items-center">
                   <img
@@ -255,7 +258,6 @@ Obrigadaaaaaaaaa"
                 </div>
               </CardContent>
             </Card>
-
           </div>
         </div>
       </section>
