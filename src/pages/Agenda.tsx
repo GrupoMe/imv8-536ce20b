@@ -16,6 +16,7 @@ interface AgendaEvent {
   max_participants: number;
   description: string;
   status: string;
+  registration_link?: string;
 }
 
 const Agenda = () => {
@@ -137,13 +138,23 @@ const Agenda = () => {
                   </div>
                 </div>
                 <div className="pt-3">
-                  <Button
-                    className={`w-full sm:w-auto ${event.status === 'lotado' ? 'bg-zinc-700' : 'bg-brand-primary hover:bg-brand-dark'}`}
-                    disabled={event.status === 'lotado'}
-                  >
-                    {event.status === 'lotado' ? 'Evento Lotado' : 'Inscrever-se'}
-                    {event.status !== 'lotado' && <ChevronRight className="w-4 h-4 ml-1" />}
-                  </Button>
+                  {event.status === 'lotado' ? (
+                    <Button className="w-full sm:w-auto bg-zinc-700" disabled>
+                      Evento Lotado
+                    </Button>
+                  ) : event.registration_link ? (
+                    <Button asChild className="w-full sm:w-auto bg-brand-primary hover:bg-brand-dark">
+                      <a href={event.registration_link} target="_blank" rel="noopener noreferrer">
+                        Inscrever-se
+                        <ChevronRight className="w-4 h-4 ml-1" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button className="w-full sm:w-auto bg-brand-primary hover:bg-brand-dark" disabled>
+                      Inscrever-se
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
