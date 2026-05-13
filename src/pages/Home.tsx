@@ -216,11 +216,6 @@ const Home = () => {
                   congresso 🦁❤️ Sinto ainda não participar este ano. Mas é por uma nobre causa 🙏✨🦁"
                 </p>
                 <div className="flex items-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face"
-                    alt="Testimonial"
-                    className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
-                  />
                   <div>
                     <h4 className="font-semibold text-primary-900">Andreia Hinichinck</h4>
                     <p className="text-sm text-primary-600"></p>
