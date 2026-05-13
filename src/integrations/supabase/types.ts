@@ -23,6 +23,7 @@ export type Database = {
           location: string
           max_participants: number
           participants: number
+          registration_link: string
           status: string
           time: string
           title: string
@@ -36,6 +37,7 @@ export type Database = {
           location?: string
           max_participants?: number
           participants?: number
+          registration_link?: string
           status?: string
           time: string
           title: string
@@ -49,6 +51,7 @@ export type Database = {
           location?: string
           max_participants?: number
           participants?: number
+          registration_link?: string
           status?: string
           time?: string
           title?: string

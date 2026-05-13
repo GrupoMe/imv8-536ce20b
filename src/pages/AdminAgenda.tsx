@@ -24,6 +24,7 @@ interface AgendaEvent {
   max_participants: number;
   description: string;
   status: string;
+  registration_link: string;
 }
 
 type AgendaFormData = {
@@ -35,6 +36,7 @@ type AgendaFormData = {
   maxParticipants: number;
   description: string;
   status: AgendaEventStatus;
+  registrationLink: string;
 };
 
 const initialFormData: AgendaFormData = {
@@ -46,6 +48,7 @@ const initialFormData: AgendaFormData = {
   maxParticipants: 20,
   description: '',
   status: 'inscricoes-abertas',
+  registrationLink: '',
 };
 
 const AdminAgenda = () => {
@@ -101,6 +104,7 @@ const AdminAgenda = () => {
         max_participants: formData.maxParticipants,
         description: formData.description,
         status: formData.status,
+        registration_link: formData.registrationLink,
       }).eq('id', editingEventId);
 
       if (error) {
@@ -118,6 +122,7 @@ const AdminAgenda = () => {
         max_participants: formData.maxParticipants,
         description: formData.description,
         status: formData.status,
+        registration_link: formData.registrationLink,
       });
 
       if (error) {
@@ -153,6 +158,7 @@ const AdminAgenda = () => {
       maxParticipants: event.max_participants,
       description: event.description,
       status: event.status as AgendaEventStatus,
+      registrationLink: event.registration_link ?? '',
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -233,6 +239,15 @@ const AdminAgenda = () => {
                   <option value="inscricoes-abertas">Inscrições Abertas</option>
                   <option value="lotado">Lotado</option>
                 </select>
+              </div>
+              <div>
+                <label className="text-sm font-medium">Link para inscrição</label>
+                <Input
+                  type="url"
+                  value={formData.registrationLink}
+                  onChange={(e) => setFormData({ ...formData, registrationLink: e.target.value })}
+                  placeholder="https://forms.exemplo.com/inscricao"
+                />
               </div>
             </div>
             <div>

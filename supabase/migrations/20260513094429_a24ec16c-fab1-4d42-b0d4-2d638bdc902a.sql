@@ -1,0 +1,1 @@
+ALTER TABLE public.agenda_events ADD COLUMN IF NOT EXISTS registration_link text NOT NULL DEFAULT '';
