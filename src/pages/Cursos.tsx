@@ -41,10 +41,10 @@ const Cursos = () => {
 
   const testimonials = [
     {
-      name: "Maria Silva",
-      role: "Gerente de Operações",
-      company: "Montadora ABC",
-      quote: "O curso de liderança transformou minha forma de gerir equipes. Consegui uma promoção em 3 meses!",
+      name: "Luciane Pelissari",
+      role: "",
+      company: "",
+      quote: "Obrigada Instituto MV8, é transformador fazer parte deste\nevento, tive a oportunidade de participar dos 3 congressos e\nsaio com a certeza de querer participar dos próximos!\nObrigada por tanto amor e cuidado em cada detalhe!",
       rating: 5,
     },
     {
