@@ -241,13 +241,8 @@ const Home = () => {
                   Juntas somos mais fortes e vamos vencer esse ramo tão desafiador. Obrigadaaaaaaaaa"
                 </p>
                 <div className="flex items-center">
-                  <img
-                    src=""
-                    alt="Testimonial"
-                    className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
-                  />
                   <div>
-                    <h4 className="font-semibold text-primary-900"></h4>
+                    <h4 className="font-semibold text-primary-900">Nome</h4>
                     <p className="text-sm text-primary-600"></p>
                   </div>
                 </div>
