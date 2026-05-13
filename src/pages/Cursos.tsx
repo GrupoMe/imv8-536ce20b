@@ -55,10 +55,10 @@ const Cursos = () => {
       rating: 5,
     },
     {
-      name: "Juliana Mendes",
-      role: "Coordenadora de Projetos",
-      company: "Tech Auto",
-      quote: "O programa de aceleração me ajudou a conquistar minha posição atual. Vale cada centavo investido.",
+      name: "Graci Gulart",
+      role: "",
+      company: "",
+      quote: "Obrigada por tanto e tudo!!\nAs palavras,as histórias,ver tantas\nmulheres fortes juntas é demais\nSaio diferente da forma que entrei ,saio\nmais confiante ,mais determinada e\nsabendo que minhas decisões elas sim\nfazem diferença no meu dia a dia !!\nGurias vcs são gigantes!!\nSaudade já do futuro ...pensando no\npróximo V8.",
       rating: 5,
     },
   ];
