@@ -17,6 +17,8 @@ import {
   Handshake,
 } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { Badge } from "@/components/ui/badge";
+import cursosHeroBg from "@/assets/cursos-hero.jpg";
 
 const Comunidade = () => {
   const comunidadeWhatsappLink = "https://chat.whatsapp.com/HrE3ZJhwRwJH3zGK1s3PN5";
@@ -63,17 +65,22 @@ const Comunidade = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
-      <section className="bg-zinc-950 text-white py-20 px-4 overflow-hidden border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto text-center">
+      <section
+        className="relative min-h-[70vh] flex flex-col justify-center text-white py-20 px-4 overflow-hidden"
+        style={{ backgroundImage: `url(${cursosHeroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <Badge className="bg-white/20 text-white mb-4">Comunidade</Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Uma <span className="text-brand-yellow">Comunidade</span>
             <br />
             que <span className="text-brand-yellow">Acelera</span> Carreiras
           </h1>
           <p
-            className="text-xl md:text-2xl mb-8 text-gray-400 max-w-3xl mx-auto animate-fade-in transition-all duration-300"
+            className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto animate-fade-in transition-all duration-300"
             style={{ animationDelay: "0.2s" }}
           >
             Um espaço exclusivo e gratuito no WhatsApp para mulheres que desejam crescer juntas, trocar experiências
@@ -94,38 +101,38 @@ const Comunidade = () => {
       </section>
 
       {/* Números da Comunidade */}
-      <section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-primary-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card
-              className="text-center p-6 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-primary animate-fade-in"
+              className="text-center p-6 bg-white hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-primary animate-fade-in"
               style={{ animationDelay: "0.1s" }}
             >
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
                   <Users className="w-12 h-12 text-brand-yellow" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2 hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl font-bold text-primary-900 mb-2 hover:scale-110 transition-transform duration-300">
                   +<AnimatedCounter end={1} duration={2000} /> mil
                 </div>
-                <p className="text-gray-400">Integrantes</p>
+                <p className="text-primary-700">Integrantes</p>
               </CardContent>
             </Card>
 
             <Card
-              className="text-center p-6 hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-yellow animate-fade-in"
+              className="text-center p-6 bg-white hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 border-t-4 border-t-brand-yellow animate-fade-in"
               style={{ animationDelay: "0.3s" }}
             >
               <CardContent className="p-0">
                 <div className="mb-4 flex justify-center">
                   <Target className="w-12 h-12 text-brand-yellow" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2 hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl font-bold text-primary-900 mb-2 hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter end={18} duration={2000} />
                 </div>
-                <p className="text-gray-400">Estados do Brasil</p>
+                <p className="text-primary-700">Estados do Brasil</p>
               </CardContent>
             </Card>
           </div>
@@ -133,19 +140,19 @@ const Comunidade = () => {
       </section>
 
       {/* O que é a Comunidade */}
-      <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">O que é a Comunidade Mulheres V8?</h2>
-              <p className="text-lg text-gray-400 mb-6">
+              <p className="text-lg text-primary-700 mb-6">
                 A Comunidade Mulheres V8 é um ambiente fechado e intencional, criado para mulheres que querem mais do
                 que conteúdo solto nas redes sociais.
               </p>
-              <p className="text-lg text-gray-400 mb-6">
+              <p className="text-lg text-primary-700 mb-6">
                 É onde o aprendizado continua, as conexões se fortalecem e as decisões deixam de ser solitárias.
               </p>
-              <p className="text-lg text-gray-400">
+              <p className="text-lg text-primary-700">
                 Aqui, mulheres que empreendem, lideram ou desejam evoluir profissionalmente compartilham desafios reais,
                 aprendizados práticos e oportunidades de crescimento.
               </p>
@@ -165,11 +172,11 @@ const Comunidade = () => {
       </section>
 
       {/* Para quem é */}
-      <section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-primary-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Para Quem é essa Comunidade?</h2>
-            <p className="text-xl text-white max-w-3xl mx-auto"></p>
+            <p className="text-xl text-primary-700 max-w-3xl mx-auto"></p>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -177,11 +184,11 @@ const Comunidade = () => {
               {paraQuemE.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-4 bg-zinc-800 rounded-xl animate-fade-in"
+                  className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CheckCircle className="w-6 h-6 text-brand-primary flex-shrink-0" />
-                  <span className="text-lg text-gray-300">{item}</span>
+                  <span className="text-lg text-primary-800">{item}</span>
                 </div>
               ))}
             </div>
@@ -190,7 +197,7 @@ const Comunidade = () => {
       </section>
 
       {/* O que acontece dentro */}
-      <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">O que Acontece Dentro da Comunidade?</h2>
@@ -200,16 +207,16 @@ const Comunidade = () => {
             {oQueAcontece.map((item, index) => (
               <Card
                 key={index}
-                className="p-6 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+                className="p-6 bg-primary-50 hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-0">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 p-3 bg-zinc-800 rounded-xl hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 p-3 bg-primary-100 rounded-xl hover:scale-110 transition-transform duration-300">
                       <item.icon className="w-6 h-6 text-brand-primary" />
                     </div>
                     <div>
-                      <p className="text-gray-300 font-medium">{item.text}</p>
+                      <p className="text-primary-800 font-medium">{item.text}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -220,27 +227,27 @@ const Comunidade = () => {
       </section>
 
       {/* Depoimentos */}
-      <section className="py-16 px-4 bg-zinc-900">
+      <section className="py-16 px-4 bg-primary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Histórias de Sucesso</h2>
-            <p className="text-xl text-brand-secondary">Veja como nossa comunidade está transformando carreiras</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Histórias de Sucesso</h2>
+            <p className="text-xl text-white/80">Veja como nossa comunidade está transformando carreiras</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
-                className="hover:border-brand-primary transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+                className="bg-white hover:border-brand-yellow transition-all duration-500 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      <Star key={i} className="w-5 h-5 text-brand-yellow fill-brand-yellow" />
                     ))}
                   </div>
-                  <p className="text-gray-400 mb-6">"{testimonial.text}"</p>
+                  <p className="text-primary-700 mb-6 italic">"{testimonial.text}"</p>
                   <div className="flex items-center">
                     <img
                       src={testimonial.image}
@@ -248,8 +255,8 @@ const Comunidade = () => {
                       className="w-12 h-12 rounded-full mr-4 hover:scale-110 transition-transform duration-300"
                     />
                     <div>
-                      <h4 className="font-semibold text-white">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                      <h4 className="font-semibold text-primary-900">{testimonial.name}</h4>
+                      <p className="text-sm text-primary-600">{testimonial.role}</p>
                     </div>
                   </div>
                 </CardContent>
