@@ -179,12 +179,15 @@ const Home = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
             {parceiros.map((parceiro, index) => (
-              <div
+              <a
                 key={index}
+                href={parceiro.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-24 bg-white rounded-xl flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 border border-primary-200"
               >
                 <img src={parceiro.logo} alt={parceiro.name} className="max-w-full max-h-full object-contain" />
-              </div>
+              </a>
             ))}
           </div>
         </div>
