@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
+import cursosHeroBg from "@/assets/cursos-hero.jpg";
 
 interface Mentoria {
   id: number;
@@ -33,20 +34,24 @@ const Mentorias = () => {
   }, []);
 
   const getTypeColor = (type: string) => {
-    return type === "individual" ? "bg-purple-500/20 text-purple-400" : "bg-blue-500/20 text-blue-400";
+    return type === "individual" ? "bg-purple-500/20 text-purple-700" : "bg-blue-500/20 text-blue-700";
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
-      <section className="relative bg-zinc-950 py-20 px-4 border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto text-center text-white">
-          <Badge className="bg-brand-primary/20 text-brand-primary mb-4">Mentorias & Acompanhamento</Badge>
+      <section
+        className="relative min-h-[70vh] flex flex-col justify-center text-white py-20 px-4 overflow-hidden"
+        style={{ backgroundImage: `url(${cursosHeroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center text-white">
+          <Badge className="bg-white/20 text-white mb-4">Mentorias & Acompanhamento</Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Mentorias que <br />
             Transformam Carreiras
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
             Acompanhamento personalizado com profissionais experientes para acelerar seu desenvolvimento no setor
             automotivo.
           </p>
@@ -54,40 +59,40 @@ const Mentorias = () => {
       </section>
 
       {/* Diferenciais */}
-      <section className="py-12 px-4 bg-zinc-900 border-b border-zinc-800">
+      <section className="py-12 px-4 bg-primary-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="w-8 h-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Acompanhamento Personalizado</h3>
-              <p className="text-gray-400">Cada mentoria é adaptada às suas necessidades e objetivos específicos.</p>
+              <h3 className="text-xl font-bold text-primary-900 mb-2">Acompanhamento Personalizado</h3>
+              <p className="text-primary-700">Cada mentoria é adaptada às suas necessidades e objetivos específicos.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Foco em Resultados</h3>
-              <p className="text-gray-400">Metodologia prática com metas claras e acompanhamento de evolução.</p>
+              <h3 className="text-xl font-bold text-primary-900 mb-2">Foco em Resultados</h3>
+              <p className="text-primary-700">Metodologia prática com metas claras e acompanhamento de evolução.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="w-8 h-8 text-brand-primary" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Mentoras Experientes</h3>
-              <p className="text-gray-400">Profissionais com trajetória consolidada no setor automotivo.</p>
+              <h3 className="text-xl font-bold text-primary-900 mb-2">Mentoras Experientes</h3>
+              <p className="text-primary-700">Profissionais com trajetória consolidada no setor automotivo.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mentorias Grid */}
-      <section className="py-16 px-4 bg-zinc-950">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Nossas Mentorias</h2>
-            <p className="text-xl text-white max-w-2xl mx-auto">
+            <p className="text-xl text-primary-700 max-w-2xl mx-auto">
               Escolha a mentoria ideal para o seu momento de carreira.
             </p>
           </div>
@@ -96,7 +101,7 @@ const Mentorias = () => {
             {mentorias.map((mentoria) => (
               <Card
                 key={mentoria.id}
-                className="hover:border-brand-primary transition-all duration-300 overflow-hidden"
+                className="hover:border-brand-primary transition-all duration-300 overflow-hidden bg-primary-50"
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-2">
@@ -104,16 +109,16 @@ const Mentorias = () => {
                       {mentoria.type === "individual" ? "Individual" : "Em Grupo"}
                     </Badge>
                     <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                      <span className="text-sm font-medium text-gray-300">{mentoria.rating}</span>
+                      <Star className="w-4 h-4 text-brand-yellow fill-brand-yellow" />
+                      <span className="text-sm font-medium text-primary-700">{mentoria.rating}</span>
                     </div>
                   </div>
-                  <CardTitle className="text-xl text-white">{mentoria.title}</CardTitle>
+                  <CardTitle className="text-xl text-primary-900">{mentoria.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-gray-400">{mentoria.description}</p>
+                  <p className="text-primary-700">{mentoria.description}</p>
 
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-500">
+                  <div className="flex flex-wrap gap-4 text-sm text-primary-600">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       {mentoria.duration}
@@ -125,22 +130,22 @@ const Mentorias = () => {
                   </div>
 
                   <div className="pt-2">
-                    <p className="text-sm text-gray-500 mb-2">O que inclui:</p>
+                    <p className="text-sm text-primary-600 mb-2">O que inclui:</p>
                     <div className="flex flex-wrap gap-2">
                       {(mentoria.includes || []).slice(0, 3).map((item, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs bg-zinc-800 text-gray-300">
+                        <Badge key={idx} variant="secondary" className="text-xs bg-primary-100 text-primary-700">
                           {item}
                         </Badge>
                       ))}
                       {(mentoria.includes || []).length > 3 && (
-                        <Badge variant="secondary" className="text-xs bg-zinc-800 text-gray-300">
+                        <Badge variant="secondary" className="text-xs bg-primary-100 text-primary-700">
                           +{mentoria.includes.length - 3}
                         </Badge>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-zinc-800">
+                  <div className="flex items-center justify-between pt-4 border-t border-primary-200">
                     <div>
                       <span className="text-2xl font-bold text-brand-yellow">{mentoria.price}</span>
                     </div>
@@ -156,7 +161,7 @@ const Mentorias = () => {
           </div>
 
           {mentorias.length === 0 && (
-            <p className="text-center text-gray-400 mt-8">Nenhuma mentoria disponível no momento.</p>
+            <p className="text-center text-primary-700 mt-8">Nenhuma mentoria disponível no momento.</p>
           )}
         </div>
       </section>
