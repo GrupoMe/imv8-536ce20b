@@ -44,7 +44,8 @@ const Cursos = () => {
       name: "Luciane Pelissari",
       role: "",
       company: "",
-      quote: "Obrigada Instituto MV8, é transformador fazer parte deste\nevento, tive a oportunidade de participar dos 3 congressos e\nsaio com a certeza de querer participar dos próximos!\nObrigada por tanto amor e cuidado em cada detalhe!",
+      quote:
+        "Obrigada Instituto MV8, é transformador fazer parte deste\nevento, tive a oportunidade de participar dos 3 congressos e\nsaio com a certeza de querer participar dos próximos!\nObrigada por tanto amor e cuidado em cada detalhe!",
       rating: 5,
     },
     {
@@ -55,10 +56,11 @@ const Cursos = () => {
       rating: 5,
     },
     {
-      name: "",
+      name: "Graci Gulart",
       role: "",
       company: "",
-      quote: "Obrigada por tanto e tudo!!\nAs palavras,as histórias,ver tantas\nmulheres fortes juntas é demais\nSaio diferente da forma que entrei ,saio\nGraci Gulart\nsabendo que minhas decisões elas sim\nfazem diferença no meu dia a dia !!\nGurias vcs são gigantes!!\nSaudade já do futuro ...pensando no\npróximo V8.",
+      quote:
+        "Obrigada por tanto e tudo!!\nAs palavras,as histórias,ver tantas\nmulheres fortes juntas é demais\nSaio diferente da forma que entrei ,saio\nGraci Gulart\nsabendo que minhas decisões elas sim\nfazem diferença no meu dia a dia !!\nGurias vcs são gigantes!!\nSaudade já do futuro ...pensando no\npróximo V8.",
       rating: 5,
     },
   ];
