@@ -12,11 +12,11 @@ import sabo from "@/assets/partners/sabo.jpg";
 import mahovi from "@/assets/partners/mahovi.jpg";
 
 const parceiros = [
-  { name: "MTE-Thomson", logo: mteThomson },
-  { name: "Fortbras", logo: fortbras },
-  { name: "Kolbenschmidt", logo: kolbenschmidt },
-  { name: "Sabo", logo: sabo },
-  { name: "Mahovi", logo: mahovi },
+  { name: "MTE-Thomson", logo: mteThomson, url: "https://oficinadosaber.com.br/" },
+  { name: "Fortbras", logo: fortbras, url: "https://www.fortbras.com.br/" },
+  { name: "Kolbenschmidt", logo: kolbenschmidt, url: "https://www.ms-motorservice.com/br/pt_br/produtos/visao-geral" },
+  { name: "Sabo", logo: sabo, url: "https://www.sabo.com.br/" },
+  { name: "Mahovi", logo: mahovi, url: "https://mahovi.com.br/" },
 ];
 
 const Home = () => {
