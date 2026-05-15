@@ -10,6 +10,7 @@ import fortbras from "@/assets/partners/fortbras.png";
 import kolbenschmidt from "@/assets/partners/kolbenschmidt.jpg";
 import sabo from "@/assets/partners/sabo.jpg";
 import mahovi from "@/assets/partners/mahovi.jpg";
+import sinosService from "@/assets/partners/sinos-service.jpg";
 
 const parceiros = [
   { name: "MTE-Thomson", logo: mteThomson, url: "https://oficinadosaber.com.br/" },
@@ -17,6 +18,7 @@ const parceiros = [
   { name: "Kolbenschmidt", logo: kolbenschmidt, url: "https://www.ms-motorservice.com/br/pt_br/produtos/visao-geral" },
   { name: "Sabo", logo: sabo, url: "https://www.sabo.com.br/" },
   { name: "Mahovi", logo: mahovi, url: "https://mahovi.com.br/" },
+  { name: "Sinos Service", logo: sinosService, url: "#" },
 ];
 
 const Home = () => {
@@ -177,7 +179,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             {parceiros.map((parceiro, index) => (
               <a
                 key={index}
