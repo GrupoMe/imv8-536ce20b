@@ -203,7 +203,7 @@ const Institucional = () => {
         </div>
       </section>
       {/* Missão e Visão */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-primary-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-l-4 border-l-brand-primary bg-primary-50">
