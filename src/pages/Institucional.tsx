@@ -5,32 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Institucional = () => {
-  const whatWeDo = [
-    {
-      icon: Wrench,
-      title: "Técnica",
-      description:
-        "Desenvolvemos competências práticas, métodos e conhecimentos aplicáveis ao dia a dia profissional de mulheres em áreas técnicas e/ou atividades que exigem o conhecimento para melhor performance.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Negócios",
-      description:
-        "Trabalhamos estratégia, gestão, processos e resultados, ajudando mulheres a organizarem seus negócios e carreiras com sustentabilidade, autonomia e crescimento consciente.",
-    },
-    {
-      icon: Brain,
-      title: "Desenvolvimento Humano",
-      description:
-        "Atuamos no fortalecimento da identidade, posicionamento, comunicação e maturidade emocional, essenciais para sustentar escolhas, relações e responsabilidades.",
-    },
-    {
-      icon: Sparkles,
-      title: "Espiritualidade",
-      description:
-        "Conectamos propósito e consciência à prática. A espiritualidade aqui é vivida de forma aplicada, como fonte de clareza, equilíbrio e direção nas decisões profissionais e pessoais.",
-    },
-  ];
+  const desenvolvimentoItens = Array.from({ length: 20 }, (_, i) => ({
+    numero: String(i + 1).padStart(2, "0"),
+    titulo: "Em breve",
+    categoria: i % 2 === 0 ? "Técnico" : "Humano",
+  }));
 
   const howWeDo = [
     {
@@ -190,30 +169,33 @@ const Institucional = () => {
         </div>
       </section>
 
-      {/* O que Fazemos - 4 Pilares */}
+      {/* O que Fazemos - 20 Itens de Desenvolvimento */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">O que Fazemos</h2>
             <p className="text-xl text-black max-w-4xl mx-auto">
-              Tudo o que fazemos é desenvolvido sob o olhar em quatro pilares fundamentais para o avanço, inclusão e
-              melhor performance da mulher no mercado de trabalho automotivo: a técnica, negócios, desenvolvimento
-              humano e espiritual.
+              20 frentes de atuação em desenvolvimento técnico e humano, pensadas para acelerar a evolução
+              profissional e pessoal das mulheres do setor automotivo.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whatWeDo.map((item, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {desenvolvimentoItens.map((item, index) => (
               <Card
                 key={index}
-                className="hover:border-brand-primary transition-all duration-300 border-t-4 border-t-brand-primary bg-primary-50"
+                className="hover:border-brand-primary hover:shadow-md transition-all duration-300 border-l-4 border-l-brand-primary bg-primary-50"
               >
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-brand-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-8 h-8 text-black" />
+                <CardContent className="p-5 flex items-center gap-4">
+                  <div className="w-12 h-12 shrink-0 bg-brand-yellow rounded-full flex items-center justify-center font-bold text-black">
+                    {item.numero}
                   </div>
-                  <h3 className="text-xl font-bold text-primary-900 mb-3">{item.title}</h3>
-                  <p className="text-primary-700">{item.description}</p>
+                  <div className="flex-1">
+                    <p className="text-xs uppercase tracking-wider text-brand-secondary font-semibold">
+                      {item.categoria}
+                    </p>
+                    <h3 className="text-base font-bold text-primary-900">{item.titulo}</h3>
+                  </div>
                 </CardContent>
               </Card>
             ))}
